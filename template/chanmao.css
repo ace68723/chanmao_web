@@ -27,7 +27,7 @@ p, label,a,button{
 	font-family: Yuanti SC;
 }
 
-.cm-menu-dish:hover,.cm-res-item:hover,.cm-his-item:hover{
+.cm-menu-dish:hover,.cm-res-item:hover,.cm-his-item:hover,.cm-recommend-item:hover{
 	box-shadow: 0 0 8px rgba(234,123,33,0.25);
 	border-radius: 0;
 }
@@ -232,13 +232,15 @@ input:focus{
 
 #cm-res-2{
 	background-color: white;
-	width: inherit;
+	width: 84%;
 	justify-content:center;
 	align-items:center;
 	height: 50px;
 	display: flex;
 	position: fixed;
 	top: 0;
+	margin: 0 auto;
+	z-index: 1004;
 }
 
 .cm-res-address label{
@@ -259,7 +261,11 @@ input:focus{
 .cm-res-address{
 	border-radius: 0;
 	height: 30px;
-	width: 225px;
+	width: 500px;
+}
+
+.cm-res-address input{
+	display: none;
 }
 
 .cm-area,.cm-taste{
@@ -272,6 +278,11 @@ input:focus{
 	padding-left: 17px;
 	padding-top: 5px;
 	padding-bottom:5px; 
+}
+
+.cm-ad{
+	margin-top: 14px;
+	padding-right: 0;
 }
 
 .cm-area p,.cm-taste p{
@@ -292,13 +303,23 @@ input:focus{
 	width: 32%;
 }
 
+.cm-recommend-item{
+	margin-left: 3.2%;
+	margin-right: 3.2%;
+	height: auto;
+	border: 1px solid #e6e6e6;
+	max-width:450px;
+	margin-bottom: 44px;
+	width: 43%;
+}
+
 #cm-close-black{
 	position: absolute;
-	height: calc(104% - 10px);
-	max-height: 297px;
+	/*height: calc(35% - 26px);
+	max-height: 297px;*/
 	background-color: rgba(0,0,0,0.5);
-	max-width:324px;
-	width:inherit;
+/*	max-width:324px;
+	width:inherit;*/
 	text-align: center;
 	padding-top: 6%;
 }
@@ -332,6 +353,13 @@ input:focus{
 	font-size: 14px;
 	color: #666666;
 	margin: 0;
+}
+
+.cm-ad-fixed{
+	position: fixed;
+	top: 0;
+	width: 20%;
+	left: 69.5%;
 }
 
 /*order*/
@@ -698,12 +726,13 @@ input:focus{
 }
 
 .cm-btn-reminder{
-	width:110px;
-	height:25px;
+	width:100%;
+	height:30px;
 	background:#ea7b21;
 	color:white;
 	outline: none;
 	border:none;
+	padding: 3px 0;
 	margin: 20px 0;
 }
 
@@ -854,6 +883,29 @@ input[type='radio']:checked{
 
 .cm-complete-detail hr{
 	margin: 5px 0;
+}
+
+/*driver*/
+.cm-driver-self{
+	border:1px solid #ccc;
+	border-radius: 4px;
+}
+
+.cm-form-group>div>label{
+	margin-right: 20px;
+}
+
+.cm-driver-form>div>label{
+	color: #ea7b21;
+	font-size: 16px;
+}
+
+.cm-driver-form input:focus{
+	outline: none;
+}
+
+.cm-driver-form .cm-form-group{
+	width: 60%;
 }
 
 @media(max-width: 992px){

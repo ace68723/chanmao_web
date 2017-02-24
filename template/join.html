@@ -55,10 +55,13 @@
 							<h3>首页</h3></a>
 	                </li>
 	                <li><a href="myorder.html">
-							<h3>我的订单</h3></a></li>
-	                <li>
+							       <h3>我的订单</h3></a></li>
+                  <li><a href="join.html">
+                         <h3>加盟合作</h3></a></li>
+                  <li>
+	               <li>
 	              		<a href="http://www.chanmao.ca">
-							<h3>手机应用</h3></a>
+							         <h3>手机应用</h3></a>
         					</li>
 
         					<li><a href="http://www.chanmao.ca">
@@ -92,8 +95,8 @@
                   </li>
                   <li class="cm-nav-myorder"><a href="myorder.html" style="margin-top:15px">
 						          <h3>我的订单</h3></a></li>
-                  <li class="cm-nav-myorder"><a href="join.html" style="margin-top:15px">
-                     <h3>加盟合作</h3></a></li>
+                  <li class="cm-nav-myorder" style="background: url(images/nav-bg.png);background-size: 100%"><a href="myorder.html" style="margin-top:15px">
+                      <h3>加盟合作</h3></a></li>
                 </ul>
 
                 <ul class="nav navbar-nav cm-nav-right">
@@ -134,122 +137,278 @@
 	</header>
 
 	<div class="cm-content-2">
-    <div class="cm-res-1">
-            <div class="cm-res-address" style="display:flex">
-              <p>当前地址：</p>
-              <span>111 main street</span>
-              <input type="text">
-              <label class="cm-btn-change" type="button" style="cursor: pointer;">更改地址</label>
-            </div>
-    </div>
 
     <div class="cm-info-container container" style="width:100%;padding:0;margin-top:20px">
             <div class="col-sm-2" style="padding:0">
-              <div class="cm-info-catalog">
-                <button class="cm-active cm-fresh"><h2>新手指南</h2></button>
-                <button class="cm-question"><h2>常见问题</h2></button>
-                <button class="cm-about"><h2>关于我们</h2></button>
+              <div class="cm-info-catalog" style="margin-top: 8px">
+                <button class="cm-driver  cm-active"><h2>送餐团队</h2></button>
+                <button class="cm-business"><h2>商家合作</h2></button>
+                <button class="cm-ad"><h2>广告宣传</h2></button>
               </div>
             </div>
             <div class="col-sm-10" style="padding:0">
-                <div id="fresh" class="cm-info-content" style="padding-bottom: 30px">
-                    <h2 style="margin:10px 0;font-size:20px">新手指南</h2><br/>
+                <div id="driver" class="cm-info-content" style="padding-bottom: 30px">
+                    <h2 style="margin:10px 0;font-size:20px">为什么选择馋猫？</h2><br/>
                     <div class="cm-steps"">
                         <div class="cm-step col-sm-3">
                           <div style="height:87px">
-                            <img src="images/location.png" style="height:87px">
+                            <img src="images/driver1.png" style="height:87px">
                           </div>
-                          <h5>输入您的地址</h5>
-                          <p>输入您的地址查找附近的餐厅或者直接查找所有餐厅。</p>
+                          <h5>高工资</h5>
+                          <p>月入5000不是梦</p>
                         </div>
                         <div class="cm-step col-sm-3">
                           <div style="height:87px;">
-                            <img src="images/shop.png" style="height:87px">
+                            <img src="images/driver2.png" style="height:87px">
                           </div>
-                          <h5>选择餐馆</h5>
-                          <p>我们现有近100家餐厅可供您选择。</p>
+                          <h5>多区域</h5>
+                          <p>无论你在哪里，We want you!</p>
                         </div>
                         <div class="cm-step col-sm-3">
                           <div style="height:87px">
-                            <img src="images/card.png" style="height:87px">
+                            <img src="images/driver3.png" style="height:87px">
                           </div>
-                          <h5>完善个人信息</h5>
-                          <p>完善您的个人信息，完成下单。</p>
+                          <h5>灵活的时间</h5>
+                          <p>Full-time/Part-time任你选</p>
                         </div>
                         <div class="cm-step col-sm-3">
                           <div style="height:87px;padding-top:6px">
-                            <img src="images/delivery.png" style="height:66px">
+                            <img src="images/driver4.png" style="height:66px">
                           </div>
-                          <h5>及时配送</h5>
-                          <p>您可以葛优瘫在家等待我们的配送到家，或者也可以自取。</p>
+                          <h5>单多小费全部进包</h5>
+                          <p>运费&amp;小费全收，多劳多得</p>
                         </div>
-                    </div> 
-                    <h2 style="margin:20px 0;font-size:20px">联系馋猫</h2>
-                    <h3 style="margin:10px 0;font-size:16px">如有问题欢迎下载馋猫微信客户端，可直接联系我们的客服人员。</h3>
-                    <div style="display: flex;margin-left: 20%">
-                      <img src="cmbottom.png" style="margin-top: 40px;margin-right:90px;margin-left:30px;width: 180px;height: 80px">
-                      <img src="images/qrcode.png" style="margin-top: 20px" />
-                    </div>
-
-              </div>
-
-                  <div id="question" class="cm-info-content">
-                    <h2 style="margin:10px 0;font-size:20px">常见问题</h2><br/>
-                    <div><img class="col-sm-1 col-xs-2" src="images/devices.png" style="margin-top:10px">
-                    </div>
-                    <div class="col-md-5  col-sm-5 col-xs-10">
-                      <h4 class="font-body" style="margin-bottom:15px;">Q: 如何订餐?</h4>
-                      <p>A：建议下载我们的iOS App订餐，Web版和Android版暂时只能支持有限的功能，我们会继续改进。</p>
-                    </div>
-                    <div><img class="col-sm-1 col-xs-2" src="images/change.png">
-                    </div>
-                    <div class="col-md-5 col-sm-5 col-xs-10 bottommargin-sm">
-                      <h4 class="font-body" style="margin-bottom:15px;">Q：起送最低价?</h4>
-                      <p>A：现在使用iOS App没有起送价哦！记得升级到最新版哦～&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-                    </div>
-                    <div><img class="col-sm-1 col-xs-2" src="images/cards.png" style="margin-top:15px">
-                    </div>
-                    <div class="col-md-5 col-sm-5 col-xs-10 bottommargin-sm">
-                      <h4 class="font-body" style="margin-bottom:15px;">Q：请问可以刷卡吗?</h4>
-                      <p>A：我们现在收现金和信用卡(Visa, Master, AE)。暂时不能刷Debit卡和网上支付，未来会逐渐支持。</p>
-                    </div>
-                    <div><img class="col-sm-1 col-xs-2" src="images/distance.png">
-                    </div>
-                    <div class="col-md-5 col-sm-5 col-xs-10 bottommargin-sm">
-                      <h4 class="font-body" style="margin-bottom:15px;">Q：超出送餐范围能送吗?</h4>
-                      <p>A：超出送餐范围的根据公里数不同送餐费不同，您可以选择“定制运费”然后下单，随后我们会有客服联系您确认运费的。</p>
-                    </div>
-
-                  </div>
-
-                  <div id="about" class="cm-info-content">
-                    <h2 style="margin:10px 0;font-size:20px">关于馋猫</h2><br/>
-                    <div><p>建议下载我们的iOS App订餐，Web版和Android版暂时只能支持有限的功能，我们会继续改进。建议下载我们的iOS Ap</p></div>
-                    <hr style="margin-top: 30px" />
-                    <h2 style="margin:40px 0 20px 0; font-size:20px">联系我们</h2><br/>
-
-                        <div class="col-md-6">
-                            <div class="col-md-5 col-xs-6">
-                                <h4>微信公众号</h4>
-                                  <img  src=".\images\qrcode\qrCode_weixin.png"/alt>
-                             </div>
-                            <div class="col-md-5 col-xs-6">
-                                <h4>微博</h4>
-                                  <img  src=".\images\qrcode\qrCode_weibo.png"/alt>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-
-                              <div class="col-md-8 bottommargin-sm clearfix" style="color:#888;">
-                                <img src="https://www.chanmao.ca/img/cmbottom.png" alt="Canvas Logo" style="display: block;width: 60%;margin-bottom: 20px" class="bottommargin-sm">
-                                <p style=" line-height: 23px;">
-                                    商务合作: 647 205-6668<br>
-                                    微信公众账号: chanmaoweixin<br>
-                                    微博: chanmaochanmao
-                                </p>
+                      </div>
+                      <hr/>  
+                      <h2 style="margin:20px 0;font-size:20px">加入司机团队</h2>
+                      <form class="cm-driver-form" id="submitForm" style="margin-left: 27%;width: 650px">
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">姓名</label>
+                              <div >
+                                  <input type="text" name="nameInput" class="form-control"/>
                               </div>
-                        </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">住址</label>
+                              <div >
+                                    <input type="text" name="nameInput" class="form-control"/>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">年龄</label>
+                              <div >
+                                  <input type="number" name="nameInput" class="form-control"/>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">汽车品牌</label>
+                              <div >
+                                  <input type="text" name="nameInput" class="form-control"/>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">手机号</label>
+                              <div >
+                                  <input type="text" name="nameInput" class="form-control"/>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="emailInput" class="control-label">邮箱</label>
+                              <div >
+                                    <input type="email" name="emailInput" class="form-control"/>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">身份</label>
+                              <hr style="margin: 10px 0" />
+                              <div>
+                                <label>
+                                    <input type="radio" name="optradio" name="optradio"/>
+                                    <span>工签</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio" name="optradio"/>
+                                    <span>学签</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio" name="optradio"/>
+                                    <span>公民</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>永久居住</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>其他</span>
+                                </label>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">性别</label>
+                              <hr style="margin: 10px 0" />
+                              <div>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>男(Male)</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>女(Female)</span>
+                                </label>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">工卡(SIN)</label>
+                              <hr style="margin: 10px 0" />
+                              <div>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>有</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>无</span>
+                                </label>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">服务行业经验</label>
+                              <p>（例如送餐、服务员、客服、销售等）</p>
+                              <hr style="margin: 10px 0" />
+                              <div>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>有</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>无</span>
+                                </label>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">可否接受晚班</label>
+                              <p>（晚上10点到凌晨2点）</p>
+                              <hr style="margin: 10px 0" />
+                              <div>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>接受</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>不接受</span>
+                                </label>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">工作区域</label>
+                              <hr style="margin: 10px 0" />
+                              <div>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>Scarborough&amp;Markham</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>Richmond Hill &amp; North</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>Downtown</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>Mississauga</span>
+                                </label>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">工作区域</label>
+                              <hr style="margin: 10px 0" />
+                              <div>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>Full Time: 每天10：00 - 22：00</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>Part Time: 每天5个小时</span>
+                                </label>
+                                <label>
+                                    <input type="radio" name="optradio"/>
+                                    <span>Peak Time:</span><br/>
+                                    <span style="margin-left: 15px">Weekdays:12:00-14:00,18:00-21:00.</span><br/>
+                                    <span style="margin-left: 15px">Weekends:12:00-15:00,17:00-21:00.</span>
+                                </label>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">自我评价</label>
+                              <textarea class="cm-driver-self" rows="2" style="width: 100%"></textarea>
+                          </div>
+                  
+                          <div style="display:flex;width:60%;justify-content:space-around">
+                              <input class="cm-btn-submit" type="submit" value="提交" data-toggle="tooltip" title="submit"/>
+                              <input class="cm-btn-cancel" type="reset" value="取消" data-toggle="tooltip" title="reset"/>
+                          </div>
+                      </form>
+                      <hr style="margin-top: 30px" />
+                      <div>
+                        <h2>联系我们</h2>
+                        <h1>phil@chanmao.ca</h1>
+                      </div>
+
                   </div>
+
+                  <div id="business" class="cm-info-content">
+                    <h2 style="margin:10px 0;font-size:20px">商家合作</h2><br/>
+                    <form class="cm-driver-form" id="submitForm" style="margin-left: 27%;width: 650px">
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">商家名称</label>
+                              <div >
+                                  <input type="text" name="nameInput" class="form-control"/>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">地址</label>
+                              <div >
+                                  <input type="text" name="nameInput" class="form-control"/>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="nameInput" class="control-label">营业时间</label>
+                              <div >
+                                  <input type="text" name="nameInput" class="form-control"/>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="emailInput" class="control-label">联系电话</label>
+                              <div >
+                                    <input type="email" name="emailInput" class="form-control"/>
+                              </div>
+                          </div>
+                          <div class="cm-form-group">
+                              <label for="emailInput" class="control-label">联系人</label>
+                              <div >
+                                    <input type="email" name="emailInput" class="form-control"/>
+                              </div>
+                          </div>
+                  
+                          <div style="display:flex;width:60%;justify-content:space-around">
+                              <input class="cm-btn-submit" type="submit" value="提交" data-toggle="tooltip" title="submit"/>
+                              <input class="cm-btn-cancel" type="reset" value="取消" data-toggle="tooltip" title="reset"/>
+                          </div>
+                      </form>
+                      <hr style="margin-top: 30px" />
+                      <div>
+                      <h2>联系我们</h2>
+                      <h1>phil@chanmao.ca</h1>
+                      </div>
+                    
+                  </div>
+
 
               </div>
         </div>
@@ -313,6 +472,50 @@
   </div>
 
 <!-- pop up -->
+
+  <div style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(0, 0, 0); z-index: 1000;" class="cm-black"></div>
+  <div class="cm-comment-popup">
+    <h3>订单号：123456</h3>
+    <p>您的评价只会发送给馋猫、餐厅以及派送员，谢谢</p>
+    <div class="cm-comment-content">
+      <div class="cm-upload" style="width:150px;">
+        <h3 >上传图片</h3>
+        <label class="cm-upload-pic">
+          <img src="images/image.png" class="img-responsive">
+        </label>
+        <label class="cm-upload-pic">
+          <img src="images/image.png"  class="img-responsive">
+        </label>
+      </div>
+      <div style="width:370px;margin-left: 30px">
+        <div style="display:flex;"><h3>餐馆评分</h3><div id="rateYo-res" style="margin-left: 15px"></div></div>
+        <div class="less4-res">
+            <p>我们需要改进的地方</p>
+            <div style="display:flex;width:100%;justify-content:space-around">
+              <button class="cm-btn-complain">缺少餐具</button>
+              <button class="cm-btn-complain">打包质量</button>
+              <button class="cm-btn-complain">缺少菜品</button>
+            </div>
+        </div>
+        <textarea columns="2" placeholder="您对这家餐馆的菜品以及服务有什么样的意见以及建议" style="width:100%;margin-top:10px;margin-bottom:20px;border-color:#999999"></textarea>
+        <div style="display:flex"><h3>送餐评分</h3><div id="rateYo-driver" style="margin-left: 15px"></div></div>
+        <div class="less4-driver">
+            <p>我们需要改进的地方</p>
+            <div style="display:flex;width:100%;justify-content:space-around">
+              <button class="cm-btn-complain">送餐速度</button>
+              <button class="cm-btn-complain">司机态度</button>
+            </div>
+        </div>
+        <textarea columns="2" placeholder="您对这家餐馆的菜品以及服务有什么样的意见以及建议" style="width:100%;margin-top:10px;margin-bottom:20px;border-color:#999999"></textarea>
+        <div style="display:flex;width:230px;justify-content:space-between">
+            <input class="cm-btn-submit" type="submit" value="保存" data-toggle="tooltip" title="submit"/>
+            <input class="cm-btn-cancel" type="submit" value="取消" data-toggle="tooltip" title="submit"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- login pop up -->
 <div style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(0, 0, 0); z-index: 1000;" class="cm-login-black"></div>
 <div class="cm-popup cm-login">
   <div class="" style="margin-left:250px;width: 250px">
@@ -331,7 +534,7 @@
       </div>
       <p style="color: white;background-image: url(images/alert.png);width: 145px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">用户名或密码错误</p>
       <div style="display: flex;justify-content: space-between;margin: 10px 0">
-        <label><input type="checkbox" name="remember" style="margin-right: 3px" />下次自动登入</label>
+        <label><input type="radio" name="remember" style="margin-right: 3px" />下次自动登入</label>
         <button class="cm-forget" style="color: #ea7b21;border:none;background:none">忘记密码?</button>
       </div>
       <button class="" style="color: white;font-size: 16px;border:none;background-color: #ea7b21;width: 100%;padding: 5px 0">登录</button>
@@ -465,8 +668,7 @@
 
       $('.cm-black').hide();       
         $('.cm-comment-popup').hide();
-        $('#about').hide();
-        $('#question').hide();
+        $('#business').hide();
         $('.less4-res').hide();
         $('.less4-driver').hide();
         $('.cm-nav-qr').hide();
@@ -496,37 +698,21 @@
            $('.cm-black').fadeIn(100);
         });
 
-        $(document).on('click', '.cm-fresh', function() {
-          $('#question').hide();
-          $('#about').hide();
-          $('#fresh').fadeIn(100);
-          $('.cm-fresh').addClass('cm-active');
-          $('.cm-question').removeClass('cm-active');
-          $('.cm-about').removeClass('cm-active');
+        $(document).on('click', '.cm-driver', function() {
+          $('#business').hide();
+          $('#driver').fadeIn(100);
+          $('.cm-driver').addClass('cm-active');
+          $('.cm-business').removeClass('cm-active');
         });
 
-        $(document).on('click', '.cm-about', function() {
-          $('#question').hide();
-          $('#fresh').hide();
-          $('#about').fadeIn(100);
-          $('.cm-about').addClass('cm-active');
-          $('.cm-fresh').removeClass('cm-active');
-          $('.cm-question').removeClass('cm-active');
+        $(document).on('click', '.cm-business', function() {
+          $('#driver').hide();
+          $('#business').fadeIn(100);
+          $('.cm-business').addClass('cm-active');
+          $('.cm-driver').removeClass('cm-active');
         });
-
-        $(document).on('click', '.cm-question', function() {
-          $('#about').hide();
-          $('#fresh').hide();
-          $('#question').fadeIn(100);
-          $('.cm-question').addClass('cm-active');
-          $('.cm-fresh').removeClass('cm-active');
-          $('.cm-about').removeClass('cm-active');
-        });
- 
 
 		});
-
-
 	  	}(jQuery));
 	</script>
 </body>
