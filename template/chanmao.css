@@ -27,7 +27,11 @@ p, label,a,button{
 	font-family: Yuanti SC;
 }
 
+<<<<<<< HEAD
 .cm-menu-dish:hover,.cm-res-item:hover,.cm-his-item:hover,.cm-recommend-item:hover{
+=======
+.cm-menu-dish:hover,.cm-res-item:hover,.cm-his-item:hover{
+>>>>>>> master
 	box-shadow: 0 0 8px rgba(234,123,33,0.25);
 	border-radius: 0;
 }
@@ -232,15 +236,22 @@ input:focus{
 
 #cm-res-2{
 	background-color: white;
+<<<<<<< HEAD
 	width: 84%;
+=======
+	width: inherit;
+>>>>>>> master
 	justify-content:center;
 	align-items:center;
 	height: 50px;
 	display: flex;
 	position: fixed;
 	top: 0;
+<<<<<<< HEAD
 	margin: 0 auto;
 	z-index: 1004;
+=======
+>>>>>>> master
 }
 
 .cm-res-address label{
@@ -261,11 +272,15 @@ input:focus{
 .cm-res-address{
 	border-radius: 0;
 	height: 30px;
+<<<<<<< HEAD
 	width: 500px;
 }
 
 .cm-res-address input{
 	display: none;
+=======
+	width: 225px;
+>>>>>>> master
 }
 
 .cm-area,.cm-taste{
@@ -280,11 +295,14 @@ input:focus{
 	padding-bottom:5px; 
 }
 
+<<<<<<< HEAD
 .cm-ad{
 	margin-top: 14px;
 	padding-right: 0;
 }
 
+=======
+>>>>>>> master
 .cm-area p,.cm-taste p{
 	margin:0;
 }
@@ -303,6 +321,7 @@ input:focus{
 	width: 32%;
 }
 
+<<<<<<< HEAD
 .cm-recommend-item{
 	margin-left: 3.2%;
 	margin-right: 3.2%;
@@ -320,6 +339,15 @@ input:focus{
 	background-color: rgba(0,0,0,0.5);
 /*	max-width:324px;
 	width:inherit;*/
+=======
+#cm-close-black{
+	position: absolute;
+	height: calc(104% - 10px);
+	max-height: 297px;
+	background-color: rgba(0,0,0,0.5);
+	max-width:324px;
+	width:inherit;
+>>>>>>> master
 	text-align: center;
 	padding-top: 6%;
 }
@@ -355,6 +383,7 @@ input:focus{
 	margin: 0;
 }
 
+<<<<<<< HEAD
 .cm-ad-fixed{
 	position: fixed;
 	top: 0;
@@ -362,6 +391,8 @@ input:focus{
 	left: 69.5%;
 }
 
+=======
+>>>>>>> master
 /*order*/
 
 .cm-content-2{
@@ -726,13 +757,21 @@ input:focus{
 }
 
 .cm-btn-reminder{
+<<<<<<< HEAD
 	width:100%;
 	height:30px;
+=======
+	width:110px;
+	height:25px;
+>>>>>>> master
 	background:#ea7b21;
 	color:white;
 	outline: none;
 	border:none;
+<<<<<<< HEAD
 	padding: 3px 0;
+=======
+>>>>>>> master
 	margin: 20px 0;
 }
 
@@ -885,6 +924,7 @@ input[type='radio']:checked{
 	margin: 5px 0;
 }
 
+<<<<<<< HEAD
 /*driver*/
 .cm-driver-self{
 	border:1px solid #ccc;
@@ -908,6 +948,8 @@ input[type='radio']:checked{
 	width: 60%;
 }
 
+=======
+>>>>>>> master
 @media(max-width: 992px){
 	
 	.navbar-header img{

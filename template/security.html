@@ -64,6 +64,12 @@
         					<li><a href="fresh.html">
         							<h3>客服中心</h3></a>
         					</li>
+<<<<<<< HEAD
+=======
+        					<li ><a href="http://www.chanmao.ca">
+        							<h3>English</h3></a>
+        					</li>
+>>>>>>> master
         					<li>
         						<a href="">
         							<h3>购物车<span class="badge">0</span></h3></a>
@@ -92,13 +98,20 @@
                   </li>
                   <li class="cm-nav-myorder" style="background: url(images/nav-bg.png);background-size: 100%;width: 115px"><a href="myorder.html" style="margin-top:15px">
 						          <h3>我的订单</h3></a></li>
+<<<<<<< HEAD
                   <li class="cm-nav-myorder"><a href="join.html" style="margin-top:15px">
                      <h3>加盟合作</h3></a></li>
+=======
+>>>>>>> master
                 </ul>
 
                 <ul class="nav navbar-nav cm-nav-right">
                   	<li class="cm-nav-app">
+<<<<<<< HEAD
                   		<a>
+=======
+                  		<a href="http://www.chanmao.ca">
+>>>>>>> master
 						            <img src="images/phone.png" style="height: 40%;margin-right: 5px;">
               					<h3>手机应用</h3></a>
               			</li>
@@ -110,7 +123,14 @@
               						<img src="images/earphone.png" style="height: 30%;margin-right: 5px;">
               						<h3>客服中心</h3></a>
               			</li>
+<<<<<<< HEAD
               			<li class="cm-nav-cart" style="width:45px;cursor: pointer;" onclick="location.href='cart.html'">
+=======
+              			<li class="cm-nav-english" style="margin:0 20px;">
+              						<h3 style="margin-top:30px">English</h3>
+              			</li>
+              			<li class="cm-nav-cart" style="width:45px">
+>>>>>>> master
               						<img src="images/shoppingcar.png" style="height:35%;margin-top:15px">
               						<div><sup style="font-size: 16px">0</sup></div>
               			</li>
@@ -137,9 +157,14 @@
     <div class="cm-res-1">
             <div class="cm-res-address" style="display:flex">
               <p>当前地址：</p>
+<<<<<<< HEAD
               <span>111 main street</span>
               <input type="text">
               <label class="cm-btn-change" type="button" style="cursor: pointer;">更改地址</label>
+=======
+              <p>111 main street</p>
+              <label>更改地址</label>
+>>>>>>> master
             </div>
     </div>
 
@@ -384,6 +409,7 @@
         				</ul>
         		</div>
         		<div class="cm-footer-item">
+<<<<<<< HEAD
         				<h2>加盟合作</h2>
                 <ul style="padding:0">
                   <ol>
@@ -393,6 +419,10 @@
                     <a href="business.html"><p>商家合作</p></a>
                   </ol>
                 </ul>
+=======
+        				<h2>商业合作</h2>
+        				<p>合作电话:<br/>634-323-1245</p>
+>>>>>>> master
         		</div>
         		<div class="cm-footer-item">
         			    <h2>关于我们</h2>
@@ -616,7 +646,10 @@
     <script src="js/bootstrap.js" ></script>
     <script src="js/bootstrap-tooltip.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.js"></script>
+<<<<<<< HEAD
     <script src="chanmao.js" type="text/javascript"></script>
+=======
+>>>>>>> master
 
 
     <script type="text/javascript">
@@ -729,6 +762,80 @@
 
         });
 
+<<<<<<< HEAD
+=======
+
+// login
+
+        $('.cm-login-black').hide(); 
+        $('.cm-login').hide(); 
+        $('.cm-password').hide(); 
+        $('.cm-password-mes').hide(); 
+        $('.cm-new-password').hide(); 
+        $('.cm-newpass-mes').hide(); 
+        $('.cm-signup').hide(); 
+        $('.cm-welcome').hide();
+
+
+        $(document).mouseup(function (e)
+        {
+            var container = $(".cm-popup");
+
+            if (!container.is(e.target) // if the target of the click isn't the container...
+                && container.has(e.target).length === 0) // ... nor a descendant of the container
+            {
+                container.hide();
+                $('.cm-login-black').hide();
+            }
+        });
+
+        $(".cm-popup").css('top', ($(window).height() - $(".cm-popup").height())/2 + "px");
+        $(".cm-popup").css('left', ($(window).width() - $(".cm-popup").width())/2 + "px");
+
+
+        $(".cm-nav-login").click(function(){
+          $('.cm-login-black').show(); 
+          $('.cm-login').show(); 
+        });
+
+        $(".cm-btn-login").click(function(){
+          $('.cm-login').show(); 
+          $('.cm-signup').hide();
+        });
+
+        $(".cm-forget").click(function(){
+          $('.cm-login').hide(); 
+          $('.cm-password').show();
+        });
+
+        $(".cm-btn-signup").click(function(){
+          $('.cm-login').hide(); 
+          $('.cm-password').hide();
+          $('.cm-signup').show();
+        });
+
+        $(".cm-btn-next").click(function(){
+          $('.cm-password-mes').show(); 
+          $('.cm-password').hide();
+        });
+
+        $(".cm-btn-welcome").click(function(){
+          $('.cm-welcome').show(); 
+          $('.cm-signup').hide();
+        });
+
+        $(".cm-btn-newpass").click(function(){
+          $('.cm-newpass-mes').show(); 
+          $('.cm-new-password').hide();
+        });
+
+        $(".cm-nav-app").hover(function(){
+          $('.cm-nav-qr').show(); }
+        ,
+          function(){ $('.cm-nav-qr').hide(); 
+        });
+
+>>>>>>> master
 		});
 	  	}(jQuery));
 	</script>
