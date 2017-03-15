@@ -7,6 +7,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
+declare var $:any;
 
 /*
  * App Component
@@ -18,33 +19,8 @@ import { AppState } from './app.service';
   styleUrls: [
     './app.component.css'
   ],
-  template:
-  // <nav>
-  //   <a [routerLink]=" ['./home'] "
-  //     routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-  //     Home
-  //   </a>
-  // </nav>
-  `
+  templateUrl: 'app.component.html'
 
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-
-
-
-  `
-  // <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-  // <footer>
-  //   <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-  //   <div>
-  //     <a [href]="url">
-  //       <img [src]="angularclassLogo" width="25%">
-  //     </a>
-  //   </div>
-  // </footer>
 })
 export class AppComponent implements OnInit {
   public angularclassLogo = 'assets/img/angularclass-avatar.png';
@@ -56,7 +32,12 @@ export class AppComponent implements OnInit {
   ) {}
 
   public ngOnInit() {
+
     console.log('Initial App State', this.appState.state);
+  }
+
+  public hideSearchBar(){
+    $('#cm-res-2').hide();
   }
 
 }
