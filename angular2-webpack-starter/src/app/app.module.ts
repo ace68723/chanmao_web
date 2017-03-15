@@ -15,9 +15,19 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
+// import {
+//   LoginModule
+// } from './login/login.module';
 import {
-  LoginModule
-} from './login/login.module';
+  HomeModule
+} from './home/home.module';
+// import {
+//   InfoModule
+// } from './info/info.module';
+
+// import {
+//   InfoModule
+// } from './info/info.module';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -27,11 +37,12 @@ import { ROUTES } from './app.routes';
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-import { LoginComponent } from './login';
+// import { LoginComponent } from './login';
+import { HomeComponent } from './home';
+// import { InfoComponent } from './info';
 
-
-import '../styles/styles.scss';
-import '../styles/headings.css';
+// import '../styles/styles.scss';
+// import '../styles/headings.css';
 import {Ng2UiAuthModule, CustomConfig} from 'ng2-ui-auth';
 
 // Application wide providers
@@ -65,13 +76,17 @@ export class MyAuthConfig extends CustomConfig {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
-    LoginComponent,
-  ],
+    // LoginComponent,
+    HomeComponent,
+    // InfoComponent
+],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    LoginModule,
+    //  LoginModule,
+    HomeModule,
+    // InfoModule,
     Ng2UiAuthModule.forRoot(MyAuthConfig),
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
 

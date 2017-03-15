@@ -19,6 +19,13 @@
 
   <link rel="stylesheet" href="css/responsive.css" type="text/css" />
   <link rel="stylesheet" href="chanmao.css" type="text/css" />
+
+  <script src="./js/jquery-3.1.1.min.js"></script>
+  <script src="./js/bootstrap.js"></script>
+  <script src="./js/bootstrap-tooltip.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.2.0/jquery.rateyo.min.js"></script>
+  <script src="chanmao.js" type="text/javascript"></script>
+
   <title>
     <%= htmlWebpackPlugin.options.title %>
   </title>
@@ -43,7 +50,7 @@
   </app>
 
   <!-- Google Analytics: change UA-71073175-1 to be your site's ID -->
-  <script>
+  <!-- <script>
     (function(A, n, g, u, l, a, r) {
       A.GoogleAnalyticsObject = r;
       A[l] = A[l] || function() {
@@ -62,10 +69,49 @@
 
   <% if (htmlWebpackPlugin.options.metadata.isDevServer && htmlWebpackPlugin.options.metadata.HMR !== true) { %>
     <!-- Webpack Dev Server reload -->
-    <script src="/webpack-dev-server.js"></script>
-    <% } %>
+    <!-- <script src="/webpack-dev-server.js"></script>
+    <% } %>  -->
+<script type="text/javascript">
+		(function ($) {
 
+      $('.cm-black').hide();
+        $('.cm-comment-popup').hide();
+        $('#question').hide();
+        $('#fresh').hide();
+        $('.less4-res').hide();
+        $('.less4-driver').hide();
+        $('.cm-nav-qr').hide();
+
+  		$(document).ready(function(){
+  			// hide .navbar first
+	    	// fade in .navbar
+
+        $(".cm-comment-popup").css('top', ($(window).height() - $(".cm-comment-popup").height())/2 + "px");
+        $(".cm-comment-popup").css('left', ($(window).width() - $(".cm-comment-popup").width())/2 + "px");
+
+        $(document).click(function(e){
+
+           if($(e.target).closest('.cm-comment-popup').length != 0) return false;
+           $('.cm-comment-popup').hide();
+           $('.cm-black').hide();
+        });
+
+        $(".cm-btn-comment").click(function(){
+           $('.cm-comment-popup').fadeIn(100);
+           $('.cm-black').fadeIn(100);
+        });
+
+        $(document).on('click', '.cm-btn-comment', function() {
+          $('.cm-comment-popup').fadeIn(100);
+           $('.cm-black').fadeIn(100);
+        });
+
+		});
+	  	});
+
+	</script>
 
 </body>
+
 
 </html>

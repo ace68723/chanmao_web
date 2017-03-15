@@ -1,8 +1,10 @@
 import {
   NgModule,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
+import { Routes, RouterModule } from '@angular/router';
 
+import { LoginComponent } from '.';
 import { LoginMainComponent } from './loginMain';
 import { SignupComponent } from './signup';
 import { NewPasswordMesComponent } from './newPasswordMes';
@@ -12,6 +14,7 @@ import { PasswordMesComponent } from './passwordMes';
 import { ForgetPasswordComponent} from './forgetPassword';
 
 export const loginComponents = [
+  LoginComponent,
   LoginMainComponent,
   SignupComponent,
   PasswordMesComponent,
@@ -21,16 +24,24 @@ export const loginComponents = [
   SignupSuccessComponent
 ]
 
+const routes: Routes = [
+  { path: '', component: LoginComponent, data: {title: 'login'} },
+];
+
 @NgModule({
   declarations: loginComponents,
   imports: [ // import Angular's modules
-    FormsModule
+    SharedModule,
+    RouterModule.forChild(routes)
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
 
 ],
-exports: loginComponents
+exports: [loginComponents,RouterModule]
 })
+
+
+
 export class LoginModule {
 
 
