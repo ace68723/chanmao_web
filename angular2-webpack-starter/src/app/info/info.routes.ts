@@ -1,4 +1,10 @@
 import {
+  BusinessComponent
+} from './business';
+import {
+  DriverComponent
+} from './driver';
+import {
   ContactComponent
 } from './myOrder/contact';
 import {
@@ -45,7 +51,9 @@ export const infoComponents = [
   FreshComponent,
   AboutComponent,
   ContactComponent,
-  CommentComponent
+  CommentComponent,
+  DriverComponent,
+  BusinessComponent
 ]
 
 export const INFO_ROUTES: Routes = [{
@@ -85,11 +93,18 @@ export const INFO_ROUTES: Routes = [{
         pathMatch: 'full',
         component: AboutComponent
       },
+      {
+        path: 'driver',
+        pathMatch: 'full',
+        component: DriverComponent
+      },
+      {
+        path: 'business',
+        pathMatch: 'full',
+        component: BusinessComponent
+      }
     ],
 
   },
 
-  // { path: 'userinfo',pathMatch: 'full', component: UserInfoComponent,outlet: 'info'},
-  // { path: 'myorder',pathMatch: 'full', component: MyOrderComponent,outlet: 'info'},
-  // { path: 'security',pathMatch: 'full', component: SecurityComponent,outlet: 'info'},
 ];

@@ -27,6 +27,15 @@
                 <button [routerLink]="['/info/about']" class="cm-about"><h2>关于我们</h2></button>
               </div>
             </div>
+            <div class="col-sm-2" style="padding:0" 
+            [hidden]="!(router.url == '/info/driver' || router.url == '/info/business')"
+             >
+              <div class="cm-info-catalog" >
+                <button [routerLink]="['/info/driver']" class="cm-driver"><h2>司机团队</h2></button>
+                <button [routerLink]="['/info/business']" class="cm-business"><h2>商家合作</h2></button>
+                <button [routerLink]="['/info/business']" class="cm-business"><h2>广告推广</h2></button>
+              </div>
+            </div>
             <div class="col-sm-10" style="padding:0">
               <router-outlet ></router-outlet>
               </div>
