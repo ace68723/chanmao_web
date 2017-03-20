@@ -53,7 +53,7 @@ export const infoComponents = [
   ContactComponent,
   CommentComponent,
   DriverComponent,
-  BusinessComponent
+  BusinessComponent,
 ]
 
 export const INFO_ROUTES: Routes = [{

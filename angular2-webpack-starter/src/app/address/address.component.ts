@@ -10,8 +10,8 @@ declare var $: any
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
-  // where, in this case, selector is the string 'home'
-  selector: 'home',  // <home></home>
+  // where, in this case, selector is the string 'address'
+  selector: 'cm-address',  // <address></address>
 
   // We need to tell Angular's Dependency Injection which providers are in our app.
   providers: [
@@ -19,23 +19,29 @@ declare var $: any
   // Our list of styles in our component. We may add more to compose many styles together
 
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: './home.component.html'
+  templateUrl: './address.component.html'
 })
 
 
-export class HomeComponent implements OnInit {
+export class AddressComponent implements OnInit {
   // Set our default values
 
-
+public count : number;
   // TypeScript public modifiers
   constructor(
   ) {
-
+    
   }
 
+/**
+ * addaddress
+ */
+public addone() {
+  ++this.count;
+  console.log(this.count);
+}
+
   public ngOnInit() {
-    $('.cm-nav-index').css("background", "url(images/nav-bg.png)").css("background-size", "100%");
-    $('.cm-nav-myorder').css("background", "none");
-    $('.cm-nav-join').css("background", "none");
+      this.count = 0;
   }
 }

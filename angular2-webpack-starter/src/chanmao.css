@@ -65,11 +65,12 @@ input:focus{
 /*navbar*/
 
 .cm-nav{
-	height: 80px;
+	height: 70px;
 	width: 100%;
 	background-color: white;
-	box-shadow: 0 0 10px #C5C5C5;
+	position: fixed;
 	margin: 0;
+	z-index: 1000;
 }
 
 #bs-example-navbar-collapse-1{
@@ -81,7 +82,7 @@ input:focus{
 
 .cm-nav-content{
 	margin: 0 auto;
-	height: 80px;
+	height: 70px;
 	max-width: 1200px;
 	width: 100%;
 	padding: 0;
@@ -94,7 +95,7 @@ input:focus{
 
 .cm-nav-choose{
 	width: 112px;
-	height: 80px;
+	height: 70px;
 	background: url(images/nav-bg.png);
 	background-size: 100%;
 	text-align: center;
@@ -102,7 +103,7 @@ input:focus{
 
 .cm-nav-index{
 	width: 115px;
-	height: 80px;
+	height: 70px;
 	text-align: center;
 }
 
@@ -114,11 +115,12 @@ input:focus{
 	display: flex;
 	position: relative;
 	float: right;
+	height: 70px;
 }
 
 .cm-nav-app a, .cm-nav-service a{
 	width: 120px;
-	height: 80px;
+	height: 70px;
 	display: flex!important;
 	justify-content:center;
 	padding: 0!important;
@@ -129,8 +131,21 @@ input:focus{
 	margin: auto 0;
 }
 
+.cm-res-address{
+	border: none;
+	margin-top: 25px;
+	height: 30px;
+	margin-left: 28%;
+	position: relative;
+}
+
+.cm-res-address input{
+	display: none;
+	margin-top: -5px;
+}
+
 .cm-nav-myorder{
-	height: 80px;
+	height: 70px;
 	background-size: 100%;
 	text-align: center;
 }
@@ -139,15 +154,15 @@ input:focus{
 	color: white;
 	width: 25px;
 	position: relative;
-	top: -24px;
+	top: -22px;
 	text-align: center;
-	left: 31%;
+	left: 25%;
 	z-index: 10;
 }
 
 .cm-nav-user{
 	margin: auto 0;
-	height: 80px;
+	height: 70px;
 	text-align: center;
 }
 
@@ -207,19 +222,10 @@ input:focus{
 	background-color: white;
 }
 
-.cm-carousel{
-	max-width: 1200px;
-	width: 100%;
-}
-
-.carousel-control{
-	background: none!important;
-
-}
-
 .cm-res{
 	width: 84%;
 	margin: 0 auto;
+	margin-top:70px;
 
 }
 
@@ -228,19 +234,6 @@ input:focus{
 	display: flex;
 	flex-direcion:row;
 	justify-content:space-between;
-}
-
-#cm-res-2{
-	background-color: white;
-	width: 84%;
-	justify-content:center;
-	align-items:center;
-	height: 50px;
-	display: flex;
-	position: fixed;
-	top: 0;
-	margin: 0 auto;
-	z-index: 1004;
 }
 
 .cm-res-address label{
@@ -258,24 +251,13 @@ input:focus{
 
 }
 
-.cm-res-address{
-	border-radius: 0;
-	height: 30px;
-	width: 500px;
-}
-
-.cm-res-address input{
-	display: none;
-}
-
-.cm-area,.cm-taste{
+.cm-area{
 	width: 100%;
 	min-height: 60px;
 	display: flex;
 	margin-top: 14px;
 	align-items:center;
-	border: 1px solid #e6e6e6;
-	padding-left: 17px;
+	padding-left: 10px;
 	padding-top: 5px;
 	padding-bottom:5px;
 }
@@ -289,9 +271,13 @@ input:focus{
 	margin:0;
 }
 
+.cm-area label{
+	margin:0 10px;
+}
+
 .cm-res-img{
 	width: 100%;
-	margin-top: 44px;
+	padding:0;
 }
 
 .cm-res-item{
@@ -300,29 +286,20 @@ input:focus{
 	border: 1px solid #e6e6e6;
 	max-width:324px;
 	margin-bottom: 44px;
-	width: 32%;
-}
-
-.cm-recommend-item{
-	margin-left: 3.2%;
-	margin-right: 3.2%;
-	height: auto;
-	border: 1px solid #e6e6e6;
-	max-width:450px;
-	margin-bottom: 44px;
-	width: 43%;
+	width: 31%;
+	margin:10px 1%;
+	padding: 0;
 }
 
 #cm-close-black{
 	position: absolute;
-	/*height: calc(35% - 26px);
-	max-height: 297px;*/
+	height: 100%;
+	max-height: 297px;
 	background-color: rgba(0,0,0,0.5);
-/*	max-width:324px;
-	width:inherit;*/
+	max-width:324px;
+	width:100%;
 	text-align: center;
-	padding-top: 6%;
-	display: none;
+	padding-top: 20%;
 }
 
 #cm-close-black p{
@@ -868,30 +845,6 @@ input[type='radio']:checked{
 	padding: 5px 30px;
 }
 
-.cm-address-btn-group>label{
-	width: 100px;
-	height: 30px;
-	color: #999;
-	border: 1px solid #999;
-	border-radius: 20px;
-	padding-top: 4px;
-	margin: 0 18px;
-}
-.cm-address-btn-group>label:hover{
-	color: white;
-	border: none;
-	background-color: #ea7b21;
-}
-.cm-address-btn-group .active{
-	width: 100px;
-	height: 30px;
-	color: white;
-	border: none;
-	background-color: #ea7b21;
-	border-radius: 20px;
-	padding-top: 4px;
-}
-
 /*complete*/
 .cm-thank{
 	width: 100%;
@@ -963,10 +916,11 @@ input[type='radio']:checked{
 }
 
 .cm-phil{
+	background-color: white;
 	text-align: center;
+	margin-left: -5%;
 	height: 120px;
 	padding-top: 10px;
-	margin-left: -5%;
 }
 
 @media(max-width: 992px){
@@ -988,6 +942,14 @@ input[type='radio']:checked{
 	}
 	.cm-nav-app a, .cm-nav-service a{
 	width: 95px;
+	}
+
+	.cm-res{
+		width: 92%;
+	}
+
+	.cm-res-item{
+		margin:10px 11px;
 	}
 
 	.cm-res-card{
