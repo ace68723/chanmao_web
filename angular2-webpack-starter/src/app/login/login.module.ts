@@ -7,10 +7,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from '.';
 import { LoginMainComponent } from './loginMain';
 import { SignupComponent } from './signup';
-import { NewPasswordMesComponent } from './newPasswordMes';
+import { NewPasswordMesComponent } from './newPassword/newPasswordMes';
 import { SignupSuccessComponent } from './signupSuccess';
 import { NewPasswordComponent } from './newPassword';
-import { PasswordMesComponent } from './passwordMes';
+import { PasswordMesComponent } from './forgetPassword/passwordMes';
 import { ForgetPasswordComponent} from './forgetPassword';
 
 export const loginComponents = [
@@ -32,12 +32,12 @@ const routes: Routes = [
   declarations: loginComponents,
   imports: [ // import Angular's modules
     SharedModule,
-    RouterModule.forChild(routes)
+    // RouterModule.forChild(routes)
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
 
 ],
-exports: [loginComponents,RouterModule]
+exports: [loginComponents]
 })
 
 
