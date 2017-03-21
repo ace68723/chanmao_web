@@ -34,8 +34,8 @@ export class HomeComponent implements OnInit {
   }
 
   public ngOnInit() {
-    $('.cm-nav-index').css("background", "url(images/nav-bg.png)").css("background-size", "100%");
-    $('.cm-nav-myorder').css("background", "none");
-    $('.cm-nav-join').css("background", "none");
+    // $('.cm-nav-index').css("background", "url(images/nav-bg.png)").css("background-size", "100%");
+    // $('.cm-nav-myorder').css("background", "none");
+    // $('.cm-nav-join').css("background", "none");
   }
 }

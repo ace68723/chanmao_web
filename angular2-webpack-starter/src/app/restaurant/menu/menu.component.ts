@@ -42,5 +42,26 @@ export class MenuComponent implements OnInit {
         $('.cm-info-icon').hide();
         $('.cm-nav-qr').hide();
 
+        $('#catalog a').click(function(){
+          event.preventDefault();
+        $('html,body').animate({scrollTop:$(this.hash).offset().top - 100}, 200,'easeInOutExpo');
+          // $(window).stop().animate({
+          //   scrollTop: $($(this).attr('href')).offset().top
+          // },100,'linear');
+          $(this).closest('#catalog').children('a').children('h3').css("color","black");
+          $(this).children('h3').css("color","#ea7b21");
+
+        });
+
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 228) {
+                   $('#catalog').addClass("sc-catalog");
+                 }else{
+                   $('#catalog').removeClass("sc-catalog");
+                   }
+            });
+         });
+
   }
 }

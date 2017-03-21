@@ -33,6 +33,10 @@ export class DriverComponent implements OnInit {
     $('.cm-nav-join').css("background", "url(images/nav-bg.png)").css("background-size", "100%");
     $('.cm-nav-myorder').css("background", "none");
     $('.cm-nav-index').css("background", "none");
+
+    window.scroll(0, 0);
+
+
   }
 
 }

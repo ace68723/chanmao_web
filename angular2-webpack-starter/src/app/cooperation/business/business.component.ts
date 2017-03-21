@@ -26,6 +26,7 @@ export class BusinessComponent implements OnInit {
   public ngOnInit() {
           $('.cm-business').addClass('cm-active');
           $('.cm-driver').removeClass('cm-active');
+          window.scroll(0, 0);
   }
 
 }

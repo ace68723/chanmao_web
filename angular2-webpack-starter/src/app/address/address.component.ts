@@ -30,7 +30,7 @@ public count : number;
   // TypeScript public modifiers
   constructor(
   ) {
-    
+
   }
 
 /**
@@ -43,5 +43,8 @@ public addone() {
 
   public ngOnInit() {
       this.count = 0;
+
+      $('.cm-address-popup').hide();
+
   }
 }

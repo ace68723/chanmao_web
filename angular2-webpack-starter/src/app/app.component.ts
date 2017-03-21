@@ -37,9 +37,9 @@ export class AppComponent implements OnInit {
     public appState: AppState
   ) {}
 
-  
+
   private JQfunction() {
-    
+
     $('.cm-nav-qr').hide();
     $('.cm-black').hide();
 
@@ -65,6 +65,36 @@ export class AppComponent implements OnInit {
         function () {
           $('.cm-nav-qr').hide();
         });
+
+        //current location
+
+        $(".cm-btn-change").click(function(e){
+          TBox(this);
+        });
+
+        $(".cm-res-address input").blur(function(e){
+          RBox(this);
+        });
+
+        function TBox(obj) {
+                var input = $(obj).parent().find("input");
+                var span = $(obj).parent().find("span");
+                input.attr('value', span.text()).show().focus();
+                span.hide();}
+
+        function RBox(obj) {
+                var input = $(".cm-res-address input");
+                var span = $(".cm-res-address span");
+                span.text(input.val());
+                span.show();
+                input.hide();}
+
+        $(".cm-nav-app").hover(function(){
+                  $('.cm-nav-qr').show(); }
+                ,
+                  function(){ $('.cm-nav-qr').hide();
+                });
+
     });
 
   }

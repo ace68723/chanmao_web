@@ -4,8 +4,6 @@ import {
 } from '@angular/core';
 
 
-import {Option} from "./interfaces";
-
 declare var $ : any
 
 @Component({
@@ -41,6 +39,16 @@ export class CartComponent implements OnInit {
           function(){
            $(this).children('.cm-modify').hide();}
         );
+
+    $('.cm-address-popup').hide();
+
+    $('.cm-address-add').click(function(){
+          $('.cm-address-popup').fadeIn();
+          $('.cm-login-black').fadeIn();
+    });
+
+    $(".cm-address-popup").css('top', ($(window).height() - $(".cm-address-popup").height())/2 + "px");
+    $(".cm-address-popup").css('left', ($(window).width() - $(".cm-address-popup").width())/2 + "px");
 
   }
 
