@@ -5,11 +5,13 @@ import {
 } from '@angular/core';
 import { ActivatedRoute,Router} from '@angular/router';
 
+declare var $ : any
+
 @Component({
   selector: 'cm-business',
   styles: [`
   `],
-  templateUrl: 'business.html'
+  templateUrl: 'business.component.html'
 })
 export class BusinessComponent implements OnInit {
 
@@ -22,7 +24,8 @@ export class BusinessComponent implements OnInit {
 
 
   public ngOnInit() {
-
+          $('.cm-business').addClass('cm-active');
+          $('.cm-driver').removeClass('cm-active');
   }
 
 }

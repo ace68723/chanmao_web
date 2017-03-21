@@ -39,6 +39,7 @@ export class AppComponent implements OnInit {
 
   
   private JQfunction() {
+    
     $('.cm-nav-qr').hide();
     $('.cm-black').hide();
 
@@ -67,6 +68,7 @@ export class AppComponent implements OnInit {
     });
 
   }
+
 
 
   public ngOnInit() {

@@ -26,6 +26,8 @@ export class LoginComponent implements OnInit {
 
 
 private JQlogin() {
+
+        
         $('.cm-login-black').hide(); 
         $('.cm-login').hide(); 
         $('.cm-password').hide(); 

@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login';
 import { PageNotFoundComponent } from './404';
 import { RestaurantModule } from './restaurant/restaurant.module';
@@ -24,13 +25,7 @@ import {
 import {
   HomeModule
 } from './home/home.module';
-// import {
-//   InfoModule
-// } from './info/info.module';
 
-// import {
-//   InfoModule
-// } from './info/info.module';
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -46,6 +41,7 @@ import { HomeComponent } from './home';
 // import '../styles/styles.scss';
 // import '../styles/headings.css';
 import {Ng2UiAuthModule, CustomConfig} from 'ng2-ui-auth';
+
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -79,7 +75,7 @@ export class MyAuthConfig extends CustomConfig {
   declarations: [
     AppComponent,
     HomeComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
     
 ],
   imports: [ // import Angular's modules
@@ -89,6 +85,7 @@ export class MyAuthConfig extends CustomConfig {
     HomeModule,
     LoginModule,
     RestaurantModule,
+    SharedModule,
     // InfoModule,
     Ng2UiAuthModule.forRoot(MyAuthConfig),
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
