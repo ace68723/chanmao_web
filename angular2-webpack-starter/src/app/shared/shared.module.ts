@@ -13,9 +13,10 @@ import { AddressComponent } from '../address/address.component';
 // Even so, we import/export both of these because most other modules will import SharedModule and will need them.
 @NgModule({
   imports: [CommonModule, FormsModule],
-  exports: [CommonModule, FormsModule,AddressComponent],
+  
   declarations: [
     AddressComponent
   ],
+  exports: [CommonModule, FormsModule,AddressComponent]
 })
 export class SharedModule { }

@@ -3,3 +3,17 @@ export interface User {
     password: string;
 }
 
+export interface LoginObject {
+    username: string;
+    password: string;
+    os: string;
+    version: string;
+}
+
+export interface LoginResult {
+    errorcode: number;
+    message: string;
+    result: number;
+    token: string;
+    uid: string;
+}
