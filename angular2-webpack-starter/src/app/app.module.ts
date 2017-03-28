@@ -40,8 +40,8 @@ import { AppState, InternalStateType } from './app.service';
 // import { LoginComponent } from './login';
 // import { InfoComponent } from './info';
 import { HomeComponent } from './home';
-// import '../styles/styles.scss';
-// import '../styles/headings.css';
+import { FooterComponent } from './footer';
+import { NavComponent } from './nav';
 
 
 // Application wide providers
@@ -65,8 +65,10 @@ type StoreType = {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
+    NavComponent,
+    FooterComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
     
 ],
   imports: [ // import Angular's modules
