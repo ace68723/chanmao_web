@@ -1,6 +1,8 @@
+import { SystemService } from './../services/system.service';
 import {
   Component,
-  OnInit
+  OnInit,
+  AfterViewChecked
 } from '@angular/core';
 
 
@@ -21,16 +23,25 @@ import {
 })
 
 
-export class NavComponent implements OnInit {
+export class NavComponent implements OnInit,AfterViewChecked {
   // Set our default values
 
 
   // TypeScript public modifiers
   constructor(
+    private sys: SystemService
   ) {
 
   }
 
   public ngOnInit() {
+     
+  }
+
+  public ngAfterViewChecked(){
+    $(".cm-nav-login").click(function(){
+          $('.cm-login-black').show(); 
+          $('.cm-login').show(); 
+        });
   }
 }

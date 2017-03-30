@@ -25,8 +25,9 @@ declare var $;
 })
 export class LoginMainComponent implements OnInit {
 
-    public user: User;
-    public authFail: boolean;
+    private user: User;
+    private authFail: boolean;
+    private activated: boolean;
     private result: string;
 
     constructor(
@@ -45,6 +46,7 @@ export class LoginMainComponent implements OnInit {
 
     public init() {
         this.authFail = false;
+        this.activated = false;
         this.initUser();
     }
 
@@ -54,6 +56,7 @@ export class LoginMainComponent implements OnInit {
         $('.cm-nav-login').click(() => {
             that.init();
         });
+
     }
 
 
@@ -62,12 +65,27 @@ export class LoginMainComponent implements OnInit {
         this.result = await this.loginService.login(this.user.username, this.user.password);
         if (this.result === 'succuss') {
             this.authFail = false;
-            $('.cm-login-black').hide(); 
-            $('.cm-login').hide(); 
+            $('.cm-login-black').hide();
+            $('.cm-login').hide();
+            this.initUser();
         } else {
             console.log(this.result);
             this.authFail = true;
         }
+        return false;
+    }
+
+    public setVisible(activated: boolean) {
+        if (activated) {
+            return {
+                visibility: 'visible'
+            };
+        }
+        return {
+            visibility: 'hidden',
+            height: '10px'
+        };
+
     }
 
     private handleError(err: any) {

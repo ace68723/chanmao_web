@@ -8,7 +8,7 @@ const succuss = {
 
 const fail = {
     errorcode: 1,
-    message: "login fail",
+    message: "singup fail",
     result: 1,
     token: "token_fail",
     uid: "123"

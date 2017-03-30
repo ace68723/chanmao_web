@@ -13,7 +13,7 @@ import { NewPasswordComponent } from './newPassword';
 import { PasswordMesComponent } from './forgetPassword/passwordMes';
 import { ForgetPasswordComponent } from './forgetPassword';
 import { LoginOthersComponent } from './loginOthers/loginOthers.component';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
 
 export const loginComponents = [
   LoginComponent,
@@ -35,7 +35,8 @@ const routes: Routes = [
   declarations: loginComponents,
   imports: [ // import Angular's modules
     SharedModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     // RouterModule.forChild(routes)
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

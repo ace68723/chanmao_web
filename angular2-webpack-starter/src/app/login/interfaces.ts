@@ -17,3 +17,12 @@ export interface LoginResult {
     token: string;
     uid: string;
 }
+
+
+export interface SignupObject {
+    username: string;
+    password: string;
+    os: string;
+    version: string;
+    email: string
+}

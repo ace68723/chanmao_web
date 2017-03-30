@@ -1,7 +1,8 @@
 import {
   Component,
   OnInit,
-  Input
+  Input,
+  AfterViewChecked
 } from '@angular/core';
 
 declare var $: any
@@ -20,7 +21,7 @@ declare var $: any
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
   templateUrl: './login.component.html'
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,AfterViewChecked {
   // Set our default values
   public localState = { value: '' };
 
@@ -54,10 +55,10 @@ private JQlogin() {
         $(".cm-popup").css('left', ($(window).width() - $(".cm-popup").width())/2 + "px");
 
 
-        $(".cm-nav-login").click(function(){
-          $('.cm-login-black').show(); 
-          $('.cm-login').show(); 
-        });
+        // $(".cm-nav-login").click(function(){
+        //   $('.cm-login-black').show(); 
+        //   $('.cm-login').show(); 
+        // });
 
         $(".cm-btn-login").click(function(){
           $('.cm-login').show(); 
@@ -106,5 +107,9 @@ private JQlogin() {
 
   public ngOnInit() {
     this.JQlogin();
+  }
+
+  public ngAfterViewChecked(){
+    
   }
 }

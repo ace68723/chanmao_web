@@ -1,0 +1,59 @@
+import {
+    SystemService
+} from './../../../services/system.service';
+import {
+    SignupObject,
+    LoginResult
+} from '../../interfaces';
+import {
+    Injectable
+} from '@angular/core';
+import AuthModule from './auth.js';
+
+
+
+@Injectable()
+export class SignupService {
+    
+    private loginObject: SignupObject = {
+        username: '',
+        password: '',
+        os: '',
+        version: '',
+        email: ''
+    };
+
+    private loginResult: LoginResult = {
+        errorcode: -1,
+        message: '',
+        result: -1,
+        token: '',
+        uid: ''
+    };
+
+    constructor(
+        private systemService: SystemService,
+    ) {
+        
+    }
+        
+
+    public async signup(username: string, password: string){
+        this.loginObject.username = username;
+        this.loginObject.password = password;
+        this.loginObject.os = this.systemService.getOS();
+        this.loginObject.version = this.systemService.getVersion();
+        console.log('this is object: ');
+        console.log(this.loginObject);
+        this.loginResult = await AuthModule.appLogin(this.loginObject);
+        if (this.loginResult.result === 1) {
+            //console.log(this.loginResult.message);
+            return this.loginResult.message;
+        }
+        console.log('this is result: ');
+        console.log(this.loginResult);
+        this.systemService.saveToken(this.loginResult.token);
+        this.systemService.saveUid(this.loginResult.uid);
+        return 'succuss';
+    }
+}

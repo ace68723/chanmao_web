@@ -8,10 +8,17 @@ import {
 } from '@angular/core';
 
 @Injectable()
-export class SystemService {
+export class SystemService  {
     private curVersion: string = '1.0';
     private userToken: string = '';
     private curUid: string = '';
+
+    constructor(
+  ) {
+    this.curVersion = '1.0';
+    this.userToken = '';
+    this.curUid = '';
+  }
 
     public getOS(): string {
         return navigator.appCodeName + '' + navigator.appVersion;
@@ -26,6 +33,9 @@ export class SystemService {
             return false;
         }
         return true;
+    }
+    public logout(): void {
+        this.userToken = '';
     }
 
     public saveToken(token: string): void {
