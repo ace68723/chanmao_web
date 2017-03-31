@@ -2,7 +2,7 @@
 // Project: http://lodash.com/
 // Definitions by: Brian Zengel <https://github.com/bczengel>, Ilya Mochalov <https://github.com/chrootsu>, Stepan Mikhaylyuk <https://github.com/stepancar>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 2.1
+// TypeScript Version: 2.2
 
 /**
 ### 4.0.0 Changelog (https://github.com/lodash/lodash/wiki/Changelog)
@@ -2677,6 +2677,57 @@ declare namespace _ {
             value: TResult,
             fromIndex?: boolean|number
         ): LoDashExplicitWrapper<number>;
+    }
+
+    //_.nth
+    interface LoDashStatic {
+        /**
+         * Gets the element at index `n` of `array`. If `n` is negative, the nth element from the end is returned.
+         *
+         * @param array array The array to query.
+         * @param value The index of the element to return.
+         * @return Returns the nth element of `array`.
+         */
+        nth<T>(
+            array: List<T>,
+            n?: number
+        ): T;
+    }
+
+    interface LoDashImplicitArrayWrapper<T> {
+        /**
+         * @see _.nth
+         */
+        nth(
+            n?: number
+        ): T;
+    }
+
+    interface LoDashImplicitObjectWrapper<T> {
+        /**
+         * @see _.nth
+         */
+        nth<TResult>(
+            n?:number
+        ): TResult;
+    }
+
+    interface LoDashExplicitArrayWrapper<T> {
+        /**
+         * @see _.nth
+         */
+        nth(
+            n?:number
+        ): LoDashExplicitWrapper<T>;
+    }
+
+    interface LoDashExplicitObjectWrapper<T> {
+        /**
+         * @see _.nth
+         */
+        nth<TResult>(
+            n?:number
+        ): LoDashExplicitWrapper<TResult>;
     }
 
     //_.pull
@@ -11202,7 +11253,7 @@ declare namespace _ {
     }
 
     //_.cloneDeepWith
-    type CloneDeepWithCustomizer<TValue, TResult> = (value: TValue) => TResult;
+    type CloneDeepWithCustomizer<TValue, TResult> = (value: TValue, key?: number|string, object?: any, stack?: any) => TResult;
 
     interface LoDashStatic {
         /**
@@ -11323,7 +11374,7 @@ declare namespace _ {
     }
 
     //_.cloneWith
-    type CloneWithCustomizer<TValue, TResult> = (value: TValue) => TResult;
+    type CloneWithCustomizer<TValue, TResult> = (value: TValue, key?: number|string, object?: any, stack?: any) => TResult;
 
     interface LoDashStatic {
         /**
@@ -12708,7 +12759,7 @@ declare namespace _ {
          * @param value The value to check.
          * @returns Returns true if value is correctly classified, else false.
          */
-        isWeakMap<K, V>(value?: any): boolean;
+        isWeakMap<K extends object, V>(value?: any): value is WeakMap<K, V>;
     }
 
     interface LoDashImplicitWrapperBase<T, TWrapper> {
@@ -19453,4 +19504,5 @@ declare global {
     interface Set<T> { }
     interface Map<K, V> { }
     interface WeakSet<T> { }
+    interface WeakMap<K extends object, V> { }
 }

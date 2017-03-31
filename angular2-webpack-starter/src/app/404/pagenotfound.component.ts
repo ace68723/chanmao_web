@@ -4,7 +4,6 @@ import {
 } from '@angular/core';
 
 
-import {Option} from "./interfaces";
 
 @Component({
   // The selector is what angular internally uses

@@ -25,6 +25,7 @@ p, label,a,button{
 	font-size: 14px;
 	color: #727272;
 	font-family: Yuanti SC;
+	font-weight: 400;
 }
 
 .cm-menu-dish:hover,.cm-res-item:hover,.cm-his-item:hover,.cm-recommend-item:hover{
@@ -1130,4 +1131,7 @@ input[type='radio']:checked{
 	.cm-info-content{
 		margin-left: 10px;
 	}
+}
+[hidden] {
+  display: none;
 }

@@ -1,3 +1,4 @@
+import { SharedModule } from '../shared/shared.module';
 import { MyOrderModule } from './myOrder/myOrder.module';
 import {
   NgModule,
@@ -12,7 +13,8 @@ import { USER_ROUTES, userComponents} from './user.routes';
   declarations: userComponents,
   imports: [ // import Angular's modules
     RouterModule.forChild(USER_ROUTES),
-    MyOrderModule
+    MyOrderModule,
+    SharedModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
 

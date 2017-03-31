@@ -1,41 +1,41 @@
 <div class="cm-popup cm-signup">
   <div class="container" style="margin-top:20px;width: 100%">
-    <div class="col-xs-6" style="z-index: 100">
+    <form [formGroup]='signupForm' (ngSubmit)="signupForm.valid" novalidate>
+    <div  class="col-xs-6" style="z-index: 100">
       <h2>使用邮箱注册</h2>
       <div class="inner-addon left-addon" style="position: relative;margin-top:30px;height:36px;max-width:250px;width:100%;">
-        <input type="text" placeholder="设置用户名" style="height:36px;width:100%;" />
+        <input type="text" formControlName="username" placeholder="设置用户名" style="height:36px;width:100%;" />
       </div>
-      <p style="color: white;background-image: url(images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">用户名已存在</p>
+      <p *ngIf="signupForm.controls.username.hasError('required') && signupForm.controls.username.touched" style="color: white;background-image: url(images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">请输入用户名</p>
+      <p *ngIf="usernameRepeated" style="color: white;background-image: url(images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">用户名已存在</p>
       <div class="inner-addon left-addon" style="position: relative;margin-top:10px;height:36px;max-width:250px;width:100%;">
-        <input type="text" placeholder="设置密码" style="height:36px;width:100%;" />
+        <input type="password" formControlName="password" placeholder="设置密码" style="height:36px;width:100%;" />
       </div>
-      <p style="color: white;background-image: url(images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">请输入密码</p>
+      <p *ngIf="signupForm.controls.password.hasError('required') && signupForm.controls.password.touched" style="color: white;background-image: url(images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">请输入密码</p>
       <div class="inner-addon left-addon" style="position: relative;margin-top:10px;height:36px;max-width:250px;width:100%;">
-        <input type="text" placeholder="确认密码" style="height:36px;width:100%;" />
+        <input type="password" formControlName="confirmPassword" placeholder="确认密码" style="height:36px;width:100%;" />
       </div>
-      <p style="color: white;background-image: url(../../images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">密码不一致</p>
+      <p *ngIf="(signupForm.controls.confirmPassword.hasError('required') || signupForm.hasError('mismatchedPasswords')) && signupForm.controls.confirmPassword.touched" style="color: white;background-image: url(../../images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">密码不一致</p>
       <div class="inner-addon left-addon" style="position: relative;margin-top:10px;height:36px;max-width:250px;width:100%;">
-        <input type="text" placeholder="电子邮箱地址" style="height:36px;width:100%;" />
+        <input type="email" formControlName="email" placeholder="电子邮箱地址" style="height:36px;width:100%;" />
       </div>
-      <p style="color: white;background-image: url(../../images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">邮箱不存在</p>
-      <button (click)='signupSuccess()' class="cm-btn-welcome" style="color: white;font-size: 16px;border:none;background-color: #ea7b21;width: 250px;padding: 5px 0;margin-top:20px">注册</button>
+      <div *ngIf="signupForm.controls.email.touched">
+      <p *ngIf="signupForm.controls.email.hasError('required')" style="color: white;background-image: url(images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">请输入电子邮箱</p>
+      <p *ngIf="signupForm.controls.email.hasError('invalidEmail')" style="color: white;background-image: url(../../images/alert.png);width: 130px;height:36px;background-size:100%;padding: 6px 15px;position: absolute;margin-left: 260px;margin-top:-35px">邮箱不存在</p>
+      </div>
+      <button [disabled]='!signupForm.valid' class="cm-btn-welcome" style="color: white;font-size: 16px;border:none;background-color: #ea7b21;width: 250px;padding: 5px 0;margin-top:20px">注册</button>
     </div>
+    </form>
     <div class="col-xs-1">
       <div style="border-left:1px solid rgb(238,238,238);height:250px;margin-top: 50px;"></div>
     </div>
     <div class="col-xs-5">
       <h2 style="margin-top: 50px;margin-bottom: 0">已经注册过了？</h2>
       <div style="display: flex;align-items: baseline;">
-        <h2>请点击</h2><button (click)='login()' class="cm-btn-login" style="color: #ea7b21;font-size: 18px;border:none;background:none">直接登录</button></div>
-      <div style="display: flex;justify-content: space-between;margin: 100px 0 10px 0">
-        <hr style="width: 18%;margin-top: 10px" />
-        <p>可使用以下账号直接登录</p>
-        <hr style="width: 18%;margin-top: 10px" />
-      </div>
-      <div style="display: flex;justify-content: space-around;margin: 10px 0">
-        <a href=""><img src="../../images/wechat.png" style="width: 35px"></a>
-        <a href=""><img src="../../images/sina.png" style="width: 35px"></a>
-      </div>
+        <h2>请点击</h2><button class="cm-btn-login" style="color: #ea7b21;font-size: 18px;border:none;background:none">直接登录</button></div>
+      <!--<login-others style="margin: 100px 0 10px 0"> </login-others>-->
+      <div login-others style="margin: 100px 0 10px 0"> </div>
     </div>
   </div>
+  <pre>{{signupForm.value | json}}</pre>
 </div>

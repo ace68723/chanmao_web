@@ -1,3 +1,5 @@
+import { SystemService } from './services/system.service';
+import { LoginService } from './login/loginMain/loginService/login.service';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login';
 import { PageNotFoundComponent } from './404';
@@ -38,9 +40,8 @@ import { AppState, InternalStateType } from './app.service';
 // import { LoginComponent } from './login';
 // import { InfoComponent } from './info';
 import { HomeComponent } from './home';
-// import '../styles/styles.scss';
-// import '../styles/headings.css';
-import {Ng2UiAuthModule, CustomConfig} from 'ng2-ui-auth';
+import { FooterComponent } from './footer';
+import { NavComponent } from './nav';
 
 
 // Application wide providers
@@ -55,17 +56,7 @@ type StoreType = {
   disposeOldHosts: () => void
 };
 
-export const API_URL = 'http://localhost:3001/';
-export const GOOGLE_CLIENT_ID = '1042688196722-0hcc8rscgt9j0lcueuqsp0iqs175j6ud.apps.googleusercontent.com';
-export class MyAuthConfig extends CustomConfig {
-    defaultHeaders = {'Content-Type': 'application/json'};
-    providers = {google: {clientId: GOOGLE_CLIENT_ID,
-                           //url: API_URL+'auth/google'
-                          }};
-    baseUrl = API_URL;
-    // loginUrl = API_URL + '/auth/login';
-    // signupUrl = API_URL + '/auth/signup';
-}
+
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -74,8 +65,10 @@ export class MyAuthConfig extends CustomConfig {
   bootstrap: [ AppComponent ],
   declarations: [
     AppComponent,
+    NavComponent,
+    FooterComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
     
 ],
   imports: [ // import Angular's modules
@@ -87,14 +80,17 @@ export class MyAuthConfig extends CustomConfig {
     RestaurantModule,
     SharedModule,
     // InfoModule,
-    Ng2UiAuthModule.forRoot(MyAuthConfig),
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
     
 
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    SystemService,
+    LoginService,
+    
+    
   ]
 })
 export class AppModule {

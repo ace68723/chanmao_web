@@ -13,7 +13,7 @@ import {
 
 
 
-declare var $: any
+declare var $: any;
 
 /*
  * App Component
@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
     $(document).ready(function () {
 
       // hide .navbar first
-      $("#cm-res-2").hide();
+      $('#cm-res-2').hide();
       // fade in .navbar
       $(function () {
         $(window).scroll(function () {
@@ -59,37 +59,37 @@ export class AppComponent implements OnInit {
         });
       });
 
-      $(".cm-nav-app").hover(function () {
+      $('.cm-nav-app').hover(function () {
           $('.cm-nav-qr').show();
         },
         function () {
           $('.cm-nav-qr').hide();
         });
 
-        //current location
+        // current location
 
-        $(".cm-btn-change").click(function(e){
+      $('.cm-btn-change').click(function(e){
           TBox(this);
         });
 
-        $(".cm-res-address input").blur(function(e){
+      $('.cm-res-address input').blur(function(e){
           RBox(this);
         });
 
-        function TBox(obj) {
-                var input = $(obj).parent().find("input");
-                var span = $(obj).parent().find("span");
+      function TBox(obj) {
+                let input = $(obj).parent().find('input');
+                let span = $(obj).parent().find('span');
                 input.attr('value', span.text()).show().focus();
-                span.hide();}
+                span.hide(); }
 
-        function RBox(obj) {
-                var input = $(".cm-res-address input");
-                var span = $(".cm-res-address span");
+      function RBox(obj) {
+                let input = $('.cm-res-address input');
+                let span = $('.cm-res-address span');
                 span.text(input.val());
                 span.show();
-                input.hide();}
+                input.hide(); }
 
-        $(".cm-nav-app").hover(function(){
+      $('.cm-nav-app').hover(function(){
                   $('.cm-nav-qr').show(); }
                 ,
                   function(){ $('.cm-nav-qr').hide();
@@ -105,9 +105,6 @@ export class AppComponent implements OnInit {
     this.JQfunction();
   }
 
-  public hideSearchBar() {
-    $("#cm-res-2").hide();
-  }
 }
 
 
