@@ -164,7 +164,7 @@ input:focus{
 
 .cm-nav-user{
 	margin: auto 0;
-	height: 70px;
+	/*height: 70px;*/
 	text-align: center;
 }
 
@@ -202,16 +202,6 @@ input:focus{
 
 .cm-footer p{
 	color: #999999;
-}
-
-/*login*/
-.cm-popup{
-	padding: 10px;
-	background-color: white;
-	width: 796px;
-	height: 519px;
-	position: fixed;
-	z-index: 1004;
 }
 
 /*choose restaurant*/
