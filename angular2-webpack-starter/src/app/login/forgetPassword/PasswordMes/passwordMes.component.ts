@@ -11,7 +11,7 @@ import {User} from '../interfaces';
   selector: 'password-mes',
   styles: [`
   `],
-  templateUrl: 'passwordMes.html'
+  templateUrl: 'passwordMes.component.html'
 })
 export class PasswordMesComponent implements OnInit {
 

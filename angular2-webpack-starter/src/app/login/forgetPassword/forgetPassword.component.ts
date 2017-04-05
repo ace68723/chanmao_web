@@ -14,7 +14,7 @@ declare let $: any;
   selector: 'forget-password',
   styles: [`
   `],
-  templateUrl: 'forgetPassword.html'
+  templateUrl: 'forgetPassword.component.html'
 })
 export class ForgetPasswordComponent implements OnInit {
   
@@ -42,7 +42,7 @@ export class ForgetPasswordComponent implements OnInit {
 
   public ngOnInit() {
     this.isEmailValid = true;
-    this.forgetPasForm.valueChanges.subscribe(data => {
+    this.forgetPasForm.valueChanges.subscribe(data => {   
       this.isEmailValid = true;
     })
   }

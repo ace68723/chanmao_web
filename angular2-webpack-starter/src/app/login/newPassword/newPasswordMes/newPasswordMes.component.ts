@@ -11,7 +11,7 @@ import {User} from '../interfaces';
   selector: 'new-password-mes',
   styles: [`
   `],
-  templateUrl: 'newPasswordMes.html'
+  templateUrl: 'newPasswordMes.component.html'
 })
 export class NewPasswordMesComponent implements OnInit {
 
