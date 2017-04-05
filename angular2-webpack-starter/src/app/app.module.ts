@@ -70,19 +70,19 @@ type StoreType = {
     FooterComponent,
     HomeComponent,
     PageNotFoundComponent,
-    
+
 ],
   imports: [ // import Angular's modules
     BrowserModule,
     FormsModule,
     HttpModule,
-    HomeModule,
     LoginModule,
+    HomeModule,
     RestaurantModule,
     SharedModule,
     // InfoModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
-    
+
 
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
@@ -90,8 +90,13 @@ type StoreType = {
     APP_PROVIDERS,
     SystemService,
     LoginService,
+<<<<<<< Updated upstream
     SignupService
     
+=======
+
+
+>>>>>>> Stashed changes
   ]
 })
 export class AppModule {

@@ -10,7 +10,7 @@
 
 .cm-popup-alert{
 	color: white;
-	background-image: url(images/alert.png);
+	background-image: url(../../images/alert.png);
 	width: 130px;
 	height:36px;
 	background-size:100%;
@@ -56,9 +56,10 @@
 	margin: 10px 0;
 }
 
-.cm-popup-derict{
+.cm-popup-direct{
 	color: #ea7b21;
 	font-size: 18px;
 	border:none;
 	background:none;
+	outline: none;
 }

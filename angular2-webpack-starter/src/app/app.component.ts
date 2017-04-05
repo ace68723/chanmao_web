@@ -22,9 +22,9 @@ declare var $: any;
 @Component({
   selector: 'app',
   encapsulation: ViewEncapsulation.None,
-  styleUrls: [
-    './app.component.css'
-  ],
+  // styleUrls: [
+  //   './login/chanmao-popup.css',
+  // ],
   templateUrl: 'app.component.html'
 
 })
