@@ -30,7 +30,7 @@ declare let $ : any;
   selector: 'signup',
   styles: [`
   `],
-  templateUrl: 'signup.html'
+  templateUrl: 'signup.component.html'
 })
 
 export class SignupComponent implements OnInit {

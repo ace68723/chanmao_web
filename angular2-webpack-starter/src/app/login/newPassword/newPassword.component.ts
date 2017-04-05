@@ -11,7 +11,7 @@ import {User} from '../interfaces';
   selector: 'new-password',
   styles: [`
   `],
-  templateUrl: 'newPassword.html'
+  templateUrl: 'newPassword.component.html'
 })
 export class NewPasswordComponent implements OnInit {
 

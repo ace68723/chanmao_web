@@ -10,7 +10,7 @@ import {User} from '../interfaces';
   selector: 'signup-success',
   styles: [`
   `],
-  templateUrl: 'signupSuccess.html'
+  templateUrl: 'signupSuccess.component.html'
 })
 export class SignupSuccessComponent implements OnInit {
 
