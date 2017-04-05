@@ -34,7 +34,11 @@ const AuthModule = {
        const data = {username,password,deviceToken};
        const userInfo = formatLogin(data);
        const loginResult = await AuthApi.AppLogin(userInfo);
-       return loginResult
+       const eo_result = {
+         result: loginResult.result,
+         message: loginResult.message
+       }
+       return eo_result
      }catch(e){
 
      }
