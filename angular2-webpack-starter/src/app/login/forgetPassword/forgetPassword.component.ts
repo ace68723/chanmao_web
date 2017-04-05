@@ -1,10 +1,14 @@
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   Component,
   OnInit,
-  Input
+  Input,
+  OnChanges
 } from '@angular/core';
 import { ActivatedRoute,Router} from '@angular/router';
-import {User,} from '../interfaces';
+import { emailValidator } from '../signup/validators/validators';
+
+declare let $: any;
 
 @Component({
   selector: 'forget-password',
@@ -13,18 +17,42 @@ import {User,} from '../interfaces';
   templateUrl: 'forgetPassword.html'
 })
 export class ForgetPasswordComponent implements OnInit {
+  
+  private forgetPasForm: FormGroup;
+  private email: FormControl = new FormControl('', Validators.compose(
+    [Validators.required, emailValidator]));
 
+  private isEmailValid;
 
-  public localState: any;
   constructor(
     public route: ActivatedRoute,
-    private router:Router,
-  ) {}
+    private router: Router,
+  ) {
+    this.forgetPasForm = new FormGroup({
+      email: this.email
+    })
+  }
 
-
+  public forgetPas(formValues){
+     this.isEmailValid = false;
+     if(this.isEmailValid ){
+       this.next();
+     }
+  }
 
   public ngOnInit() {
+    this.isEmailValid = true;
+    this.forgetPasForm.valueChanges.subscribe(data => {
+      this.isEmailValid = true;
+    })
+  }
 
+
+  public next(){
+    $(".cm-popup-next").click(function(){
+          $('.cm-password-mes').show();
+          $('.cm-password').hide();
+        });
   }
 
 }

@@ -19,7 +19,10 @@ declare var $: any
   // Our list of styles in our component. We may add more to compose many styles together
 
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  // styleUrls: [
+  //   ''
+  // ]
 })
 export class LoginComponent implements OnInit,AfterViewChecked {
   // Set our default values
@@ -60,7 +63,7 @@ private JQlogin() {
         //   $('.cm-login').show();
         // });
 
-        $(".cm-btn-login").click(function(){
+        $(".cm-popup-login").click(function(){
           $('.cm-login').show();
           $('.cm-signup').hide();
         });
@@ -70,23 +73,13 @@ private JQlogin() {
           $('.cm-password').show();
         });
 
-        $(".cm-btn-signup").click(function(){
+        $(".cm-popup-signup").click(function(){
           $('.cm-login').hide();
           $('.cm-password').hide();
           $('.cm-signup').show();
         });
-
-        $(".cm-btn-next").click(function(){
-          $('.cm-password-mes').show();
-          $('.cm-password').hide();
-        });
-
-        $(".cm-btn-welcome").click(function(){
-          $('.cm-welcome').show();
-          $('.cm-signup').hide();
-        });
-
-        $(".cm-btn-newpass").click(function(){
+        
+        $(".cm-popup-newpass").click(function(){
           $('.cm-newpass-mes').show();
           $('.cm-new-password').hide();
         });

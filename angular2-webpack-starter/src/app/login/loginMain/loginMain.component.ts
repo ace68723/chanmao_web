@@ -5,7 +5,9 @@ import {
     Component,
     OnInit,
     Input,
-    OnChanges
+    OnChanges,
+    ViewChild,
+    AfterViewInit
 } from '@angular/core';
 import {
     ActivatedRoute,
@@ -14,6 +16,8 @@ import {
 import {
     User
 } from '../interfaces';
+import {NgForm} from '@angular/forms';
+
 
 declare var $;
 
@@ -23,7 +27,8 @@ declare var $;
   `],
     templateUrl: 'loginMain.component.html'
 })
-export class LoginMainComponent implements OnInit {
+export class LoginMainComponent implements OnInit,AfterViewInit{
+    @ViewChild('loginForm') currentForm: NgForm;
 
     private user: User;
     private authFail: boolean;
@@ -40,13 +45,14 @@ export class LoginMainComponent implements OnInit {
         this.result = '';
         this.user = {
             username: '',
-            password: ''
+            password: '',
+            email: '',
         };
     }
 
     public init() {
         this.authFail = false;
-        this.activated = false;
+        this.activated = true;
         this.initUser();
     }
 
@@ -56,40 +62,46 @@ export class LoginMainComponent implements OnInit {
         $('.cm-nav-login').click(() => {
             that.init();
         });
-
     }
 
-
-    public async login(formValues) {
-        console.log(formValues);
-        this.result = await this.loginService.login(this.user.username, this.user.password);
-        if (this.result === 'succuss') {
-            this.authFail = false;
-            $('.cm-login-black').hide();
-            $('.cm-login').hide();
-            this.initUser();
-        } else {
-            console.log(this.result);
-            this.authFail = true;
+    public ngAfterViewInit() {
+        this.currentForm.valueChanges.subscribe(data => {
+                this.authFail = false;
+            })
         }
-        return false;
-    }
 
-    public setVisible(activated: boolean) {
-        if (activated) {
+
+        public async login(formValues) {
+            console.log(formValues.username);
+            this.user.username = formValues.username;
+            this.user.password = formValues.password;
+            this.result = await this.loginService.login(this.user);
+            if (this.result === 'succuss') {
+                this.authFail = false;
+                $('.cm-login-black').hide();
+                $('.cm-login').hide();
+                this.initUser();
+            } else {
+                console.log(this.result);
+                this.authFail = true;
+            }
+        }
+
+        public setVisible(activated: boolean) {
+            if (!activated) {
+                return {
+                    visibility: 'visible'
+                };
+            }
             return {
-                visibility: 'visible'
+                visibility: 'hidden',
+                height: '10px'
             };
+
         }
-        return {
-            visibility: 'hidden',
-            height: '10px'
-        };
+
+        private handleError(err: any) {
+            console.log('could not login');
+        }
 
     }
-
-    private handleError(err: any) {
-        console.log('could not login');
-    }
-
-}

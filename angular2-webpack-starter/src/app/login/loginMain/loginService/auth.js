@@ -16,13 +16,19 @@ const fail = {
 
 const AuthModule = {
     appLogin(loginInfo) {
-        return new Promise((resolve, reject) => {
+        if (loginInfo.username == '123'){
+            return new Promise((resolve, reject) => {
             setTimeout(function () {
                 resolve(succuss);
             }, 1000);
         })
+        }
+        return new Promise((resolve, reject) => {
+            setTimeout(function () {
+                resolve(fail);
+            }, 1000);
+        })
     }
-
 }
 
 module.exports = AuthModule;

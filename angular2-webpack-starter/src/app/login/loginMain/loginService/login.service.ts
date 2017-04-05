@@ -1,3 +1,4 @@
+import { User } from './../../interfaces';
 import {
     SystemService
 } from './../../../services/system.service';
@@ -32,9 +33,9 @@ export class LoginService {
         private systemService: SystemService,
     ) {}
 
-    public async login(username: string, password: string){
-        this.loginObject.username = username;
-        this.loginObject.password = password;
+    public async login(user: User){
+        this.loginObject.username = user.username;
+        this.loginObject.password = user.password;
         this.loginObject.os = this.systemService.getOS();
         this.loginObject.version = this.systemService.getVersion();
         console.log('this is object: ');

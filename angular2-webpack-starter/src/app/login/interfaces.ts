@@ -1,6 +1,7 @@
 export interface User {
     username: string;
     password: string;
+    email: string;
 }
 
 export interface LoginObject {
@@ -18,11 +19,19 @@ export interface LoginResult {
     uid: string;
 }
 
+export interface SignupResult {
+    errorcode: number;
+    message: string;
+    result: number;
+    token: string;
+    uid: string;
+}
+
 
 export interface SignupObject {
     username: string;
     password: string;
     os: string;
     version: string;
-    email: string
+    email: string;
 }
