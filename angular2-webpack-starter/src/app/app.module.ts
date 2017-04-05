@@ -1,3 +1,4 @@
+import { SignupService } from './login/signup/signupService/signup.service';
 import { SystemService } from './services/system.service';
 import { LoginService } from './login/loginMain/loginService/login.service';
 import { SharedModule } from './shared/shared.module';
@@ -89,7 +90,7 @@ type StoreType = {
     APP_PROVIDERS,
     SystemService,
     LoginService,
-    
+    SignupService
     
   ]
 })

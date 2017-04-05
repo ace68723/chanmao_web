@@ -1,3 +1,4 @@
+import { User } from './../../interfaces';
 import {
     SystemService
 } from './../../../services/system.service';
@@ -15,7 +16,7 @@ import AuthModule from './auth.js';
 @Injectable()
 export class SignupService {
     
-    private loginObject: SignupObject = {
+    private signupObject: SignupObject = {
         username: '',
         password: '',
         os: '',
@@ -38,19 +39,20 @@ export class SignupService {
     }
         
 
-    public async signup(username: string, password: string){
-        this.loginObject.username = username;
-        this.loginObject.password = password;
-        this.loginObject.os = this.systemService.getOS();
-        this.loginObject.version = this.systemService.getVersion();
-        console.log('this is object: ');
-        console.log(this.loginObject);
-        this.loginResult = await AuthModule.appLogin(this.loginObject);
-        if (this.loginResult.result === 1) {
-            //console.log(this.loginResult.message);
+    public async signup(user: User){
+        console.log(user);
+        this.signupObject.username = user.username;
+        this.signupObject.password = user.password;
+        this.signupObject.os = this.systemService.getOS();
+        this.signupObject.version = this.systemService.getVersion();
+        this.signupObject.email = user.email;
+        console.log('this is signup object: ');
+        console.log(this.signupObject);
+        this.loginResult = await AuthModule.appLogin(this.signupObject);
+        if (this.loginResult.result === 1) {    
             return this.loginResult.message;
         }
-        console.log('this is result: ');
+        console.log('this is signup result: ');
         console.log(this.loginResult);
         this.systemService.saveToken(this.loginResult.token);
         this.systemService.saveUid(this.loginResult.uid);
