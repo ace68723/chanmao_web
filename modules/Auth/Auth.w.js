@@ -31,9 +31,14 @@ const AuthModule = {
        const username = io_data.username;
        const password = io_data.password;
        const deviceToken = io_data.deviceToken;
-       const data = {username,password,deviceToken};
+       const os = io_data.os;
+       const data = {username,password,deviceToken,os};
        const userInfo = formatLogin(data);
        const loginResult = await AuthApi.AppLogin(userInfo);
+      //  if(loginResult.result == 0){
+      //    localStorage.setItem("uid", "Smith");
+      //  }
+
        const eo_result = {
          result: loginResult.result,
          message: loginResult.message
@@ -49,10 +54,7 @@ module.exports = AuthModule;
 
 const formatLogin = (io_data) => {
   const userInfo = Object.assign({},{
-    // os:    navigator.appCodeName +" | " +
-    //        navigator.appVersion +" | " +
-    //        navigator.language +" | " +
-    //        navigator.userAgent,
+    os:io_data,
     deviceToken:'',
     username:io_data.username,
     password:io_data.password,
