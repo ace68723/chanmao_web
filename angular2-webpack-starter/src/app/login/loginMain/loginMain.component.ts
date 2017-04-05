@@ -23,8 +23,6 @@ declare var $;
 
 @Component({
     selector: 'login-main',
-    styles: [`
-  `],
     templateUrl: 'loginMain.component.html'
 })
 export class LoginMainComponent implements OnInit,AfterViewInit{
@@ -104,4 +102,8 @@ export class LoginMainComponent implements OnInit,AfterViewInit{
             console.log('could not login');
         }
 
+<<<<<<< Updated upstream
     }
+=======
+}
+>>>>>>> Stashed changes

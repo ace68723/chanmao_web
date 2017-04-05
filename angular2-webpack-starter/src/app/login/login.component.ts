@@ -2,7 +2,8 @@ import {
   Component,
   OnInit,
   Input,
-  AfterViewChecked
+  AfterViewChecked,
+  ViewEncapsulation
 } from '@angular/core';
 
 declare var $: any
@@ -17,12 +18,13 @@ declare var $: any
   providers: [
   ],
   // Our list of styles in our component. We may add more to compose many styles together
-
+  encapsulation: ViewEncapsulation.None,
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
+  styleUrls: [
+    './chanmao-popup.css',
+  ],
   templateUrl: './login.component.html',
-  // styleUrls: [
-  //   ''
-  // ]
+
 })
 export class LoginComponent implements OnInit,AfterViewChecked {
   // Set our default values
@@ -78,10 +80,26 @@ private JQlogin() {
           $('.cm-password').hide();
           $('.cm-signup').show();
         });
-        
+
+        $(".cm-popup-next").click(function(){
+          $('.cm-password-mes').show();
+          $('.cm-password').hide();
+        });
+
+        $(".cm-popup-welcome").click(function(){
+          $('.cm-welcome').show();
+          $('.cm-signup').hide();
+        });
+
         $(".cm-popup-newpass").click(function(){
           $('.cm-newpass-mes').show();
           $('.cm-new-password').hide();
+        });
+
+        $(".cm-popup-direct").click(function(){
+          $('.cm-login').show();
+          $('.cm-signup').hide();
+          $('.cm-password').hide();
         });
 
         $(".cm-nav-app").hover(function(){
