@@ -94,14 +94,14 @@ export class RestaurantComponent implements OnInit {
       $(".cm-pic-popup").css('top', ($(window).height() - $(".cm-pic-popup").height()) / 2 + "px");
       $(".cm-pic-popup").css('left', ($(window).width() - $(".cm-pic-popup").width()) / 2 + "px");
 
-      $(document).click(function (e) {
+      $(document).mousedown(function (e) {
 
         if ($(e.target).closest('.cm-item-popup').length != 0) return false;
         $('.cm-item-popup').hide();
         $('.cm-black').hide();
       });
 
-      $(document).click(function (e) {
+      $(document).mousedown(function (e) {
         if ($(e.target).closest('.cm-pic-popup').length != 0) return false;
         $('.cm-pic-popup').hide();
         $('.cm-black-pic').hide();
@@ -138,6 +138,6 @@ export class RestaurantComponent implements OnInit {
 
   public ngOnInit() {
     this.JQfunction();
-    
+
   }
 }

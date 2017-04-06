@@ -1,6 +1,5 @@
 <div class="cm-popup cm-signup">
-    <div class="container" style="margin-top:20px;
-  width: 100%">
+    <div class="container" style="margin-top:20px;padding-left:40px;width: 100%">
 
         <form [formGroup]='signupForm' (ngSubmit)="signup(signupForm.value)" class="col-xs-6" style="z-index: 100">
             <h2>使用邮箱注册</h2>
@@ -24,7 +23,7 @@
                 <p *ngIf="signupForm.controls.email.hasError('required')" class="cm-popup-alert">请输入电子邮箱</p>
                 <p *ngIf="signupForm.controls.email.hasError('invalidEmail')" class="cm-popup-alert">邮箱不存在</p>
             </div>
-            <button [disabled]='!signupForm.valid' class="cm-popup-login" style="width:250px;margin-top:10px">注册</button>
+            <button [disabled]='!signupForm.valid' class="cm-popup-welcome" style="width:250px;margin-top:15px">注册</button>
 
           </form>
 
@@ -41,5 +40,6 @@
         <!--<login-others style="margin: 100px 0 10px 0"> </login-others>-->
         <div login-others style="margin: 100px 0 10px 0"> </div>
     </div>
+
   </div>
 </div>

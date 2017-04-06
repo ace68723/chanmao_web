@@ -22,13 +22,13 @@
 
 .cm-popup-input{
 	position: relative;
-	margin-top:10px;
+	margin-top:15px;
 	height:36px;
 	max-width:250px;
 	width:100%;
 }
 
-.cm-popup-login,.cm-popup-next,.cm-popup-newpass{
+.cm-popup-login,.cm-popup-next,.cm-popup-newpass,.cm-popup-welcome{
 	color: white;
 	font-size: 16px;
 	border:none;

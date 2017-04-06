@@ -44,7 +44,7 @@ private JQlogin() {
         $('.cm-welcome').hide();
 
 
-        $(document).mouseup(function (e)
+        $(document).mousedown(function (e)
         {
             var container = $(".cm-popup");
 
@@ -86,10 +86,10 @@ private JQlogin() {
           $('.cm-password').hide();
         });
 
-        $(".cm-popup-welcome").click(function(){
-          $('.cm-welcome').show();
-          $('.cm-signup').hide();
-        });
+        // $(".cm-popup-welcome").click(function(){
+        //   $('.cm-welcome').show();
+        //   $('.cm-signup').hide();
+        // });
 
         $(".cm-popup-newpass").click(function(){
           $('.cm-newpass-mes').show();

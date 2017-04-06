@@ -12,12 +12,12 @@ declare let $: any;
 
 @Component({
   selector: 'forget-password',
-  styles: [`
+  styleUrls: [`https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
   `],
   templateUrl: 'forgetPassword.component.html'
 })
 export class ForgetPasswordComponent implements OnInit {
-  
+
   private forgetPasForm: FormGroup;
   private email: FormControl = new FormControl('', Validators.compose(
     [Validators.required, emailValidator]));
@@ -42,7 +42,7 @@ export class ForgetPasswordComponent implements OnInit {
 
   public ngOnInit() {
     this.isEmailValid = true;
-    this.forgetPasForm.valueChanges.subscribe(data => {   
+    this.forgetPasForm.valueChanges.subscribe(data => {
       this.isEmailValid = true;
     })
   }
