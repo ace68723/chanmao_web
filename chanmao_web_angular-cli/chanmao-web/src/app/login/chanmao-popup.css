@@ -10,7 +10,7 @@
 
 .cm-popup-alert{
 	color: white;
-	background-image: url(/images/alert.png);
+	background-image: url(../../images/alert.png);
 	width: 130px;
 	height:36px;
 	background-size:100%;

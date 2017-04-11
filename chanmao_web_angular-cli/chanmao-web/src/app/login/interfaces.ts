@@ -12,19 +12,19 @@ export interface LoginObject {
 }
 
 export interface LoginResult {
-    errorcode: number;
+    errorcode?: number;
     message: string;
     result: number;
-    token: string;
-    uid: string;
+    token?: string;
+    uid?: string;
 }
 
 export interface SignupResult {
-    errorcode: number;
+    errorcode?: number;
     message: string;
     result: number;
-    token: string;
-    uid: string;
+    token?: string;
+    uid?: string;
 }
 
 

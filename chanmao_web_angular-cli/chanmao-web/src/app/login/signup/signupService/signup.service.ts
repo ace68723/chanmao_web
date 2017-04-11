@@ -10,7 +10,7 @@ import {
     Injectable
 } from '@angular/core';
 import AuthModule from '../../../modules/Auth/Auth.w.js';
-
+// import AuthModule from './auth.js';
 
 @Injectable()
 export class SignupService {
@@ -24,11 +24,8 @@ export class SignupService {
     };
 
     private loginResult: LoginResult = {
-        errorcode: -1,
         message: '',
         result: -1,
-        token: '',
-        uid: ''
     };
 
     constructor(

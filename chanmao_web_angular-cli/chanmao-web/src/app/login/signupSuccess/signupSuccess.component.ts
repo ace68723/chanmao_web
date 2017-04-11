@@ -4,7 +4,7 @@ import {
   Input
 } from '@angular/core';
 import { ActivatedRoute,Router} from '@angular/router';
-import {User} from '../interfaces';
+ 
 
 @Component({
   selector: 'signup-success',

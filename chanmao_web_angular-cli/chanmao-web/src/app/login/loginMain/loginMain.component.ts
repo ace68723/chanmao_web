@@ -14,11 +14,11 @@ import {
     Router
 } from '@angular/router';
 import {
-    User
-} from '../interfaces';
-import {
     NgForm
 } from '@angular/forms';
+import {
+  User
+} from '../interfaces';
 
 
 declare var $;

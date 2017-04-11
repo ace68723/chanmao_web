@@ -5,7 +5,6 @@ import {
 } from '@angular/core';
 import { ActivatedRoute,Router} from '@angular/router';
 
-
 @Component({
   selector: 'password-mes',
   styles: [`
@@ -14,8 +13,6 @@ import { ActivatedRoute,Router} from '@angular/router';
 })
 export class PasswordMesComponent implements OnInit {
 
-
-  public localState: any;
   constructor(
     public route: ActivatedRoute,
     private router:Router,

@@ -25,7 +25,7 @@ const ERROR_STORE_MESSAGE     = ModuleConstants.ERROR_STORE_MESSAGE;
 
 let _token = "";
 
-export default class AuthModule {
+const AuthModule =  {
    async AppLogin(io_data){
      try{
        const username = io_data.username;
@@ -50,6 +50,7 @@ export default class AuthModule {
     }
 }
 
+module.exports = AuthModule;
 
 const formatLogin = (io_data) => {
   const userInfo = Object.assign({},{

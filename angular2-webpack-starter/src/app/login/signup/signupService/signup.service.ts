@@ -10,7 +10,7 @@ import {
     Injectable
 } from '@angular/core';
 import AuthModule from '../../../modules/Auth/Auth.w.js';
-
+// import AuthModule from './auth.js';
 
 
 @Injectable()
@@ -50,6 +50,7 @@ export class SignupService {
         console.log(this.signupObject);
         this.loginResult = await AuthModule.appLogin(this.signupObject);
         if (this.loginResult.result === 1) {    
+            console.log(this.loginResult.message);
             return this.loginResult.message;
         }
         console.log('this is signup result: ');

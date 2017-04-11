@@ -10,7 +10,8 @@ import {
     Injectable
 } from '@angular/core';
 import AuthModule from './../../../modules/Auth/Auth.w.js';
-
+// import AuthModule from './auth.js';
+// import AuthModule from '/Auth/Auth.w.js';
 
 @Injectable()
 export class LoginService {
@@ -22,11 +23,8 @@ export class LoginService {
     };
 
     private loginResult: LoginResult = {
-        errorcode: -1,
         message: '',
         result: -1,
-        token: '',
-        uid: ''
     };
 
     constructor(
