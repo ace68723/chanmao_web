@@ -22,7 +22,7 @@ export class SystemService {
     this.curVersion = '1.0';
     this.userToken = '';
     this.curUid = '';
-    this.curUser = null;
+    this.curUser = {username: ''};
   }
 
   public getOS(): string {
@@ -41,6 +41,7 @@ export class SystemService {
   }
   public logout(): void {
     this.userToken = '';
+    localStorage.removeItem('currentUser');
   }
 
   public saveToken(token: string): void {
@@ -68,6 +69,9 @@ export class SystemService {
     if (email) {
       this.curUser.email = email;
     }
+  }
+  public getCurUserInfo(): UserInfo {
+    return this.curUser;
   }
 
 }

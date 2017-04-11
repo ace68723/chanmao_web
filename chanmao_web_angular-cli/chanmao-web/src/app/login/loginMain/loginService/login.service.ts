@@ -45,8 +45,10 @@ export class LoginService {
         }
         console.log('this is result: ');
         console.log(this.loginResult);
-        this.systemService.saveToken(this.loginResult.token);
-        this.systemService.saveUid(this.loginResult.uid);
+        this.systemService.saveToken('token');
+        // this.systemService.saveUid(this.loginResult.uid);
+        // console.log(this.loginObject.username);
+        this.systemService.setCurUser(this.loginObject.username);
         return 'succuss';
     }
 }

@@ -108,7 +108,7 @@
         </li>
         <li *ngIf ='sys.isAuthenticated()' class="dropdown cm-nav-user">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <h3>用户名<img src="src/images/dropdown.png" style="height:15px"></h3>
+            <h3>{{sys.getCurUserInfo()?.username}} <img src="src/images/dropdown.png" style="height:15px"></h3>
           </a>
           <ul class="dropdown-menu" style="top:50px;left:-12px;min-width:100px">
             <li>

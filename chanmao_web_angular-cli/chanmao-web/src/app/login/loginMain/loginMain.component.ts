@@ -81,6 +81,7 @@ export class LoginMainComponent implements OnInit, AfterViewInit {
             $('.cm-login-black').hide();
             $('.cm-login').hide();
             this.initUser();
+
         } else {
             console.log(this.result);
             this.authFail = true;
