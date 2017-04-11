@@ -1,15 +1,15 @@
-import { User } from './../../interfaces';
 import {
     SystemService
 } from './../../../services/system.service';
 import {
     SignupObject,
-    LoginResult
+    LoginResult,
+    User 
 } from '../../interfaces';
 import {
     Injectable
 } from '@angular/core';
-import AuthModule from './auth.js';
+import AuthModule from '../../../modules/Auth/Auth.w.js';
 
 
 
@@ -17,7 +17,7 @@ import AuthModule from './auth.js';
 export class SignupService {
     
     private signupObject: SignupObject = {
-        username: '',
+        username: '',    
         password: '',
         os: '',
         version: '',

@@ -1,0 +1,39 @@
+<div class="cm-popup cm-login" style="padding-left:250px;padding-right:300px">
+  <!-- <div class="" role="document" style="margin-left:250px;width: 250px"> -->
+  <h2>登录</h2>
+
+  <div [ngStyle]="setVisible(activated)" class="cm-resend">
+    <p>您的邮箱还未激活</p>
+    <button class="cm-popup-resend">重新发送激活邮件。</button>
+  </div>
+  <div *ngIf='!activated'>
+  </div>
+  <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+    <div class="inner-addon left-addon cm-popup-input">
+      <i class="glyphicon glyphicon-user" style="margin-top:3px"></i>
+      <input type="text" name="username" required (ngModel)="username" placeholder="用户名/邮箱" style="height:36px;width:100%;"
+      />
+    </div>
+    <p *ngIf="loginForm.controls.username?.invalid && loginForm.controls.username?.touched" class="cm-popup-alert">请输入用户名</p>
+    <div class="inner-addon left-addon cm-popup-input">
+      <i class="glyphicon glyphicon-lock" style="margin-top:3px"></i>
+      <input type="password" name="password" required (ngModel)="password" placeholder="密码" style="height:36px;width:100%;"
+      />
+    </div>
+    <p *ngIf="loginForm.controls.password?.invalid && loginForm.controls.password?.touched" class="cm-popup-alert">请输入密码</p>
+    <p *ngIf='authFail&&loginForm.controls.password?.valid' class="cm-popup-alert">用户名或密码错误</p>
+    <div style="display: flex;justify-content: space-between;margin: 10px 0">
+      <label><input type="checkbox" name="remember" style="margin-right: 3px" />下次自动登入</label>
+      <a class="cm-forget" style="color: #ea7b21;border:none;background:none">忘记密码?</a>
+    </div>
+    <button [disabled]='!loginForm.valid' class="cm-popup-login">登录</button>
+  </form>
+
+  <hr/>
+  <div class="cm-popup-noaccount">
+    <p>还没有账号？</p>
+    <button class="cm-popup-signup">注册</button>
+  </div>
+  <div login-others style="margin: 10px 0"></div>
+  <!-- </div> -->
+</div>
