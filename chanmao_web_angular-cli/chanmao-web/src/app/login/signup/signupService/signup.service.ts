@@ -4,7 +4,7 @@ import {
 import {
     SignupObject,
     LoginResult,
-    User 
+    User
 } from '../../interfaces';
 import {
     Injectable
@@ -12,12 +12,11 @@ import {
 import AuthModule from '../../../modules/Auth/Auth.w.js';
 
 
-
 @Injectable()
 export class SignupService {
-    
+
     private signupObject: SignupObject = {
-        username: '',    
+        username: '',
         password: '',
         os: '',
         version: '',
@@ -35,9 +34,9 @@ export class SignupService {
     constructor(
         private systemService: SystemService,
     ) {
-        
+
     }
-        
+
 
     public async signup(user: User){
         console.log(user);
@@ -48,14 +47,14 @@ export class SignupService {
         this.signupObject.email = user.email;
         console.log('this is signup object: ');
         console.log(this.signupObject);
-        // this.loginResult = await AuthModule.AppLogin(this.signupObject);
-        // if (this.loginResult.result === 1) {    
-        //     return this.loginResult.message;
-        // }
-        // console.log('this is signup result: ');
-        // console.log(this.loginResult);
-        // this.systemService.saveToken(this.loginResult.token);
-        // this.systemService.saveUid(this.loginResult.uid);
+        this.loginResult = await AuthModule.AppLogin(this.signupObject);
+        if (this.loginResult.result === 1) {
+            return this.loginResult.message;
+        }
+        console.log('this is signup result: ');
+        console.log(this.loginResult);
+        this.systemService.saveToken(this.loginResult.token);
+        this.systemService.saveUid(this.loginResult.uid);
         return 'succuss';
     }
 }
