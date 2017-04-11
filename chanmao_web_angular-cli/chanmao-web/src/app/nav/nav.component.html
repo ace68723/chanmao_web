@@ -107,10 +107,10 @@
           <h3 style="margin-top:30px">登录\注册</h3>
         </li>
         <li *ngIf ='sys.isAuthenticated()' class="dropdown cm-nav-user">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-            <h3>{{sys.getCurUserInfo()?.username}} <img src="src/images/dropdown.png" style="height:15px"></h3>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="display:flex">
+            <h3 style="width:100px;overflow:scroll;margin-right:5px">{{sys.getCurUserInfo()?.username}}</h3> <img src="src/images/dropdown.png" style="height:15px">
           </a>
-          <ul class="dropdown-menu" style="top:50px;left:-12px;min-width:100px">
+          <ul class="dropdown-menu" style="top:50px;right:5px;min-width:100px">
             <li>
               <a [routerLink]="['/user/userinfo']" ><img src="src/images/profile.png" style="height:12px;margin-right:5px">个人信息</a>
             </li>
