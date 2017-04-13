@@ -5,6 +5,7 @@ import {
 
 
 import {Option} from "./interfaces";
+declare var $: any
 
 @Component({
   // The selector is what angular internally uses
@@ -33,7 +34,7 @@ export class ItemComponent implements OnInit {
   }
 
   public ngOnInit() {
-    
+    $('.cm-item-comment').focus();
   }
 
 }

@@ -1,4 +1,6 @@
 {
 "typescript.tsdk": "node_modules/typescript/lib/",
-"vsicons.presets.angular": true
+"vsicons.presets.angular": true,
+"angulardoc.repoId": "6d18b10f-bcc0-45eb-b1b8-fccfa5d976a6",
+"angulardoc.lastSync": 1491932634744
 }

@@ -1,0 +1,45 @@
+## Auth API - appLogin 调用参数
+
+| Tables | description |
+| :----: | :---------: |
+| method |  appLogin   |
+| 是否需要登录 |      否      |
+| 授权访问限制 |     暂无      |
+
+
+传入参数:
+
+| name(5)  |  type  | description |
+| :------: | :----: | :---------: |
+| username | string |     用户名     |
+| password | string |     密码      |
+|    os    | string |   浏览器版本信息   |
+|   uuid   | string |    ?待验证     |
+| version  | string |  当前web 版本   |
+
+
+
+返回参数说明:
+
+| name (5)  |  type  |     description     |
+| :-------: | :----: | :-----------------: |
+| errorcode | number | 内部error标记，无error时为0 |
+|  message  | string |  如果失败，返回message信息   |
+|  result   | number |      0为成功 1为失败      |
+|   token   | string |        token        |
+|    uid    | string |        用户系统         |
+
+
+
+
+返回结果(默认JSON):
+
+```json
+{
+  errorcode:0,
+  message:"",
+  result:0,
+  token:"string",
+  uid:"10611"
+}
+```

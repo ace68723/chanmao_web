@@ -1,16 +1,16 @@
-import { User } from './../../interfaces';
 import {
     SystemService
 } from './../../../services/system.service';
 import {
     LoginObject,
-    LoginResult
+    LoginResult,
+    User
 } from '../../interfaces';
 import {
     Injectable
 } from '@angular/core';
-import AuthModule from './auth.js';
-
+import AuthModule from './../../../modules/Auth/Auth.w.js';
+// import AuthModule from './auth.js';
 
 @Injectable()
 export class LoginService {
@@ -40,9 +40,9 @@ export class LoginService {
         this.loginObject.version = this.systemService.getVersion();
         console.log('this is object: ');
         console.log(this.loginObject);
-        this.loginResult = await AuthModule.appLogin(this.loginObject);
+        this.loginResult = await AuthModule.AppLogin(this.loginObject);
         if (this.loginResult.result === 1) {
-            //console.log(this.loginResult.message);
+            console.log(this.loginResult.message);
             return this.loginResult.message;
         }
         console.log('this is result: ');

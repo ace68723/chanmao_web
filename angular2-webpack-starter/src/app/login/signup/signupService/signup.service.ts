@@ -1,23 +1,23 @@
-import { User } from './../../interfaces';
 import {
     SystemService
 } from './../../../services/system.service';
 import {
     SignupObject,
-    LoginResult
+    LoginResult,
+    User 
 } from '../../interfaces';
 import {
     Injectable
 } from '@angular/core';
-import AuthModule from './auth.js';
-
+import AuthModule from '../../../modules/Auth/Auth.w.js';
+// import AuthModule from './auth.js';
 
 
 @Injectable()
 export class SignupService {
     
     private signupObject: SignupObject = {
-        username: '',
+        username: '',    
         password: '',
         os: '',
         version: '',
@@ -50,6 +50,7 @@ export class SignupService {
         console.log(this.signupObject);
         this.loginResult = await AuthModule.appLogin(this.signupObject);
         if (this.loginResult.result === 1) {    
+            console.log(this.loginResult.message);
             return this.loginResult.message;
         }
         console.log('this is signup result: ');
