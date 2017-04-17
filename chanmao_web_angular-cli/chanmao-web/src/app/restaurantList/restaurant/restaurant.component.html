@@ -1,9 +1,9 @@
-	<div class="cm-content-2">
+  <div class="cm-content-2">
 		<div class="cm-res-banner">
       <img src="src/images/res-banner.png" class="img-responsive">
       <div class="cm-res-card">
         <img src="src/images/res-logo.png">
-        <h1>半亩园</h1>
+        <h1>{{restaurant.tags?.name}}</h1>
         <div class="cm-card-info"><h3>营业时间：</h3><p>11:30AM - 9:30PM</p></div>
         <div class="cm-card-info"><h3>地址：</h3><p>12 Main Street, Toronto, ON</p></div>
       </div>
@@ -27,13 +27,14 @@
             <div class="cm-order-menu col-sm-7" style="padding:0 5px;">
                 <div style="display:flex" >
                   <!--[routerLink]="['/restaurant1/menu']"-->
-                    <div [routerLink]="['/restaurant1/menu']" id="btn-menu" style="margin-right:25px;margin-left:10px;cursor: pointer;"><h2>菜单</h2>
+                    <div id="btn-menu" style="margin-right:25px;margin-left:10px;cursor: pointer;"><h2>菜单</h2>
                       <span class="glyphicon glyphicon-triangle-top cm-menu-icon" style="color:white"></span></div>
-                    <div [routerLink]="['/restaurant1/info']" id="btn-info" style="cursor: pointer;"><h2>餐厅简介</h2>
+                    <div id="btn-info" style="cursor: pointer;"><h2>餐厅简介</h2>
                       <span class="glyphicon glyphicon-triangle-top cm-info-icon" style="color:white"></span>
                     </div>
                 </div>
-                <router-outlet > </router-outlet>
+                <cm-menu></cm-menu>
+                <restaurant-info></restaurant-info>
             </div>
 
             <div class="cm-order-cart col-sm-3" style="padding: 4px 0 0 5px;">
@@ -48,8 +49,8 @@
                     <h2>菜品总计：$200.00</h2>
                 </div>
                 <div class="cm-col-content" id="cart">
-                    <button [routerLink]="['/restaurant1/cart']" style="width:100%;background-color:#ea7b21;border:none;color:white;height:30px;margin-bottom:10px">去结算</button>
-                    <div class=" cm-cart-item">
+                    <button [routerLink]="['cart']" style="width:100%;background-color:#ea7b21;border:none;color:white;height:30px;margin-bottom:10px">去结算</button>
+                    <div class="cm-cart-item">
                         <div class="cm-modify">
                           <div style="display: flex;background-image: url(src/images/amount.png);background-position: center;height: 50px;width:66px;padding: 13px 12px">
                             <button class="cm-amount cm-amount-minus">-</button>

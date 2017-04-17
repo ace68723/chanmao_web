@@ -3,9 +3,9 @@ import {
   OnInit
 } from '@angular/core';
 import {
-  Router
+  ActivatedRoute
 } from '@angular/router';
-
+import { RestaurantService } from '../service/restaurant.service';
 
 declare var $: any
 
@@ -29,7 +29,9 @@ export class RestaurantComponent implements OnInit {
 
 
   // TypeScript public modifiers
-  constructor() {
+  restaurant:any
+
+  constructor(private restaurantService:RestaurantService, private activatedRoute:ActivatedRoute) {
 
   }
 
@@ -135,6 +137,6 @@ export class RestaurantComponent implements OnInit {
 
   public ngOnInit() {
     this.JQfunction();
-
+      this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.params['restaurantId'])
   }
 }
