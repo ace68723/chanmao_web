@@ -64,37 +64,7 @@ export class AppComponent implements OnInit {
           $('.cm-nav-qr').hide();
         });
 
-      // current location
 
-      $('.cm-btn-change').click(function (e) {
-        TBox(this);
-      });
-
-      $('.cm-res-address input').blur(function (e) {
-        RBox(this);
-      });
-
-      function TBox(obj) {
-        let input = $(obj).parent().find('input');
-        let span = $(obj).parent().find('span');
-        input.attr('value', span.text()).show().focus();
-        span.hide();
-      }
-
-      function RBox(obj) {
-        let input = $('.cm-res-address input');
-        let span = $('.cm-res-address span');
-        span.text(input.val());
-        span.show();
-        input.hide();
-      }
-
-      $('.cm-nav-app').hover(function () {
-          $('.cm-nav-qr').show();
-        },
-        function () {
-          $('.cm-nav-qr').hide();
-        });
 
     });
 
