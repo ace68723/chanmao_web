@@ -1,10 +1,11 @@
+import { AuthService } from './login/auth.service';
 import { SignupService } from './login/signup/signupService/signup.service';
 import { SystemService } from './services/system.service';
 import { LoginService } from './login/loginMain/loginService/login.service';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './login';
 import { PageNotFoundComponent } from './404';
-import { RestaurantModule } from './restaurant/restaurant.module';
+import { RestaurantModule } from './restaurantList/restaurant/restaurant.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -33,13 +34,15 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { FooterComponent } from './footer';
 import { NavComponent } from './nav';
+import { RestaurantService } from './restaurantList/service/restaurant.service';
 
 
 // Application wide providers
 const APP_PROVIDERS = [
     SystemService,
-    LoginService,
-    SignupService
+    AuthService,
+    SignupService,
+    RestaurantService
 ];
 
 

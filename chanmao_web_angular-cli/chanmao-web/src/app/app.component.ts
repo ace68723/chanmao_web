@@ -1,3 +1,7 @@
+import {
+  Router,
+  NavigationEnd
+} from '@angular/router';
 /*
  * Angular 2 decorators and services
  */
@@ -28,6 +32,7 @@ declare var $: any;
 export class AppComponent implements OnInit {
 
   constructor(
+    private router: Router
   ) {}
 
 
@@ -59,46 +64,54 @@ export class AppComponent implements OnInit {
           $('.cm-nav-qr').hide();
         });
 
-        // current location
+      // current location
 
-      $('.cm-btn-change').click(function(e){
-          TBox(this);
-        });
+      $('.cm-btn-change').click(function (e) {
+        TBox(this);
+      });
 
-      $('.cm-res-address input').blur(function(e){
-          RBox(this);
-        });
+      $('.cm-res-address input').blur(function (e) {
+        RBox(this);
+      });
 
       function TBox(obj) {
-                let input = $(obj).parent().find('input');
-                let span = $(obj).parent().find('span');
-                input.attr('value', span.text()).show().focus();
-                span.hide(); }
+        let input = $(obj).parent().find('input');
+        let span = $(obj).parent().find('span');
+        input.attr('value', span.text()).show().focus();
+        span.hide();
+      }
 
       function RBox(obj) {
-                let input = $('.cm-res-address input');
-                let span = $('.cm-res-address span');
-                span.text(input.val());
-                span.show();
-                input.hide(); }
+        let input = $('.cm-res-address input');
+        let span = $('.cm-res-address span');
+        span.text(input.val());
+        span.show();
+        input.hide();
+      }
 
-      $('.cm-nav-app').hover(function(){
-                  $('.cm-nav-qr').show(); }
-                ,
-                  function(){ $('.cm-nav-qr').hide();
-                });
+      $('.cm-nav-app').hover(function () {
+          $('.cm-nav-qr').show();
+        },
+        function () {
+          $('.cm-nav-qr').hide();
+        });
 
     });
 
   }
 
-
+  private autoScollToTop() {
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0)
+    });
+  }
 
   public ngOnInit() {
     this.JQfunction();
+    this.autoScollToTop()
   }
 
 }
-
-
-

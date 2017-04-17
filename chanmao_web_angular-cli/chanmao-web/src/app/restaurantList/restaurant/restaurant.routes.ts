@@ -26,36 +26,45 @@ export const restaurantComponents = [
 ]
 
 export const RESTAURANT_ROUTES: Routes = [{
-    path: 'restaurant1',
+    path: 'restaurants/:restaurantId',
     component: RestaurantComponent,
     data: {
       title: 'Restaurant'
     },
-    children: [{
-        path: 'info',
-        pathMatch: 'full',
-        component: RestaurantInfoComponent,
 
-      },
-      {
-        path: 'menu',
-        pathMatch: 'full',
-        component: MenuComponent
-      },
+    // children: [{
+    //     path: 'cart',
+    //     pathMatch: 'full',
+    //     component: CartComponent,
 
-    ],
-    },
-      {
-
-        path: 'cart',
+    //   },
+    //   {
+    //     path: 'complete',
+    //     pathMatch: 'full',
+    //     component: CompleteComponent
+    //   }
+    // ],
+  },
+  {
+        path: 'restaurants/:restaurantId/cart',
         pathMatch: 'full',
         component: CartComponent,
 
       },
       {
-        path: 'complete',
+        path: 'restaurants/:restaurantId/complete',
         pathMatch: 'full',
         component: CompleteComponent
+      },
+      {
+        path: 'restaurants/:restaurantId/cart/back',
+        pathMatch: 'full',
+        redirectTo: 'restaurants/:restaurantId'
+      },
+      {
+        path: 'restaurants/:restaurantId/cart/complete',
+        pathMatch: 'full',
+        redirectTo: 'restaurants/:restaurantId/complete'
       }
 
 ];
