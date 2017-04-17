@@ -2,7 +2,8 @@ import { RestaurantService } from './service/restaurant.service';
 import { Restaurant } from './restaurant.model';
 import {
   Component,
-  OnInit
+  OnInit,
+  Input
 } from '@angular/core';
 
 
@@ -27,6 +28,7 @@ declare var $: any
 
 export class RestaurantListComponent implements OnInit {
   // Set our default values
+  @Input() searchName : string
 
   displayedrestaurants : Array<Restaurant>;
   restaurants : Array<Restaurant>;

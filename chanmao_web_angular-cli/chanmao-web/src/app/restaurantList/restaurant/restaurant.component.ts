@@ -1,6 +1,6 @@
 import {
   Component,
-  OnInit
+  OnInit,
 } from '@angular/core';
 import {
   ActivatedRoute
@@ -26,7 +26,6 @@ declare var $: any
 
 export class RestaurantComponent implements OnInit {
   // Set our default values
-
 
   // TypeScript public modifiers
   restaurant:any

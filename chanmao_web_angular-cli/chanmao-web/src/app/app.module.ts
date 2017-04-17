@@ -1,3 +1,4 @@
+import { SearchPipe } from './restaurantList/pipe/search.pipe';
 import { AuthService } from './login/auth.service';
 import { SignupService } from './login/signup/signupService/signup.service';
 import { SystemService } from './services/system.service';
@@ -35,6 +36,7 @@ import { HomeComponent } from './home';
 import { FooterComponent } from './footer';
 import { NavComponent } from './nav';
 import { RestaurantService } from './restaurantList/service/restaurant.service';
+import { RestaurantListModule } from './restaurantList/restaurantList.module';
 
 
 // Application wide providers
@@ -65,8 +67,8 @@ const APP_PROVIDERS = [
     HttpModule,
     LoginModule,
     HomeModule,
-    RestaurantModule,
     SharedModule,
+    RestaurantListModule,
     // InfoModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules }),
 
