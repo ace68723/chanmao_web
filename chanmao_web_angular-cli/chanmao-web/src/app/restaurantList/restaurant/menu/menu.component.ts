@@ -1,6 +1,8 @@
+import { Menu } from '../../restaurant.model';
 import {
   Component,
-  OnInit
+  OnInit,
+  Input
 } from '@angular/core';
 
 declare var $ : any
@@ -23,6 +25,8 @@ declare var $ : any
 
 export class MenuComponent implements OnInit {
   // Set our default values
+  @Input() menu: Menu;
+
 
 
   // TypeScript public modifiers

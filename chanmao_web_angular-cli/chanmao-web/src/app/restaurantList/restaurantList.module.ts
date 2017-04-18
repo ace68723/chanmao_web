@@ -12,7 +12,6 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [SearchPipe, RestaurantListComponent],
   imports: [ // import Angular's modules
-    SharedModule,
     RestaurantModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

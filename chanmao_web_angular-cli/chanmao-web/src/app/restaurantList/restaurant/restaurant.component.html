@@ -1,24 +1,24 @@
   <div class="cm-content-2">
+
 		<div class="cm-res-banner">
       <img src="src/images/res-banner.png" class="img-responsive">
       <div class="cm-res-card">
         <img src="src/images/res-logo.png">
         <h1>{{restaurant.tags?.name}}</h1>
-        <div class="cm-card-info"><h3>营业时间：</h3><p>11:30AM - 9:30PM</p></div>
-        <div class="cm-card-info"><h3>地址：</h3><p>12 Main Street, Toronto, ON</p></div>
+        <div class="cm-card-info"><h3>营业时间：</h3><p>{{restaurant.info?.openningTimes?.Monday?.start}} - {{restaurant.info?.openningTimes?.Monday?.end}}</p></div>
+        <div class="cm-card-info"><h3>地址：</h3><p>{{restaurant.tags?.address}}</p></div>
       </div>
     </div>
 
     <div class="cm-order">
 
+
         <div class="cm-order-content container" style="width:100%;padding:0">
             <div class="cm-order-catalog col-sm-2">
                 <div style="margin-left:10px"><h2>菜类</h2>
                 <span class="glyphicon glyphicon-triangle-top" style="color:white"></span></div>
-                <div class="cm-col-content" id="catalog">
-                    <a href="#catalog-1"><h3 style="color:#ea7b21">厨师推荐</h3></a>
-                    <a href="#catalog-2"><h3>汤</h3></a>
-                    <h3>甜点</h3>
+                <div *ngFor='let category of menuCategorys' class="cm-col-content" id="catalog">
+                    <a ><h3>{{category.name}} </h3></a>
                 </div>
             </div>
             <div class="cm-order-menu col-sm-7" style="padding:0 5px;">
@@ -29,8 +29,8 @@
                       <span class="glyphicon glyphicon-triangle-top cm-info-icon" style="color:white"></span>
                     </div>
                 </div>
-                <cm-menu></cm-menu>
-                <restaurant-info></restaurant-info>
+                <cm-menu [menu] = 'restaurant.menu'></cm-menu>
+                <restaurant-info [restaurantInfo] = 'restaurant.info' ></restaurant-info>
             </div>
 
             <div class="cm-order-cart col-sm-3" style="padding: 4px 0 0 5px;">

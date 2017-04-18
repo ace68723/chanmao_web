@@ -1,3 +1,4 @@
+import { SharedModule } from './../../shared/shared.module';
 import {
   NgModule,
 } from '@angular/core';
@@ -11,10 +12,11 @@ import { RESTAURANT_ROUTES,restaurantComponents} from './restaurant.routes';
   declarations: [restaurantComponents],
   imports: [ // import Angular's modules
     RouterModule.forChild(RESTAURANT_ROUTES),
+    SharedModule,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
 ],
-  exports:[restaurantComponents,RouterModule]
+  exports:[restaurantComponents,RouterModule,SharedModule]
 })
 
 export class RestaurantModule {

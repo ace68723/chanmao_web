@@ -1,3 +1,4 @@
+import { Restaurant, MenuCategory } from './../restaurant.model';
 import {
   Component,
   OnInit,
@@ -28,9 +29,10 @@ export class RestaurantComponent implements OnInit {
   // Set our default values
 
   // TypeScript public modifiers
-  restaurant:any
+  restaurant: Restaurant;
+  menuCategorys: Array < MenuCategory >;
 
-  constructor(private restaurantService:RestaurantService, private activatedRoute:ActivatedRoute) {
+  constructor(private restaurantService: RestaurantService, private activatedRoute:ActivatedRoute) {
 
   }
 
@@ -136,6 +138,7 @@ export class RestaurantComponent implements OnInit {
 
   public ngOnInit() {
     this.JQfunction();
-      this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.params['restaurantId'])
+      this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.params['restaurantId']);
+      this.menuCategorys = this.restaurant.menu.menuCategorys;
   }
 }
