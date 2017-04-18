@@ -11,7 +11,7 @@ declare var $ : any
   selector: 'cm-fresh',
   styles: [`
   `],
-  templateUrl: 'fresh.html'
+  templateUrl: 'fresh.component.html'
 })
 export class FreshComponent implements OnInit {
 
