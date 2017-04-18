@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AddressComponent } from '../address/address.component';
 
 
 // imports: imports the module's exports. which are usually
@@ -13,10 +12,9 @@ import { AddressComponent } from '../address/address.component';
 // Even so, we import/export both of these because most other modules will import SharedModule and will need them.
 @NgModule({
   imports: [CommonModule, FormsModule],
-  
+
   declarations: [
-    AddressComponent
   ],
-  exports: [CommonModule, FormsModule,AddressComponent]
+  exports: [CommonModule, FormsModule]
 })
 export class SharedModule { }
