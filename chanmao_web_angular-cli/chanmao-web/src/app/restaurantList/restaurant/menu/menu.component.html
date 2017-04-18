@@ -1,14 +1,14 @@
 <div id="menu" class="cm-col-content">
   <div class="inner-addon right-addon" style="position: relative;height:30px;width:100%;">
     <i class="glyphicon glyphicon-search" style="margin-top:3px"></i>
-    <input type="text" placeholder="Search" style="height:30px;width:100%;" />
+    <input type="text" [(ngModel)]="searchitem" placeholder="Search" style="height:30px;width:100%;" />
   </div>
 
   <div *ngFor="let menuCategory of menu.menuCategorys" style="width:100%;" id="catalog-1">
     <h2 style="font-size:25px">{{menuCategory.name}}</h2>
 
     <div class="cm-menu">
-      <label *ngFor="let item of menuCategory.items" type="button" class="cm-menu-dish">
+      <label *ngFor="let item of menuCategory.items | SearchPipe: searchitem" type="button" class="cm-menu-dish">
                               <div style="margin:8px">
                                 <h3>{{item.name}}</h3>
                                 <p>{{item.info}}</p>

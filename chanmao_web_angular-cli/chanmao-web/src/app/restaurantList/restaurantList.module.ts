@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [SearchPipe, RestaurantListComponent],
+  declarations: [ RestaurantListComponent],
   imports: [ // import Angular's modules
     RestaurantModule
   ],

@@ -14,11 +14,10 @@ export class RestaurantService {
   [{
       id: 1,
       img: "src/images/res-img.png",
-      tags: {
+      
         name: '半亩园',
         taste: '粤式早茶',
-        address: '77 main street,Toronto - 7km'
-      },
+        address: '77 main street,Toronto - 7km',
       location: "Markham",
       info: {
         openningTimes: {
@@ -148,11 +147,10 @@ export class RestaurantService {
     {
       id: 2,
       img: "src/images/res-img.png",
-      tags: {
+      
         name: '半亩园2',
         taste: '粤式早茶',
-        address: '77 main street,Toronto - 7km'
-      },
+        address: '77 main street,Toronto - 7km',
       location: "North York",
       info: {
         openningTimes: {
@@ -280,11 +278,10 @@ export class RestaurantService {
     {
       id: 3,
       img: "src/images/res-img.png",
-      tags: {
+      
         name: '半亩园3',
         taste: '粤式早茶',
-        address: '77 main street,Toronto - 7km'
-      },
+        address: '77 main street,Toronto - 7km',
       location: "Richmond Hill",
       info: {
         openningTimes: {
@@ -412,11 +409,10 @@ export class RestaurantService {
     {
       id: 4,
       img: "src/images/res-img.png",
-      tags: {
+      
         name: '半亩园4',
         taste: '粤式早茶',
-        address: '77 main street,Toronto - 7km'
-      },
+        address: '77 main street,Toronto - 7km',
       location: "Downtown",
       info: {
         openningTimes: {
@@ -544,11 +540,10 @@ export class RestaurantService {
     {
       id: 5,
       img: "src/images/res-img.png",
-      tags: {
+      
         name: '半亩园5',
         taste: '粤式早茶',
-        address: '77 main street,Toronto - 7km'
-      },
+        address: '77 main street,Toronto - 7km',
       location: "Mississauga",
       info: {
         openningTimes: {
@@ -676,11 +671,10 @@ export class RestaurantService {
     {
       id: 6,
       img: "src/images/res-img.png",
-      tags: {
+      
         name: '半亩园6',
         taste: '粤式早茶',
-        address: '77 main street,Toronto - 7km'
-      },
+        address: '77 main street,Toronto - 7km',
       location: "Scarborough",
       info: {
         openningTimes: {
