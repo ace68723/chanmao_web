@@ -36,6 +36,31 @@ export class NavComponent implements OnInit, AfterViewChecked {
   }
 
   public ngOnInit() {
+    // current location
+    var that= this;
+
+      $('.cm-btn-change').click(function (e) {
+        TBox(this);
+      });
+
+      $('.cm-res-address input').blur(function (e) {
+        RBox(this);
+      });
+
+      function TBox(obj) {
+        let input = $(obj).parent().find('input');
+        let span = $(obj).parent().find('span');
+        input.attr('value', span.text()).show().focus();
+        span.hide();
+      }
+
+      function RBox(obj) {
+        let input = $('.cm-res-address input');
+        let span = $('.cm-res-address span');
+        that.sys.setCurAddress(input.val());
+        span.show();
+        input.hide();
+      }
 
   }
 

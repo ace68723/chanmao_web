@@ -11,7 +11,7 @@ declare var $ : any
   selector: 'cm-question',
   styles: [`
   `],
-  templateUrl: 'question.html'
+  templateUrl: 'question.component.html'
 })
 export class QuestionComponent implements OnInit {
 

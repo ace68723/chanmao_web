@@ -14,7 +14,7 @@
     </p>
   </div>
   <div class="cm-res-img container">
-    <div *ngFor="let restaurant of displayedrestaurants">
+    <div *ngFor="let restaurant of displayedrestaurants | SearchPipe: searchName ">
       <a [routerLink]="['restaurants',restaurant.id]">
         <label type="button" class="cm-res-item col-sm-6 col-md-4">
                     <img src={{restaurant.img}} class="img-responsive" >

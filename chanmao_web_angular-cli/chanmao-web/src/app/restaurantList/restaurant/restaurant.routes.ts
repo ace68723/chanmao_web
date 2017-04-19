@@ -1,3 +1,4 @@
+import { AddressComponent } from '../../address';
 import { ItemComponent } from './menu/item/item.component';
 import {
   MenuComponent
@@ -22,7 +23,8 @@ export const restaurantComponents = [
   RestaurantComponent,
   CartComponent,
   CompleteComponent,
-  ItemComponent
+  ItemComponent,
+  AddressComponent
 ]
 
 export const RESTAURANT_ROUTES: Routes = [{
