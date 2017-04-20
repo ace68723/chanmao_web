@@ -1,12 +1,12 @@
 export interface Restaurant {
-    id: number,
-    img: string,
-    name: string,
-    taste: string,
-    address: string
-    location: string,
-    info: RestaurantInfo,
-    menu: Menu
+    id: number;
+    img: string;
+    name: string;
+    taste: string;
+    address: string;
+    location: string;
+    info: RestaurantInfo;
+    menu: Menu;
 }
 
 
@@ -19,25 +19,25 @@ export interface RestaurantInfo {
     Friday: OpenTime,
     Saturday: OpenTime,
     Sunday: OpenTime,
-  }
+  };
 }
 export interface OpenTime {
-    start: string,
-    end: string
+    start: string;
+    end: string;
 }
 
 export interface Menu {
-  menuCategorys: Array < MenuCategory >
+  menuCategorys: Array < MenuCategory >;
 }
 
 export interface MenuCategory {
-  name: string
-  items?: Array < Item >
+  name: string;
+  items: Array < Item >;
 }
 
 export interface Item {
-    name: string,
-    info: string,
-    price: number,
-    img? : string,
+    name: string;
+    info: string;
+    price: number;
+    img? : string;
 }

@@ -1,0 +1,28 @@
+<div class="panel-body">
+      <div>
+        <table class="cm-order-detail" >
+          <tr *ngFor="let dish of orderDetail.dishes">
+            <td style="width:130px;">{{dish.name}}</td>
+            <td>x{{dish.number}}</td>
+            <td>${{dish.total}}</td>
+          </tr>
+        </table>
+        <table class="cm-order-detail">
+          <tr>
+            <td style="width:200px;">税</td>
+            <td>${{orderDetail.tax}}</td>
+          </tr>
+          <tr>
+            <td style="width:200px;">运费</td>
+            <td>${{orderDetail.deliveryFee}}</td>
+          </tr>
+        </table>
+        <table class="cm-order-detail" style="border:none;">
+          <tr>
+            <td style="width:200px;">总计</td>
+            <td>${{orderDetail.total}}</td>
+          </tr>
+        </table>
+      </div>
+      <ng-content></ng-content>
+    </div>
