@@ -48,11 +48,11 @@ export class MenuComponent implements OnInit {
 
         $('#catalog a').click(function(){
           event.preventDefault();
+          $(this).closest().children('a').children('h3').css("color","black");
         $('html,body').animate({scrollTop:$(this.hash).offset().top - 100}, 200,'easeInOutExpo');
           // $(window).stop().animate({
           //   scrollTop: $($(this).attr('href')).offset().top
           // },100,'linear');
-          $(this).closest('#catalog').children('a').children('h3').css("color","black");
           $(this).children('h3').css("color","#ea7b21");
 
         });
@@ -69,3 +69,4 @@ export class MenuComponent implements OnInit {
 
   }
 }
+

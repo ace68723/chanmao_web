@@ -5,7 +5,7 @@
   </div>
 
   <div *ngFor="let menuCategory of menu.menuCategorys" style="width:100%;" id="catalog-1">
-    <h2 style="font-size:25px">{{menuCategory.name}}</h2>
+    <h2 id = '{{menuCategory.name}}' style="font-size:25px">{{menuCategory.name}}</h2>
 
     <div class="cm-menu">
       <label *ngFor="let item of menuCategory.items | SearchPipe: searchitem" type="button" class="cm-menu-dish">
