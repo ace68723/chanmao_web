@@ -1,5 +1,3 @@
-export type OrderMap = Map < string, OrderItem >
-
 export interface OrderItem {
     id: number;
     quantity: number;

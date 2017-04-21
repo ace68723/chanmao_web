@@ -1,3 +1,4 @@
+<cm-item *ngIf="curItem" [curItem]='curItem'></cm-item>
 <div id="menu" class="cm-col-content">
   <div class="inner-addon right-addon" style="position: relative;height:30px;width:100%;">
     <i class="glyphicon glyphicon-search" style="margin-top:3px"></i>
@@ -5,22 +6,22 @@
   </div>
 
   <div *ngFor="let menuCategory of menu.menuCategorys" style="width:100%;" id="catalog-1">
-    <h2 id = '{{menuCategory.name}}' style="font-size:25px">{{menuCategory.name}}</h2>
+    <h2 id='{{menuCategory.name}}' style="font-size:25px">{{menuCategory.name}}</h2>
 
     <div class="cm-menu">
-      <label *ngFor="let item of menuCategory.items | SearchPipe: searchitem" type="button" class="cm-menu-dish">
+      <label *ngFor="let item of menuCategory.items | SearchPipe: searchitem" class="cm-menu-dish" type="button" (click)='itemPopup(item,$event)'>
                               <div style="margin:8px">
                                 <h3>{{item.name}}</h3>
-                                <p>{{item.info}}</p>
+                                <p>{{item.info}} ID: {{item.id}}</p>
                                 <div style="display:flex;width:100%;justify-content:space-between">
                                   <p>${{item.price}} </p>
                                   <!--<button class="btn cm-btn-cart">加入购物车</button>-->
-                                    <div class="cm-item-ctrl">
-                                      <button class="ctrl cm-minus" tooltip="多规格商品只能去购物车删除哦" tooltip-trigger="focus">-</button>
-                                      <p class="ctrl cm-quantity">1</p>
-                                      <button class="ctrl cm-plus" style="margin-left:1px">+</button>
-                                    </div>
-smal                                    <button class="btn cm-btn-cart">加入购物车</button>
+                                    <div *ngIf="orderService.isItemInOrder(item)" class="cm-item-ctrl">
+                                      <button (click) = 'orderService.deleteOrderItem(item)' class="ctrl cm-minus" tooltip="多规格商品只能去购物车删除哦" tooltip-trigger="focus">-</button>
+                                      <p class="ctrl cm-quantity">{{orderService.getOrderItemQuantity(item)}}</p>
+                                      <button (click) = 'orderService.addOrderItem(item)' class="ctrl cm-plus" style="margin-left:1px">+</button>
+                                    </div>  
+                                      <button *ngIf="!orderService.isItemInOrder(item)" (click) = 'orderService.addOrderItem(item)' class="btn cm-btn-cart">加入购物车</button>
                                     <!--<img *ngIf='item.img' src="{{item.img}}">-->
                                 </div>
                               </div>
@@ -35,4 +36,3 @@ smal                                    <button class="btn cm-btn-cart">加入�
   class="cm-black"></div>
 <div style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5; background: rgb(0, 0, 0); z-index: 1000;"
   class="cm-black-pic"></div>
-<cm-item></cm-item>

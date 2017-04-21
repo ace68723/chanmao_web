@@ -1,4 +1,5 @@
-import { Menu } from '../../restaurant.model';
+import { Menu, Item } from '../../restaurant.model';
+import { OrderService } from '../../../services/order.service';
 import {
   Component,
   OnInit,
@@ -23,17 +24,26 @@ declare var $ : any
 })
 
 
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit {  
   // Set our default values
   @Input() menu: Menu;
+  curItem: Item;
 
 
 
   // TypeScript public modifiers
   constructor(
+    private orderService: OrderService
   ) {
 
   }
+
+  itemPopup(item: Item, $event) {
+    $event.preventDefault();
+    this.curItem = item;
+    $('.cm-item-popup').fadeIn(100);
+    $('.cm-black').fadeIn(100);
+  };
 
   public ngOnInit() {
         $("#cm-res-2").hide();
@@ -66,7 +76,7 @@ export class MenuComponent implements OnInit {
                    }
             });
          });
-
+      
   }
 }
 

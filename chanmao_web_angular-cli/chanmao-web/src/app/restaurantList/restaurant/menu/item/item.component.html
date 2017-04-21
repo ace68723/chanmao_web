@@ -1,16 +1,16 @@
 <div class="cm-item-popup">
   <div>
-    <h2 style="margin:10px 0">茶树菇瓦罐汤</h2>
-    <p>简介简介简介</p><br/>
+    <h2 style="margin:10px 0">{{curItem.name}}</h2>
+    <p>{{curItem.info}}</p><br/>
     <textarea class="cm-item-comment" placeholder="添加备注" rows="2" style="z-index:10000"></textarea>
     <div style="display:flex;align-items:baseline;justify-content:space-between">
-      <h1>$9.99</h1>
-      <div class="cm-item-ctrl" style="margin-left:30%">
-        <button class="ctrl cm-minus" tooltip="多规格商品只能去购物车删除哦" tooltip-trigger="focus">-</button>
-        <p class="ctrl cm-quantity" >1
-        </p>
-          <button class="ctrl cm-plus">+</button>
+      <h1>{{curItem.price}}</h1>
+      <div *ngIf="orderService.isItemInOrder(curItem)" class="cm-item-ctrl">
+        <button (click) = 'orderService.deleteOrderItem(curItem)' class="ctrl cm-minus" tooltip="多规格商品只能去购物车删除哦" tooltip-trigger="focus">-</button>
+        <p class="ctrl cm-quantity">{{orderService.getOrderItemQuantity(curItem)}}</p>
+        <button (click) = 'orderService.addOrderItem(curItem)' class="ctrl cm-plus" style="margin-left:1px">+</button>
       </div>
+      <button *ngIf="!orderService.isItemInOrder(curItem)" (click) = 'orderService.addOrderItem(curItem)' class="btn cm-btn-cart">加入购物车</button>
       <button class="cm-item-cancel">不要了</button>
     </div>
   </div>

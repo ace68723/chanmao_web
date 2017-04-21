@@ -107,10 +107,6 @@ export class RestaurantComponent implements OnInit {
         $('.cm-black-pic').hide();
       });
 
-      $(".cm-menu-dish").click(function () {
-        $('.cm-item-popup').fadeIn(100);
-        $('.cm-black').fadeIn(100);
-      });
 
       $(".cm-menu-pic").click(function () {
         $('.cm-pic-popup').fadeIn(100);
