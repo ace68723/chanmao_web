@@ -28,22 +28,40 @@ export class MenuComponent implements OnInit {
   // Set our default values
   @Input() menu: Menu;
   curItem: Item;
-
+  popup: boolean;
 
 
   // TypeScript public modifiers
   constructor(
     private orderService: OrderService
   ) {
-
+    this.popup = true;
   }
 
-  itemPopup(item: Item, $event) {
-    $event.preventDefault();
+  itemPopup(item: Item, $event: Event) {
+    $event.preventDefault(); // click parent will not affect children
     this.curItem = item;
+    if (this.popup){
     $('.cm-item-popup').fadeIn(100);
     $('.cm-black').fadeIn(100);
+  }
+  this.popup = true;
+    
   };
+
+  addOrderItem(item: Item, $event: Event){
+    this.popup = false;
+    // $event.stopPropagation(); // when I was clicked, my parent won't be clicked.
+    // cannot use $event.stopPropagation(), it may cause problem in map entries 
+    this.orderService.addOrderItem(item);
+    
+  }
+
+  deleteOrderItem(item: Item, $event: Event){
+    this.popup = false;
+    // $event.stopPropagation();
+    this.orderService.deleteOrderItem(item)
+  }
 
   public ngOnInit() {
         $("#cm-res-2").hide();

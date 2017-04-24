@@ -61,10 +61,9 @@
           <img src="src/images/qrcode.png" style="width: 115px;height: 115px; margin: auto;">
         </div>
 
-
-        <li [routerLink]="['/user/myorder']" class="cm-nav-cart" style="width:40px">
+        <li [routerLink]="['/restaurants/',orderService.getCurRestaurantID(),'cart']" class="cm-nav-cart" style="width:40px">
           <img src="src/images/shoppingcar.png" style="height:44%;margin-top:15px">
-          <div><sup style="font-size: 16px">0</sup></div>
+          <div><sup style="font-size: 16px">{{orderService.getOrderQuantity()}}</sup></div>
         </li>
         <li *ngIf ='!sys.isAuthenticated()' class="cm-nav-login" style="margin:0 5px;cursor: pointer;">
           <h3 style="margin-top:30px">登录\注册</h3>

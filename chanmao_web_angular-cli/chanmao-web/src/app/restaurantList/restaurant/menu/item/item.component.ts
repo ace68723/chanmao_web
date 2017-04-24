@@ -40,7 +40,8 @@ export class ItemComponent implements OnInit {
 
   public ngOnInit() {
     // $('.cm-item-comment').focus();
-
+    $('.cm-item-popup').hide();
+    $('.cm-black').hide();
   }
   
 

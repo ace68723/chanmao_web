@@ -1,3 +1,5 @@
+import { OrderService } from '../../../services/order.service';
+import { ActivatedRoute } from '@angular/router';
 import {
   Component,
   OnInit
@@ -28,17 +30,12 @@ export class CartComponent implements OnInit {
 
   // TypeScript public modifiers
   constructor(
+    private orderService: OrderService,
+    // private activatedRoute: ActivatedRoute
   ) {
 
   }
   JQfunction(){
-    $('.cm-modify').hide();
-        $(".cm-cart-item").hover(
-          function(){
-           $(this).children('.cm-modify').show();},
-          function(){
-           $(this).children('.cm-modify').hide();}
-        );
 
     $('.cm-address-popup').hide();
 
@@ -54,5 +51,6 @@ export class CartComponent implements OnInit {
 
   public ngOnInit() {
     this.JQfunction();
+    // this.orderService.setCurRestaurantID(+this.activatedRoute.snapshot.paramMap.get('restaurantId'));
   }
 }

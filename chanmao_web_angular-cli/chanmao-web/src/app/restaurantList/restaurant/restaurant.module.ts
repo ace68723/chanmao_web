@@ -6,17 +6,22 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { RESTAURANT_ROUTES,restaurantComponents} from './restaurant.routes';
 import { SearchPipe } from '../pipe/search.pipe';
+import { MapValuesPipe } from '../pipe/mapValue.pipe';
 
+const pipes = [
+  SearchPipe,
+  MapValuesPipe
+]
 
 @NgModule({
-  declarations: [SearchPipe,restaurantComponents],
+  declarations: [restaurantComponents,pipes],
   imports: [ // import Angular's modules
     RouterModule.forChild(RESTAURANT_ROUTES),
     SharedModule,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
 ],
-  exports:[restaurantComponents,RouterModule,SharedModule,SearchPipe,]
+  exports:[restaurantComponents,RouterModule,SharedModule,pipes]
 })
 
 export class RestaurantModule {

@@ -7,6 +7,8 @@ import {
   ActivatedRoute
 } from '@angular/router';
 import { RestaurantService } from '../service/restaurant.service';
+import { OrderService } from '../../services/order.service';
+import 'rxjs/add/operator/map';
 
 declare var $: any
 
@@ -32,7 +34,11 @@ export class RestaurantComponent implements OnInit {
   restaurant: Restaurant;
   menuCategorys: Array < MenuCategory >;
 
-  constructor(private restaurantService: RestaurantService, private activatedRoute:ActivatedRoute) {
+  constructor(
+    private restaurantService: RestaurantService, 
+  private activatedRoute:ActivatedRoute,
+  private orderService: OrderService) {
+    
 
   }
 
@@ -41,8 +47,9 @@ export class RestaurantComponent implements OnInit {
 
     $("#cm-res-2").hide();
     $('.cm-item-popup').hide();
-    $('.cm-pic-popup').hide();
     $('.cm-black').hide();
+    $('.cm-pic-popup').hide();
+    
     $('.cm-black-pic').hide();
     $('.cm-modify').hide();
     $('#info').hide();
@@ -134,7 +141,10 @@ export class RestaurantComponent implements OnInit {
 
   public ngOnInit() {
     this.JQfunction();
-      this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.params['restaurantId']);
+    // 从首页去购物车,然后点返回餐厅会读取不到餐馆信息导致错误
+      this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.paramMap.get('restaurantId'));
+      // console.log(this.restaurant);
       this.menuCategorys = this.restaurant.menu.menuCategorys;
+      this.orderService.setCurRestaurantID(+this.activatedRoute.snapshot.paramMap.get('restaurantId'));
   }
 }
