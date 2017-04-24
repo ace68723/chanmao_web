@@ -11,6 +11,7 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [],
   imports: [ // import Angular's modules
+  SharedModule,
   RouterModule,
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection

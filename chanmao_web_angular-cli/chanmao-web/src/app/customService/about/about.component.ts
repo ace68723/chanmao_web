@@ -11,7 +11,7 @@ declare var $ : any
   selector: 'cm-about',
   styles: [`
   `],
-  templateUrl: 'about.html'
+  templateUrl: 'about.component.html'
 })
 export class AboutComponent implements OnInit {
 

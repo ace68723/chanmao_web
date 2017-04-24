@@ -17,12 +17,14 @@ export class SystemService {
   private userToken: string;
   private curUid: string;
   private curUser: UserInfo;
+  private curAddress:string;
 
   constructor() {
     this.curVersion = '1.0';
     this.userToken = '';
     this.curUid = '';
     this.curUser = {username: ''};
+    this.curAddress = '111 main street';
   }
 
   public getOS(): string {
@@ -72,6 +74,14 @@ export class SystemService {
   }
   public getCurUserInfo(): UserInfo {
     return this.curUser;
+  }
+
+  public setCurAddress(address): void{
+    this.curAddress = address;
+  }
+
+  public getCurAddress(): string{
+    return this.curAddress;
   }
 
 }

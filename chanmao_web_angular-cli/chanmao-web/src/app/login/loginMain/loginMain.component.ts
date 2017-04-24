@@ -1,7 +1,4 @@
 import {
-    LoginService
-} from './loginService/login.service';
-import {
     Component,
     OnInit,
     Input,
@@ -19,6 +16,7 @@ import {
 import {
   User
 } from '../interfaces';
+import { AuthService } from '../auth.service';
 
 
 declare var $;
@@ -38,7 +36,7 @@ export class LoginMainComponent implements OnInit, AfterViewInit {
     constructor(
         public route: ActivatedRoute,
         private router: Router,
-        private loginService: LoginService
+        private authService: AuthService
     ) {}
 
     public initUser() {
@@ -75,7 +73,7 @@ export class LoginMainComponent implements OnInit, AfterViewInit {
         console.log(formValues.username);
         this.user.username = formValues.username;
         this.user.password = formValues.password;
-        this.result = await this.loginService.login(this.user);
+        this.result = await this.authService.login(this.user);
         if (this.result === 'succuss') {
             this.authFail = false;
             $('.cm-login-black').hide();

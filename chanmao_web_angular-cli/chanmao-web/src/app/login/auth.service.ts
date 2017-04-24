@@ -1,66 +1,54 @@
-// import {
-//     SystemService
-// } from './../services/system.service';
-// import {
-//     SignupObject,
-//     LoginObject,
-//     LoginResult,
-//     User
-// } from './interfaces';
-// import {
-//     Injectable
-// } from '@angular/core';
-// import AuthModule from '../modules/Auth/Auth.w.js';
+import {
+    SystemService
+} from './../services/system.service';
+import {
+    LoginObject,
+    LoginResult,
+    User
+} from './interfaces';
+import {
+    Injectable
+} from '@angular/core';
+import AuthModule from '../modules/Auth/Auth.w.js';
 
+@Injectable()
+export class AuthService {
+    private loginObject: LoginObject = {
+        username: '',
+        password: '',
+        os: '',
+        version: ''
+    };
 
-// @Injectable()
-// export class AuthService {
-//     private loginObject: LoginObject = {
-//         username: '',
-//         password: '',
-//         os: '',
-//         version: ''
-//     };
+    private loginResult: LoginResult = {
+        message: '',
+        result: -1,
+    };
 
-//     private signupObject: SignupObject = {
-//         username: '',
-//         password: '',
-//         os: '',
-//         version: '',
-//         email: ''
-//     };
+    constructor(
+        private systemService: SystemService,
+    ) {}
 
-//     private loginResult: LoginResult = {
-//         errorcode: -1,
-//         message: '',
-//         result: -1,
-//         token: '',
-//         uid: ''
-//     };
+    public async login(user: User){
+        this.loginObject.username = user.username;
+        this.loginObject.password = user.password;
+        this.loginObject.os = this.systemService.getOS();
+        this.loginObject.version = this.systemService.getVersion();
 
-//     constructor(
-//         private systemService: SystemService,
-//     ) {
+        console.log('this is object: ');
+        console.log(this.loginObject);
 
-//     }
+        this.loginResult = await AuthModule.AppLogin(this.loginObject);
+        if (this.loginResult.result === 1) {
+            console.log(this.loginResult.message);
+            return this.loginResult.message;
+        }
 
+        console.log('this is result: ');
+        console.log(this.loginResult);
 
-//     public async signup(user: User){
-//         console.log(user);
-//         this.signupObject.username = user.username;
-//         this.signupObject.password = user.password;
-//         this.signupObject.os = this.systemService.getOS();
-//         this.signupObject.email = user.email;
-//         console.log('this is signup object: ');
-//         console.log(this.signupObject);
-//         this.loginResult = await AuthModule.appLogin(this.signupObject);
-//         if (this.loginResult.result === 1) {
-//             return this.loginResult.message;
-//         }
-//         console.log('this is signup result: ');
-//         console.log(this.loginResult);
-//         this.systemService.saveToken(this.loginResult.token);
-//         this.systemService.saveUid(this.loginResult.uid);
-//         return 'succuss';
-//     }
-// }
+        this.systemService.saveToken('token');
+        this.systemService.setCurUser(this.loginObject.username);
+        return 'succuss';
+    }
+}

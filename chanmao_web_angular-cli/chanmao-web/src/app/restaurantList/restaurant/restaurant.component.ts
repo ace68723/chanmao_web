@@ -1,14 +1,11 @@
 import {
   Component,
-  OnInit
+  OnInit,
 } from '@angular/core';
 import {
-  Router
+  ActivatedRoute
 } from '@angular/router';
-
-import {
-  Option
-} from "./interfaces";
+import { RestaurantService } from '../service/restaurant.service';
 
 declare var $: any
 
@@ -30,9 +27,10 @@ declare var $: any
 export class RestaurantComponent implements OnInit {
   // Set our default values
 
-
   // TypeScript public modifiers
-  constructor() {
+  restaurant:any
+
+  constructor(private restaurantService:RestaurantService, private activatedRoute:ActivatedRoute) {
 
   }
 
@@ -133,51 +131,11 @@ export class RestaurantComponent implements OnInit {
         }, 100, 'linear');
 
       });
-
-
-  //     if ( 0 < $('.cm-btn-cart').length ) {
-   //
-  //      $('.cm-btn-cart').click(function() {
-   //
-  //          var offset = $(this).offset();
-   //
-  //          $(this).clone().addClass('product-clone').css({
-   //
-  //              'left' : parseInt(offset.left - 280) + 'px',
-   //
-  //              'top' : parseInt(offset.top-$(window).scrollTop() - 50) + 'px',
-   //
-  //              'width' :  $(this).height() + 'px',
-   //
-  //              'height' : $(this).height() + 'px',
-   //
-  //              'position' : 'absolute',
-   //
-  //              'z-index' : '10000'
-   //
-  //          }).appendTo($(this));
-   //
-   //
-   //
-  //          var cart = $('.cm-cart-icon').offset();
-  //          var top = $('.cm-cart-icon').offset().top;
-  //          var left = $('.cm-cart-icon').offset().left;
-   //
-  //          $('.product-clone').animate( { top: parseInt(cart.top-$(window).scrollTop()+) + 'px', left: cart.left + 'px' }, 800, function(){
-   //
-  //              $(this).remove();
-  //          });
-   //
-  //      });
-   //
-  //  }
-
-
     })
   }
 
   public ngOnInit() {
     this.JQfunction();
-
+      this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.params['restaurantId'])
   }
 }

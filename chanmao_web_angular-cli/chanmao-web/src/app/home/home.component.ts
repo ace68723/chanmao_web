@@ -24,6 +24,7 @@ declare var $: any
 
 
 export class HomeComponent implements OnInit {
+  searchName :string
   // Set our default values
 
 
