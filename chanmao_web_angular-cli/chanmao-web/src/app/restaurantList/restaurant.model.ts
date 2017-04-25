@@ -8,7 +8,14 @@ export interface Restaurant {
     info: RestaurantInfo;
     menu: Menu;
 }
-
+export interface RestaurantBaseInfo {
+    id: number;
+    img: string;
+    name: string;
+    taste: string;
+    address: string;
+    location: string;
+}
 
 export interface RestaurantInfo {
   openningTimes: {

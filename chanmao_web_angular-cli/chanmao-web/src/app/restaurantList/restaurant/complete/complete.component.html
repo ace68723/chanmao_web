@@ -45,24 +45,31 @@
       <h2 style="margin-left: 10px;">订单详情</h2>
       <p style="margin-left: 10px;">20170802</p>
       <hr/>
+      <div *ngFor="let cartItem of orderService.getOrderList()">
       <label class="container" style="padding:10px 0 0 0;margin:0 20px">
-                <div class="col-xs-1" style="padding:0"><p>2</p></div>
+                <div class="col-xs-1" style="padding:0"><p>{{cartItem.quantity}}</p></div>
                 <div class="col-xs-1" style="padding:0"><p>x</p></div>
-                <div class="col-xs-7" style="padding:0"><p style="color: #ea7b21">麻辣烤鱼</p></div>
-                <div class="col-xs-3" style="padding:0"><p>$100.00</p></div>
+                <div class="col-xs-7" style="padding:0"><p style="color: #ea7b21">{{cartItem.name}}</p></div>
+                <div class="col-xs-3" style="padding:0"><p>${{(cartItem.price).toFixed(2)}}</p></div>
             </label>
       <hr/>
-      <label class="container" style="padding:10px 0 0 0;margin:0 20px">
-                <div class="col-xs-1" style="padding:0"><p>2</p></div>
-                <div class="col-xs-1" style="padding:0"><p>x</p></div>
-                <div class="col-xs-7" style="padding:0"><p style="color: #ea7b21">麻辣烤鱼</p></div>
-                <div class="col-xs-3" style="padding:0"><p>$100.00</p></div>
-            </label>
-      <hr/>
-      <div style="margin-left: 255px;display: flex; align-items: baseline;">
-        <h2 style="margin-right: 20px">总计</h2>
-        <p>$200.00</p>
       </div>
+      <!--<div style="margin-left: 255px;display: flex; align-items: baseline;">
+      <h2 style="margin-right: 20px">食品总计</h2>
+      <p>${{orderService.getOrderTotal()}}</p>
+    </div>
+    <div style="margin-left: 255px;display: flex; align-items: baseline;">
+      <h2 style="margin-right: 20px">配送费用</h2>
+      <p>${{(orderService.getDeliveryFee()).toFixed(2)}}</p>
+    </div>
+    <div style="margin-left: 255px;display: flex; align-items: baseline;">
+      <h2 style="margin-right: 20px">税</h2>
+      <p>${{(orderService.getOrderTotal() * 0.13).toFixed(2)}}</p>
+    </div>-->
+    <div style="margin-left: 255px;display: flex; align-items: baseline;">
+      <h2 style="margin-right: 20px">总计</h2>
+      <p>${{(orderService.getOrderTotal() * 1.13 + orderService.getDeliveryFee()).toFixed(2)}}</p>
+    </div>
     </div>
   </div>
 </div>

@@ -51,37 +51,19 @@
                 </div>
                 <div class="cm-history">
                   <h2 style="margin:10px 0">最近浏览</h2>
+                  <div *ngFor="let recentRestaurant of orderService.getRecentViewRestaurants(historyNumber)">
                   <label type="button" class="cm-his-item" id="cm-his-item">
                     <div class="cm-his-tag">
-                      <p class="cm-his-name">半亩园</p>
-                      <p class="cm-his-taste">粤式早茶</p>
+                      <p class="cm-his-name">{{recentRestaurant.name}}</p>
+                      <p class="cm-his-taste">{{recentRestaurant.name}}</p>
                     </div>
-                    <img src="src/images/res-img.png" class="img-responsive" >
-                    <p class="cm-his-address">77 main street, Toronto
+                    <img src="{{recentRestaurant.img}}" class="img-responsive" >
+                    <p class="cm-his-address">{{recentRestaurant.address}}
                       </p>
                     <p class="cm-his-address" style="color:#666666">7km</p>
                   </label>
-                  <label type="button" class="cm-his-item" id="cm-his-item">
-                    <div class="cm-his-tag">
-                      <p class="cm-his-name">半亩园</p>
-                      <p class="cm-his-taste">粤式早茶</p>
-                    </div>
-                    <div class="cm-his-close">店家休息，暂不接单</div>
-                    <img src="src/images/res-img.png" class="img-responsive" >
-                    <p class="cm-his-address">77 main street, Toronto
-                      </p>
-                    <p class="cm-his-address" style="color:#666666">7km</p>
-                  </label>
-                  <label type="button" class="cm-his-item" id="cm-his-item">
-                    <div class="cm-his-tag">
-                      <p class="cm-his-name">半亩园</p>
-                      <p class="cm-his-taste">粤式早茶</p>
-                    </div>
-                    <img src="src/images/res-img.png" class="img-responsive" >
-                    <p class="cm-his-address">77 main street, Toronto
-                      </p>
-                    <p class="cm-his-address" style="color:#666666">7km</p>
-                  </label>
+                  </div>
+
                 </div>
 
             </div>

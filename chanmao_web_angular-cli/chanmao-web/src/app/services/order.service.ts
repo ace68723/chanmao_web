@@ -1,6 +1,7 @@
 import {
   Item,
-  Menu
+  Menu,
+  RestaurantBaseInfo
 } from '../restaurantList/restaurant.model';
 import {
   OrderItem
@@ -12,19 +13,20 @@ import {
 @Injectable()
 export class OrderService {
   private curOrderItem: OrderItem;
-
   private curMenu: Menu;
   private orderMap: Map < number, OrderItem > ;
+  private restaurantHistoryStack: Array < RestaurantBaseInfo > ;
+
   private orderQuantity: number;
   private totalAmount: number;
   private curRestaurantID: number;
   private deliveryFee: number;
 
+
   constructor() {
-    this.orderMap = new Map();
-    this.orderQuantity = 0;
-    this.totalAmount = 0;
+    this.init();
     this.curRestaurantID = -1;
+    this.restaurantHistoryStack = [];
   }
 
   init(): void {
@@ -37,6 +39,7 @@ export class OrderService {
     let orderItem: OrderItem = this.orderMap.get(cartItem.id);
     if (orderItem) {
       ++orderItem.quantity;
+      this.totalAmount += cartItem.price;
       this.orderMap.set(cartItem.id, orderItem);
       ++this.orderQuantity;
     }
@@ -45,10 +48,10 @@ export class OrderService {
   deleteCartItem(cartItem: OrderItem, note ? : string): void {
     let orderItem: OrderItem = this.orderMap.get(cartItem.id);
     if (orderItem) {
-      if (orderItem.quantity < 2) {
-        this.orderMap.delete(cartItem.id);
+      if (orderItem.quantity === 1) {
         return;
       }
+      this.totalAmount -= cartItem.price;
       --orderItem.quantity;
       this.orderMap.set(cartItem.id, orderItem);
       --this.orderQuantity;
@@ -148,5 +151,30 @@ export class OrderService {
 
   getDeliveryFee(): number {
     return this.deliveryFee;
+  }
+
+  addRecentViewRestaurant(restaurantBaseInfo: RestaurantBaseInfo): void {
+    this.restaurantHistoryStack = this.restaurantHistoryStack.filter(function (e) {
+      return e.id !== restaurantBaseInfo.id;
+    })
+    this.restaurantHistoryStack.push(restaurantBaseInfo);
+  }
+  getRecentViewRestaurants(n: number): Array < RestaurantBaseInfo > {
+    let result: Array < RestaurantBaseInfo > = [];
+    let copy: Array < RestaurantBaseInfo > = [];
+    let curRestaurantHistorys: number = n + 1;
+    if (this.restaurantHistoryStack.length < curRestaurantHistorys) {
+      curRestaurantHistorys = this.restaurantHistoryStack.length;
+    }
+    for (let i = 0; i < curRestaurantHistorys; i++) {
+      let restaurantHistory = this.restaurantHistoryStack.pop();
+      result.push(restaurantHistory);
+      copy.push(restaurantHistory);
+    }
+    for (let i = 0; i < curRestaurantHistorys; i++) {
+      this.restaurantHistoryStack.push(copy.pop());
+    }
+    result.shift();
+    return result;
   }
 }

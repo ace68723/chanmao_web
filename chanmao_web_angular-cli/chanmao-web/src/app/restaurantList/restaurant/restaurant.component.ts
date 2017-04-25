@@ -1,4 +1,7 @@
-import { Restaurant, MenuCategory } from './../restaurant.model';
+import {
+  Restaurant,
+  MenuCategory
+} from './../restaurant.model';
 import {
   Component,
   OnInit,
@@ -6,9 +9,16 @@ import {
 import {
   ActivatedRoute
 } from '@angular/router';
-import { RestaurantService } from '../service/restaurant.service';
-import { OrderService } from '../../services/order.service';
+import {
+  RestaurantService
+} from '../service/restaurant.service';
+import {
+  OrderService
+} from '../../services/order.service';
 import 'rxjs/add/operator/map';
+import {
+  RestaurantBaseInfo
+} from '../restaurant.model';
 
 declare var $: any
 
@@ -32,14 +42,14 @@ export class RestaurantComponent implements OnInit {
 
   // TypeScript public modifiers
   restaurant: Restaurant;
-  menuCategorys: Array < MenuCategory >;
+  menuCategorys: Array < MenuCategory > ;
+  historyNumber :number
 
   constructor(
-    private restaurantService: RestaurantService, 
-  private activatedRoute:ActivatedRoute,
-  private orderService: OrderService) {
-    
-
+    private restaurantService: RestaurantService,
+    private activatedRoute: ActivatedRoute,
+    private orderService: OrderService) {
+      this.historyNumber = 3;
   }
 
 
@@ -49,7 +59,7 @@ export class RestaurantComponent implements OnInit {
     $('.cm-item-popup').hide();
     $('.cm-black').hide();
     $('.cm-pic-popup').hide();
-    
+
     $('.cm-black-pic').hide();
     $('.cm-modify').hide();
     $('#info').hide();
@@ -120,14 +130,7 @@ export class RestaurantComponent implements OnInit {
         $('.cm-black-pic').fadeIn(100);
       });
 
-      $(".cm-cart-item").hover(
-        function () {
-          $(this).children('.cm-modify').show();
-        },
-        function () {
-          $(this).children('.cm-modify').hide();
-        }
-      );
+
 
       $('#catalog a').click(function () {
         event.preventDefault();
@@ -142,9 +145,18 @@ export class RestaurantComponent implements OnInit {
   public ngOnInit() {
     this.JQfunction();
     // 从首页去购物车,然后点返回餐厅会读取不到餐馆信息导致错误
-      this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.paramMap.get('restaurantId'));
-      // console.log(this.restaurant);
-      this.menuCategorys = this.restaurant.menu.menuCategorys;
-      this.orderService.setCurRestaurantID(+this.activatedRoute.snapshot.paramMap.get('restaurantId'));
+    this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.paramMap.get('restaurantId'));
+    // console.log(this.restaurant);
+    this.menuCategorys = this.restaurant.menu.menuCategorys;
+    this.orderService.setCurRestaurantID(+this.activatedRoute.snapshot.paramMap.get('restaurantId'));
+    let restaurantBaseInfo: RestaurantBaseInfo = {
+      id: this.restaurant.id,
+      img: this.restaurant.img,
+      name: this.restaurant.name,
+      taste: this.restaurant.taste,
+      address: this.restaurant.address,
+      location: this.restaurant.location
+    }
+    this.orderService.addRecentViewRestaurant(restaurantBaseInfo);
   }
 }
