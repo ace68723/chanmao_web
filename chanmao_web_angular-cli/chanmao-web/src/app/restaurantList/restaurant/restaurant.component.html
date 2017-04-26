@@ -52,6 +52,7 @@
                 <div class="cm-history">
                   <h2 style="margin:10px 0">最近浏览</h2>
                   <div *ngFor="let recentRestaurant of orderService.getRecentViewRestaurants(historyNumber)">
+                      <a [routerLink]="['/restaurants',recentRestaurant.id]">
                   <label type="button" class="cm-his-item" id="cm-his-item">
                     <div class="cm-his-tag">
                       <p class="cm-his-name">{{recentRestaurant.name}}</p>
@@ -62,6 +63,7 @@
                       </p>
                     <p class="cm-his-address" style="color:#666666">7km</p>
                   </label>
+                      </a>
                   </div>
 
                 </div>

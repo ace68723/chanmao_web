@@ -1,4 +1,7 @@
 import {
+  Params
+} from '@angular/router/router';
+import {
   Restaurant,
   MenuCategory
 } from './../restaurant.model';
@@ -43,13 +46,13 @@ export class RestaurantComponent implements OnInit {
   // TypeScript public modifiers
   restaurant: Restaurant;
   menuCategorys: Array < MenuCategory > ;
-  historyNumber :number
+  historyNumber: number
 
   constructor(
     private restaurantService: RestaurantService,
     private activatedRoute: ActivatedRoute,
     private orderService: OrderService) {
-      this.historyNumber = 3;
+    this.historyNumber = 3;
   }
 
 
@@ -144,19 +147,21 @@ export class RestaurantComponent implements OnInit {
 
   public ngOnInit() {
     this.JQfunction();
-    // 从首页去购物车,然后点返回餐厅会读取不到餐馆信息导致错误
-    this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.paramMap.get('restaurantId'));
-    // console.log(this.restaurant);
-    this.menuCategorys = this.restaurant.menu.menuCategorys;
-    this.orderService.setCurRestaurantID(+this.activatedRoute.snapshot.paramMap.get('restaurantId'));
-    let restaurantBaseInfo: RestaurantBaseInfo = {
-      id: this.restaurant.id,
-      img: this.restaurant.img,
-      name: this.restaurant.name,
-      taste: this.restaurant.taste,
-      address: this.restaurant.address,
-      location: this.restaurant.location
-    }
-    this.orderService.addRecentViewRestaurant(restaurantBaseInfo);
+    this.activatedRoute.params.forEach((params: Params) => {
+      // reset all states
+      this.restaurant = this.restaurantService.getRestaurant(+params['restaurantId']);
+      // this.activatedRoute.snapshot.paramMap.get('restaurantId') not working in same component
+      this.menuCategorys = this.restaurant.menu.menuCategorys;
+      this.orderService.setCurRestaurantID(+params['restaurantId']);
+      const restaurantBaseInfo: RestaurantBaseInfo = {
+        id: this.restaurant.id,
+        img: this.restaurant.img,
+        name: this.restaurant.name,
+        taste: this.restaurant.taste,
+        address: this.restaurant.address,
+        location: this.restaurant.location
+      }
+      this.orderService.addRecentViewRestaurant(restaurantBaseInfo);
+    })
   }
 }
