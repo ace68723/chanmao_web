@@ -45,18 +45,26 @@ export class OrderService {
     }
   }
 
-  deleteCartItem(cartItem: OrderItem, note ? : string): void {
+  deleteCartItem(cartItem: OrderItem, all: boolean = false, note ? : string): void {
     let orderItem: OrderItem = this.orderMap.get(cartItem.id);
     if (orderItem) {
+      if (all) {
+        this.orderQuantity -= orderItem.quantity;
+        this.totalAmount -= cartItem.price * orderItem.quantity;
+        this.orderMap.delete(cartItem.id);
+        return;
+      }
       if (orderItem.quantity === 1) {
         return;
       }
       this.totalAmount -= cartItem.price;
+      --this.orderQuantity;
       --orderItem.quantity;
       this.orderMap.set(cartItem.id, orderItem);
-      --this.orderQuantity;
     }
   }
+
+
   addOrderItem(item: Item, note ? : string): void {
     let orderItem: OrderItem = {
       id: -1,
@@ -82,7 +90,7 @@ export class OrderService {
     ++this.orderQuantity;
   }
 
-  deleteOrderItem(item: Item): void {
+  deleteOrderItem(item: Item, all: boolean = false): void {
     let orderItem: OrderItem = {
       id: -1,
       quantity: 0,
@@ -92,6 +100,12 @@ export class OrderService {
     };
     if (this.isItemInOrder(item)) {
       orderItem = this.orderMap.get(item.id);
+      if (all) {
+        this.orderQuantity -= orderItem.quantity;
+        this.totalAmount -= item.price * orderItem.quantity;
+        this.orderMap.delete(item.id);
+        return;
+      }
       if (orderItem.quantity < 1) {
         return;
       }

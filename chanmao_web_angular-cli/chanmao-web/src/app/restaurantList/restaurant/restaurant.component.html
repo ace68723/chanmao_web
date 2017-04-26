@@ -1,9 +1,9 @@
   <div class="cm-content-2">
 
-		<div class="cm-res-banner">
-      <img src="src/images/res-banner.png" class="img-responsive">
+	<div class="cm-res-banner">
+      <img src= '{{restaurant.bannerImg}}' class="img-responsive">
       <div class="cm-res-card">
-        <img src="src/images/res-logo.png">
+        <img src= '{{restaurant.cardImg}}'>
         <h1>{{restaurant.name}}</h1>
         <div class="cm-card-info"><h3>营业时间：</h3><p>{{restaurant.info?.openningTimes?.Monday?.start}} - {{restaurant.info?.openningTimes?.Monday?.end}}</p></div>
         <div class="cm-card-info"><h3>地址：</h3><p>{{restaurant.address}}</p></div>
@@ -44,11 +44,13 @@
                     </div>
                     <h2>菜品总计：${{orderService.getOrderTotal()}}</h2>
                 </div>
+
                 <div class="cm-col-content" id="cart">
                     <button [routerLink]="['cart']" style="width:100%;background-color:#ea7b21;border:none;color:white;height:30px;margin-bottom:10px">去结算</button>
 
                     <cm-cart-items></cm-cart-items>
                 </div>
+                
                 <div class="cm-history">
                   <h2 style="margin:10px 0">最近浏览</h2>
                   <div *ngFor="let recentRestaurant of orderService.getRecentViewRestaurants(historyNumber)">

@@ -21,14 +21,14 @@
           </a>
         </li>
         <li>
-          <a href="" data-toggle="tooltip" title="<img src='src/images/qrcode.png' class='img-responsive'" data-placement="bottom" data-html="true">
+          <a data-toggle="tooltip" title="<img src='src/images/qrcode.png' class='img-responsive'" data-placement="bottom" data-html="true">
             <h3>手机应用</h3>
           </a>
         </li>
 
         <li>
-          <a href="">
-            <h3>购物车<span class="badge">0</span></h3>
+          <a [routerLink]="['/restaurants/',orderService.getCurRestaurantID(),'cart']">
+            <h3>购物车<span class="badge">{{orderService.getOrderQuantity()}}</span></h3>
           </a>
         </li>
         <li [hidden]='sys.isAuthenticated()'>

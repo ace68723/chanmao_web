@@ -29,20 +29,23 @@ declare var $: any
 
 export class ItemComponent implements OnInit {
   // Set our default values
-  @Input() curItem :Item;
+  @Input() curItem: Item;
 
   // TypeScript public modifiers
   constructor(
     private orderService: OrderService
   ) {
-
   }
 
   public ngOnInit() {
     // $('.cm-item-comment').focus();
     $('.cm-item-popup').hide();
     $('.cm-black').hide();
+    $(".cm-item-cancel").click(() => {
+      $('.cm-item-popup').hide();
+      $('.cm-black').hide();
+    });
   }
-  
+
 
 }
