@@ -7,6 +7,7 @@ import { RouterModule} from '@angular/router';
 import { RESTAURANT_ROUTES,restaurantComponents} from './restaurant.routes';
 import { SearchPipe } from '../pipe/search.pipe';
 import { MapValuesPipe } from '../pipe/mapValue.pipe';
+import { AddressModule } from '../../shared/address.module';
 
 const pipes = [
   SearchPipe,
@@ -18,10 +19,11 @@ const pipes = [
   imports: [ // import Angular's modules
     RouterModule.forChild(RESTAURANT_ROUTES),
     SharedModule,
+    AddressModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
 ],
-  exports:[restaurantComponents,RouterModule,SharedModule,pipes]
+  exports:[restaurantComponents,RouterModule,SharedModule,pipes, AddressModule]
 })
 
 export class RestaurantModule {

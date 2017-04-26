@@ -63,7 +63,7 @@ const APP_PROVIDERS = [
     NavComponent,
     FooterComponent,
     HomeComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
 
 ],
   imports: [ // import Angular's modules
