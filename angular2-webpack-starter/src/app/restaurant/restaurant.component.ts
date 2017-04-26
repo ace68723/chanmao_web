@@ -133,6 +133,46 @@ export class RestaurantComponent implements OnInit {
         }, 100, 'linear');
 
       });
+
+
+  //     if ( 0 < $('.cm-btn-cart').length ) {
+   //
+  //      $('.cm-btn-cart').click(function() {
+   //
+  //          var offset = $(this).offset();
+   //
+  //          $(this).clone().addClass('product-clone').css({
+   //
+  //              'left' : parseInt(offset.left - 280) + 'px',
+   //
+  //              'top' : parseInt(offset.top-$(window).scrollTop() - 50) + 'px',
+   //
+  //              'width' :  $(this).height() + 'px',
+   //
+  //              'height' : $(this).height() + 'px',
+   //
+  //              'position' : 'absolute',
+   //
+  //              'z-index' : '10000'
+   //
+  //          }).appendTo($(this));
+   //
+   //
+   //
+  //          var cart = $('.cm-cart-icon').offset();
+  //          var top = $('.cm-cart-icon').offset().top;
+  //          var left = $('.cm-cart-icon').offset().left;
+   //
+  //          $('.product-clone').animate( { top: parseInt(cart.top-$(window).scrollTop()+) + 'px', left: cart.left + 'px' }, 800, function(){
+   //
+  //              $(this).remove();
+  //          });
+   //
+  //      });
+   //
+  //  }
+
+
     })
   }
 
