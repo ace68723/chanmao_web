@@ -1,3 +1,4 @@
+import { OrderService } from '../services/order.service';
 import {
   SystemService
 } from './../services/system.service';
@@ -30,7 +31,8 @@ export class NavComponent implements OnInit, AfterViewChecked {
 
   // TypeScript public modifiers
   constructor(
-    private sys: SystemService
+    private sys: SystemService,
+    private orderService: OrderService
   ) {
 
   }

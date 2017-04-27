@@ -1,6 +1,8 @@
+import { RestaurantInfo } from '../../restaurant.model';
 import {
   Component,
-  OnInit
+  OnInit,
+  Input
 } from '@angular/core';
 
 
@@ -23,6 +25,7 @@ import {
 
 export class RestaurantInfoComponent implements OnInit {
   // Set our default values
+  @Input() restaurantInfo:RestaurantInfo;
 
 
   // TypeScript public modifiers

@@ -1,3 +1,6 @@
+
+import { OrderService } from './services/order.service';
+import { OrderHistoryService } from './user/myOrder/service/orderHistory.service';
 import { SearchPipe } from './restaurantList/pipe/search.pipe';
 import { AuthService } from './login/auth.service';
 import { SignupService } from './login/signup/signupService/signup.service';
@@ -44,7 +47,9 @@ const APP_PROVIDERS = [
     SystemService,
     AuthService,
     SignupService,
-    RestaurantService
+    RestaurantService,
+    OrderHistoryService,
+    OrderService
 ];
 
 
@@ -58,7 +63,7 @@ const APP_PROVIDERS = [
     NavComponent,
     FooterComponent,
     HomeComponent,
-    PageNotFoundComponent,
+    PageNotFoundComponent
 
 ],
   imports: [ // import Angular's modules

@@ -1,11 +1,27 @@
 import {
+  Params
+} from '@angular/router/router';
+import {
+  Restaurant,
+  MenuCategory
+} from './../restaurant.model';
+import {
   Component,
   OnInit,
 } from '@angular/core';
 import {
   ActivatedRoute
 } from '@angular/router';
-import { RestaurantService } from '../service/restaurant.service';
+import {
+  RestaurantService
+} from '../service/restaurant.service';
+import {
+  OrderService
+} from '../../services/order.service';
+import 'rxjs/add/operator/map';
+import {
+  RestaurantBaseInfo
+} from '../restaurant.model';
 
 declare var $: any
 
@@ -28,10 +44,15 @@ export class RestaurantComponent implements OnInit {
   // Set our default values
 
   // TypeScript public modifiers
-  restaurant:any
+  restaurant: Restaurant;
+  menuCategorys: Array < MenuCategory > ;
+  historyNumber: number
 
-  constructor(private restaurantService:RestaurantService, private activatedRoute:ActivatedRoute) {
-
+  constructor(
+    private restaurantService: RestaurantService,
+    private activatedRoute: ActivatedRoute,
+    private orderService: OrderService) {
+    this.historyNumber = 3;
   }
 
 
@@ -39,8 +60,9 @@ export class RestaurantComponent implements OnInit {
 
     $("#cm-res-2").hide();
     $('.cm-item-popup').hide();
-    $('.cm-pic-popup').hide();
     $('.cm-black').hide();
+    $('.cm-pic-popup').hide();
+
     $('.cm-black-pic').hide();
     $('.cm-modify').hide();
     $('#info').hide();
@@ -105,24 +127,13 @@ export class RestaurantComponent implements OnInit {
         $('.cm-black-pic').hide();
       });
 
-      $(".cm-menu-dish").click(function () {
-        $('.cm-item-popup').fadeIn(100);
-        $('.cm-black').fadeIn(100);
-      });
 
       $(".cm-menu-pic").click(function () {
         $('.cm-pic-popup').fadeIn(100);
         $('.cm-black-pic').fadeIn(100);
       });
 
-      $(".cm-cart-item").hover(
-        function () {
-          $(this).children('.cm-modify').show();
-        },
-        function () {
-          $(this).children('.cm-modify').hide();
-        }
-      );
+
 
       $('#catalog a').click(function () {
         event.preventDefault();
@@ -136,6 +147,21 @@ export class RestaurantComponent implements OnInit {
 
   public ngOnInit() {
     this.JQfunction();
-      this.restaurant = this.restaurantService.getRestaurant(+this.activatedRoute.snapshot.params['restaurantId'])
+    this.activatedRoute.params.forEach((params: Params) => {
+      // reset all states
+      this.restaurant = this.restaurantService.getRestaurant(+params['restaurantId']);
+      // this.activatedRoute.snapshot.paramMap.get('restaurantId') not working in same component
+      this.menuCategorys = this.restaurant.menu.menuCategorys;
+      this.orderService.setCurRestaurantID(+params['restaurantId']);
+      const restaurantBaseInfo: RestaurantBaseInfo = {
+        id: this.restaurant.id,
+        img: this.restaurant.img,
+        name: this.restaurant.name,
+        taste: this.restaurant.taste,
+        address: this.restaurant.address,
+        location: this.restaurant.location
+      }
+      this.orderService.addRecentViewRestaurant(restaurantBaseInfo);
+    })
   }
 }

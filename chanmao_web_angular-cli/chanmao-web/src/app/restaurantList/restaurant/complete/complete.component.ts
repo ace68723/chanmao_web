@@ -2,6 +2,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { OrderService } from "app/services/order.service";
 
 
 
@@ -27,6 +28,7 @@ export class CompleteComponent implements OnInit {
 
   // TypeScript public modifiers
   constructor(
+    private orderService: OrderService,
   ) {
 
   }

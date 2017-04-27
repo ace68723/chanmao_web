@@ -1,3 +1,5 @@
+import { OrderHistoryService } from './service/orderHistory.service';
+import { OrderHistory } from './models/orderHistory.model';
 import {
   Component,
   OnInit,
@@ -17,12 +19,12 @@ declare var $: any
   templateUrl: 'myOrder.html'
 })
 export class MyOrderComponent implements OnInit {
+ private orderHistorys: Array < OrderHistory >
 
+  constructor(private router: Router, private orderHistoryService: OrderHistoryService) {
+    this.orderHistorys = this.orderHistoryService.getOrderHistory();
+   }
 
-  public localState: any;
-  constructor(
-    private router: Router,
-  ) {}
 
   private JQfunction() {
     $('.cm-myorder').addClass('cm-active');

@@ -2,6 +2,7 @@
 
   <div class="cm-area">
     <p>城市：</p>
+
     <p class="button-group" data-toggle="buttons">
       <label type="button" (click)="filter('All')" class="btn active"><input type="radio">All</label>
       <label type="button" (click)="filter('Markham')" class="btn"><input type="radio">Markham</label>
@@ -10,18 +11,18 @@
       <label type="button" (click)="filter('Downtown')" class="btn"><input type="radio">Downtown</label>
       <label type="button" (click)="filter('Mississauga')" class="btn"><input type="radio">Mississauga</label>
       <label type="button" (click)="filter('Scarborough')" class="btn"><input type="radio">Scarborough</label>
-
     </p>
   </div>
+
   <div class="cm-res-img container">
     <div *ngFor="let restaurant of displayedrestaurants | SearchPipe: searchName ">
       <a [routerLink]="['restaurants',restaurant.id]">
         <label type="button" class="cm-res-item col-sm-6 col-md-4">
                     <img src={{restaurant.img}} class="img-responsive" >
                     <div class="cm-res-tag">
-                      <p class="cm-tag-name">{{restaurant.tags?.name}}</p>
-                      <p class="cm-tag-taste">{{restaurant.tags?.taste}}</p>
-                      <p class="cm-tag-address">{{restaurant.tags?.address}}</p>
+                      <p class="cm-tag-name">{{restaurant.name}}</p>
+                      <p class="cm-tag-taste">{{restaurant.taste}}</p>
+                      <p class="cm-tag-address">{{restaurant.address}}</p>
                       <p class="cm-tag-address">{{restaurant.location}}</p>
                     </div>
         </label>

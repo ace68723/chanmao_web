@@ -41,10 +41,24 @@ public addone() {
   console.log(this.count);
 }
 
+JQfunction(){
+
+    $('.cm-address-popup').hide();
+
+    $('.cm-address-add').click(function(){
+          $('.cm-address-popup').fadeIn();
+          $('.cm-login-black').fadeIn();
+    });
+
+    $(".cm-address-popup").css('top', ($(window).height() - $(".cm-address-popup").height())/2 + "px");
+    $(".cm-address-popup").css('left', ($(window).width() - $(".cm-address-popup").width())/2 + "px");
+
+  }
+
   public ngOnInit() {
       this.count = 0;
 
-      $('.cm-address-popup').hide();
+      this.JQfunction();
 
   }
 }

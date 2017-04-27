@@ -1,0 +1,39 @@
+<div class="panel panel-default" style="margin:20px 0">
+  <div class="panel-heading" role="tab" id="headingOne">
+    <h4 class="panel-title">
+      <p style="width:12%">{{orderHistory.name}}</p>
+      <p style="width:22%">订单号: {{orderHistory.orderId}} </p>
+      <p style="width:11%">{{orderHistory.date}}</p>
+      <p style="width:11%">${{orderHistory.details.total}}</p>
+      <p *ngIf="orderHistory.state === 0" style="width:11%">正在配送</p>
+      <p *ngIf="orderHistory.state === 1" style="width:11%">正在出餐</p>
+      <p *ngIf="orderHistory.state === 2" style="width:11%">已送达</p>
+      <button *ngIf="orderHistory.state === 0 || orderHistory.state === 1" class="cm-btn-contact">催单/联系客服</button>
+      <div *ngIf="orderHistory.state === 2 && 
+      orderHistory.comments.delivery.star > 0 &&
+       orderHistory.comments.restaurant.star > 0 " id="rateYo-read">
+      </div>
+      <button *ngIf="orderHistory.state === 2 && 
+      orderHistory.comments.delivery.star === 0 &&
+       orderHistory.comments.restaurant.star === 0 " class="cm-btn-comment">评价
+       </button>
+
+      <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{orderHistory.orderId}}" aria-expanded="true">
+                                查看详情<span class="glyphicon glyphicon-menu-down" style="color:#ea7b21;margin-left:5px"></span>
+                            </a>
+      <!--<a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                查看详情<span class="glyphicon glyphicon-menu-up" style="color:#ea7b21;margin-left:5px"></span>
+                            </a>-->
+    </h4>
+  </div>
+  <div id="collapseOne{{orderHistory.orderId}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+    <cm-order-detail [orderDetail]='orderHistory.details'>
+      <div>
+        <h3 style="margin:5px 0">餐厅评价:</h3>
+        <p>{{orderHistory.comments.restaurant.content}}</p>
+        <h3 style="margin:5px 0">运送评价:</h3>
+        <p>{{orderHistory.comments.delivery.content}}</p>
+      </div>
+    </cm-order-detail>
+  </div>
+</div>

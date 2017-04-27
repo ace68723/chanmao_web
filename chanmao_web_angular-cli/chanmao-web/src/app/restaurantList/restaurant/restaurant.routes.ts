@@ -1,4 +1,3 @@
-import { AddressComponent } from '../../address';
 import { ItemComponent } from './menu/item/item.component';
 import {
   MenuComponent
@@ -15,6 +14,7 @@ import {
 } from '@angular/router';
 import { CartComponent } from "./cart";
 import { CompleteComponent } from './complete';
+import { CartItemsComponent } from './cart/cartItems/cartItems.component';
 
 
 export const restaurantComponents = [
@@ -24,7 +24,7 @@ export const restaurantComponents = [
   CartComponent,
   CompleteComponent,
   ItemComponent,
-  AddressComponent
+  CartItemsComponent
 ]
 
 export const RESTAURANT_ROUTES: Routes = [{
