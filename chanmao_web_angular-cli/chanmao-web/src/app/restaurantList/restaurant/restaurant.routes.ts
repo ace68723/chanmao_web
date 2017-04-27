@@ -1,4 +1,7 @@
-import { ItemComponent } from './menu/item/item.component';
+import { CartItemComponent } from './cart/cartItems/';
+import {
+  ItemComponent
+} from './menu/item/item.component';
 import {
   MenuComponent
 } from './menu';
@@ -12,9 +15,15 @@ import {
 import {
   Routes
 } from '@angular/router';
-import { CartComponent } from "./cart";
-import { CompleteComponent } from './complete';
-import { CartItemsComponent } from './cart/cartItems/cartItems.component';
+import {
+  CartComponent
+} from "./cart";
+import {
+  CompleteComponent
+} from './complete';
+import {
+  CartItemsComponent
+} from './cart/cartItems/cartItems.component';
 
 
 export const restaurantComponents = [
@@ -24,49 +33,35 @@ export const restaurantComponents = [
   CartComponent,
   CompleteComponent,
   ItemComponent,
-  CartItemsComponent
+  CartItemsComponent,
+  CartItemComponent
 ]
 
-export const RESTAURANT_ROUTES: Routes = [{
+export const RESTAURANT_ROUTES: Routes = [
+  {
     path: 'restaurants/:restaurantId',
     component: RestaurantComponent,
-    data: {
-      title: 'Restaurant'
-    },
-
-    // children: [{
-    //     path: 'cart',
-    //     pathMatch: 'full',
-    //     component: CartComponent,
-
-    //   },
-    //   {
-    //     path: 'complete',
-    //     pathMatch: 'full',
-    //     component: CompleteComponent
-    //   }
-    // ],
   },
   {
-        path: 'restaurants/:restaurantId/cart',
-        pathMatch: 'full',
-        component: CartComponent,
+    path: 'restaurants/:restaurantId/cart',
+    pathMatch: 'full',
+    component: CartComponent,
 
-      },
-      {
-        path: 'restaurants/:restaurantId/complete',
-        pathMatch: 'full',
-        component: CompleteComponent
-      },
-      {
-        path: 'restaurants/:restaurantId/cart/back',
-        pathMatch: 'full',
-        redirectTo: 'restaurants/:restaurantId'
-      },
-      {
-        path: 'restaurants/:restaurantId/cart/complete',
-        pathMatch: 'full',
-        redirectTo: 'restaurants/:restaurantId/complete'
-      }
+  },
+  {
+    path: 'restaurants/:restaurantId/complete',
+    pathMatch: 'full',
+    component: CompleteComponent
+  },
+  {
+    path: 'restaurants/:restaurantId/cart/back',
+    pathMatch: 'full',
+    redirectTo: 'restaurants/:restaurantId'
+  },
+  {
+    path: 'restaurants/:restaurantId/cart/complete',
+    pathMatch: 'full',
+    redirectTo: 'restaurants/:restaurantId/complete'
+  }
 
 ];

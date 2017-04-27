@@ -11,12 +11,11 @@ import { COOPERATION_ROUTES, cooperationComponents} from './cooperation.routes';
   declarations: cooperationComponents,
   imports: [ // import Angular's modules
     RouterModule.forChild(COOPERATION_ROUTES)
-    
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
 
 ],
-exports: [cooperationComponents,RouterModule]
+exports: []
 })
 export class CooperationModule {
 

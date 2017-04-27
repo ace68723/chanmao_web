@@ -5,25 +5,21 @@ import {
 import { FormsModule } from '@angular/forms';
 import { RouterModule} from '@angular/router';
 import { RESTAURANT_ROUTES,restaurantComponents} from './restaurant.routes';
-import { SearchPipe } from '../pipe/search.pipe';
-import { MapValuesPipe } from '../pipe/mapValue.pipe';
+// import { SearchPipe } from '../pipe/search.pipe';
+// import { MapValuesPipe } from '../pipe/mapValue.pipe';
 import { AddressModule } from '../../shared/address.module';
 
-const pipes = [
-  SearchPipe,
-  MapValuesPipe
-]
-
 @NgModule({
-  declarations: [restaurantComponents,pipes],
+  declarations: [restaurantComponents],
   imports: [ // import Angular's modules
-    RouterModule.forChild(RESTAURANT_ROUTES),
     SharedModule,
-    AddressModule
+    AddressModule,
+    RouterModule.forChild(RESTAURANT_ROUTES),
   ],
-  providers: [ // expose our Services and Providers into Angular's dependency injection
+  providers: [ 
+    // expose our Services and Providers into Angular's dependency injection
 ],
-  exports:[restaurantComponents,RouterModule,SharedModule,pipes, AddressModule]
+  exports:[RouterModule,SharedModule]
 })
 
 export class RestaurantModule {

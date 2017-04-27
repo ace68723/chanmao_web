@@ -25,7 +25,7 @@ export const myOrderComponents = [
   providers: [ // expose our Services and Providers into Angular's dependency injection
 
 ],
-exports: [myOrderComponents]
+exports: [SharedModule]
 })
 export class MyOrderModule {
 

@@ -1,21 +1,25 @@
 import { RestaurantListComponent } from './restaurantList.component';
-import { RestaurantModule } from './restaurant/restaurant.module';
-import { SharedModule } from './../shared/shared.module';
 import {
   NgModule,
 } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+// import { SearchPipe } from './pipe/search.pipe';
+import { SharedModule } from '../shared/shared.module';
+import { RestaurantModule } from './restaurant/restaurant.module';
+import { RestaurantService } from './service/restaurant.service';
 
 
 
 @NgModule({
   declarations: [ RestaurantListComponent],
   imports: [ // import Angular's modules
-    RestaurantModule
+  RestaurantModule,
   ],
-  providers: [ // expose our Services and Providers into Angular's dependency injection
+  providers: [ 
+    RestaurantService,
+    // expose our Services and Providers into Angular's dependency injection
 ],
-  exports:[RestaurantModule,RestaurantListComponent]
+  exports:[RestaurantListComponent]
 })
 
 export class RestaurantListModule {
