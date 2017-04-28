@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../restaurantList/pipe/search.pipe';
 
 
 // imports: imports the module's exports. which are usually
@@ -11,10 +12,11 @@ import { FormsModule } from '@angular/forms';
 // SharedModule does not use CommonModule, but does use FormsModule.
 // Even so, we import/export both of these because most other modules will import SharedModule and will need them.
 @NgModule({
-  imports: [CommonModule, FormsModule],
+  imports: [],
 
   declarations: [
+    SearchPipe
   ],
-  exports: [CommonModule, FormsModule]
+  exports: [CommonModule, FormsModule, SearchPipe]
 })
 export class SharedModule { }

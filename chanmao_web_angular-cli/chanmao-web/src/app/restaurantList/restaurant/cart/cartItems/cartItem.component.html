@@ -1,0 +1,16 @@
+<div class="cm-cart-item">
+    <div class="cm-modify">
+      <div style="display: flex;background-image: url(src/images/amount.png);background-position: center;height: 50px;width:66px;padding: 13px 12px">
+        <button (click) = 'orderService.deleteCartItem(cartItem)' class="cm-amount cm-amount-minus">-</button>
+        <button (click) = 'orderService.addCartItem(cartItem)' class="cm-amount cm-amount-plus" style="margin-left: 2px">+</button>
+      </div>
+      <div style="background-image: url(src/images/amount-delete.png);background-position: center;height: 50px;width:40px;padding: 13px 10px">
+      <button (click) = 'orderService.deleteCartItem(cartItem,true)'   class="cm-amount cm-amount-delete">x</button></div>
+    </div>
+    <label class="container" style="padding:10px 0 0 0;margin:0">
+                            <div class="col-xs-1" style="padding:0"><p>{{cartItem.quantity}}</p></div>
+                            <div class="col-xs-1" style="padding:0"><p>x</p></div>
+                            <div class="col-xs-7" style="padding:0"><p>{{cartItem.name}}</p></div>
+                            <div class="col-xs-3" style="padding:0"><p>${{(cartItem.price).toFixed(2)}}</p></div>
+      </label>
+  </div>

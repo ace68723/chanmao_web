@@ -108,9 +108,7 @@ export class RestaurantComponent implements OnInit {
         });
       });
 
-      $(".cm-item-popup").css('top', ($(window).height() - $(".cm-item-popup").height()) / 2 + "px");
-      $(".cm-item-popup").css('left', ($(window).width() - $(".cm-item-popup").width()) / 2 + "px");
-
+      
       $(".cm-pic-popup").css('top', ($(window).height() - $(".cm-pic-popup").height()) / 2 + "px");
       $(".cm-pic-popup").css('left', ($(window).width() - $(".cm-pic-popup").width()) / 2 + "px");
 

@@ -15,7 +15,7 @@ import { CUSTOM_SERVICE_ROUTES, customServiceComponents} from './customService.r
   providers: [ // expose our Services and Providers into Angular's dependency injection
 
 ],
-exports: [customServiceComponents,RouterModule]
+exports: []
 })
 export class CustomServiceModule {
 

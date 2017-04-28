@@ -10,7 +10,7 @@ import { SecurityComponent } from "./security";
 
 export const userComponents = [
   UserInfoComponent,
-  MyOrderComponent,
+  // MyOrderComponent,
   SecurityComponent,
   UserComponent
 ]
@@ -28,12 +28,11 @@ export const USER_ROUTES: Routes = [{
         path: 'userinfo',
         pathMatch: 'full',
         component: UserInfoComponent,
-
       },
       {
         path: 'myorder',
         pathMatch: 'full',
-        component: MyOrderComponent,
+        loadChildren: './myOrder/myOrder.module#MyOrderModule'
       },
       {
         path: 'security',

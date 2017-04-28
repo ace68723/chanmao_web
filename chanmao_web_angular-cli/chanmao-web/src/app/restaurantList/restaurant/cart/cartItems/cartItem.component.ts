@@ -1,53 +1,65 @@
 import {
-  Item
-} from '../../../restaurant.model';
-import {
   OrderService
 } from '../../../../services/order.service';
 import {
+  OrderItem
+} from '../../../../models/order.model';
+import {
+  Input,
   Component,
   OnInit,
-  Input
+  OnChanges
 } from '@angular/core';
+
 
 declare var $: any
 
 @Component({
   // The selector is what angular internally uses
   // for `document.querySelectorAll(selector)` in our index.html
-  // where, in this case, selector is the string 'item'
-  selector: 'cm-item', // <item></item>
+  // where, in this case, selector is the string 'cart'
+  selector: 'cm-cart-item', // <cm-cart-item></cm-cart-item>
 
   // We need to tell Angular's Dependency Injection which providers are in our app.
-  providers: [],
+  providers: [],  
   // Our list of styles in our component. We may add more to compose many styles together
 
   // Every Angular template is first compiled by the browser before Angular runs it's compiler
-  templateUrl: './item.component.html'
+  templateUrl: './cartItem.component.html'
 })
 
 
-export class ItemComponent implements OnInit {
+export class CartItemComponent implements OnInit {
   // Set our default values
-  @Input() curItem: Item;
-
+  @Input() cartItem : OrderItem;
   // TypeScript public modifiers
   constructor(
     private orderService: OrderService
   ) {
+
   }
+
+
+  JQfunction() {
+
+    $('.cm-cartItem').hide();
+    $(".cm-cart-item").hover(
+      function () {
+        $(this).children('.cm-cartItem').show();
+      },
+      function () {
+        $(this).children('.cm-cartItem').hide();
+      }
+    );
+
+  }
+
 
   public ngOnInit() {
-    // $('.cm-item-comment').focus();
-    $('.cm-item-popup').hide();
-    $('.cm-black').hide();
-    $(".cm-item-cancel").click(() => {
-      $('.cm-item-popup').hide();
-      $('.cm-black').hide();
-    });
-    $(".cm-item-popup").css('top', ($(window).height() - $(".cm-item-popup").height()) / 2 + "px");
-      $(".cm-item-popup").css('left', ($(window).width() - $(".cm-item-popup").width()) / 2 + "px");
+    this.JQfunction();
 
   }
+
+
 
 }

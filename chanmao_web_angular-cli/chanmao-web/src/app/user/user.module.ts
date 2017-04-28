@@ -5,6 +5,7 @@ import {
 } from '@angular/core';
 import { RouterModule} from '@angular/router';
 import { USER_ROUTES, userComponents} from './user.routes';
+import { OrderHistoryService } from './myOrder/service/orderHistory.service';
 import { AddressModule } from '../shared/address.module';
 
 
@@ -13,15 +14,18 @@ import { AddressModule } from '../shared/address.module';
 @NgModule({
   declarations: [userComponents],
   imports: [ // import Angular's modules
+    // MyOrderModule,
+    AddressModule,
+    // SharedModule,
     RouterModule.forChild(USER_ROUTES),
-    MyOrderModule,
-    SharedModule,
-    AddressModule
-  ],
-  providers: [ // expose our Services and Providers into Angular's dependency injection
+    
+      ],
+  providers: [ 
+    OrderHistoryService,
+    // expose our Services and Providers into Angular's dependency injection
 
 ],
-exports: [userComponents,RouterModule,MyOrderModule, AddressModule]
+exports: []
 })
 export class UserModule {
 

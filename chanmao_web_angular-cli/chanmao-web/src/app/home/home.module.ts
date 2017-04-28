@@ -5,18 +5,20 @@ import {
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { RestaurantListModule } from '../restaurantList/restaurantList.module';
+import { HomeComponent } from './home.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [HomeComponent],
   imports: [ // import Angular's modules
-  SharedModule,
-  RouterModule,
+    RestaurantListModule,
+    FormsModule
   ],
   providers: [ // expose our Services and Providers into Angular's dependency injection
 ],
-  exports:[RouterModule]
+  exports:[RestaurantListModule]
 })
 
 export class HomeModule {
