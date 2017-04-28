@@ -140,7 +140,7 @@ export class OrderService {
   }
 
   getOrderTotal(item: Item): string {
-    if (this.totalAmount < 0) {
+    if (this.totalAmount <= 0) {
       this.totalAmount = 0;
     }
     return this.totalAmount.toFixed(2);
